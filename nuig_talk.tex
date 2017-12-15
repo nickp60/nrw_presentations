@@ -1,0 +1,249 @@
+\documentclass[10pt, compress]{beamer}
+
+\usetheme{m}
+
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{pdfpages}
+\usepackage[absolute,overlay]{textpos}
+\usefonttheme{professionalfonts} % using non standard fonts for beamer
+\usefonttheme{serif} % default family is serif
+\usepackage{fontspec}
+\setmainfont{Arial}
+
+\setbeamerfont{caption}{size=\footnotesize}
+
+%\usepackage[scale=2]{ccicons}
+
+\title{NUI Galway}
+\subtitle{Graded CodY Activity Prioritizes Metabolism and Virulence Gene Expression in 	\textit{Staphylococcus aureus}}
+\date{\today}
+\author{Nick Waters}
+\institute{Brinsmade Lab, Biology Department, Georgetown University}
+
+\begin{document}
+
+\maketitle
+
+\section{Background}
+  \begin{frame}{Animation}
+  \frametitle{CodY}
+\begin{minipage}[0.2\textheight]{\textwidth}
+  \begin{columns}[T]
+\begin{column}{0.5\textwidth}
+\begin{itemize}[<+- | alert@+>]
+%    \item \alert<4>{This is\only<4>{ really} important}
+    \item Conserved among Firmicutes
+    \item Dimer
+    \item HTH motif 
+    \item \textit{B. subtilis} CodY Structure
+    \item Global Transcriptional Regulator
+    \item Two Known Effectors: ILV and GTP
+    \item Consensus Sequence: \textbf{AATTTTCWGAAAATT}
+\end{itemize}
+\end{column}
+\begin{column}{0.5\textwidth}
+\includegraphics[width=5cm]{../figure_1.jpg}
+\end{column}
+\end{columns}
+\end{minipage}
+\end{frame}
+
+\begin{frame}{Animation}
+  \frametitle{S. aureus}
+\begin{minipage}[0.2\textheight]{\textwidth}
+  \begin{columns}[T]
+\begin{column}{0.5\textwidth}
+\begin{itemize}[<+- | alert@+>]
+    \item \alert<4>{Nosocomial\only<4>{ until \textasciitilde1990} }
+    \item Gram Positive
+%    \item Nosocomial
+    \item Colonizes skin and nares asymptomatically
+\end{itemize}
+\end{column}
+
+\begin{column}{0.5\textwidth}
+\includegraphics[width=5cm]{../5457_lores.jpg}
+\end{column}
+\end{columns}
+\end{minipage}
+\end{frame}
+
+\plain{Lineage}{\vspace{-2em}\begin{center}
+\begin{figure}
+	\vspace{5cm}
+	\includegraphics[width=\textwidth]{../F1.large.jpg}
+	\caption{Kos, et al 2012}
+	\end{figure}
+\end{center}}
+%\begin{frame}
+%\frametitle{S. aureus Lineage}
+%\begin{figure}[h]
+%  \centering
+%  \includegraphics[width=10cm]{../F1.large.jpg}
+%  \caption{Kos, et al 2012}  
+%\end{figure}
+%\end{frame}
+
+\section{Questions}
+\begin{frame}{Animation}
+\frametitle{Questions}
+\begin{itemize}[<+- | alert@+>]
+	\item Does CodY orchestrate hierarchical expression in \textit{S. aureus}?
+	\item Does CodY modulate virulence?
+	\item If so, what can we infer about CodY and pathogen strategy?
+\end{itemize}
+\end{frame}
+
+\section{Research Design}
+\begin{frame}{Animation}
+\frametitle{Previous Work}
+\begin{itemize}[<+- | alert@+>]
+	\item Construct Panel of Variants 
+	\item Extract RNA from exponential cells
+	\item Prepare RNA-seq libraries, 
+	\item Illumina seqencing
+	\item Align reads to reference, generate counts
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Animation}
+\frametitle{My Work}
+\begin{itemize}[<+- | alert@+>]
+	\item Re-annotate genome
+	\item Make analysis pipeline
+	\begin{itemize}
+		\item Filter out genes
+		\item Determine and account any batch effects	
+		\item DESeq2
+		\item Clustering of expression profiles
+		\item GO term annotation and pathway analysis
+	\end{itemize}
+	\item Validation
+	\begin{itemize}
+		\item Nuclease Assays
+		\item Direct CodY-DNA interactions
+		\item Protease Assays
+	\end{itemize}
+	\item Strategic inference
+
+\end{itemize}
+\end{frame}
+
+\section{Re-annotation of UAMS-1 Genome}
+\begin{frame}{Animation}
+\frametitle{Genome Kegger}
+Problem:  Previous annotation used a automated process that referenced another poorly curated genome
+
+Solution:
+\begin{itemize}[<+- | alert@+>]
+	\item Kyoto Encyclopedia of Genes and Genomes (KEGG) downloader script
+	\item Genbank re-annotation script
+\end{itemize}
+\end{frame}
+
+\section{Differential Expression Analysis}
+\begin{frame}{Animation}
+\frametitle{R RNA-seq Pipeline}
+\begin{itemize}[<+- | alert@+>]
+	\item Configure parameters
+	\item Filter out genes with no signal
+	\item Determine and apply appropriate normalization technique
+	\item DESeq2: differential expression based on negative binomial distribution
+	\item Group Expression Profiles by k-means clustering
+
+\end{itemize}
+\end{frame}
+\begin{frame}{Animation}
+\frametitle{RNA-seq Results}
+Results of differential expression:
+\begin{itemize}[<+- | alert@+>]
+	\item 29 genes activated by CodY
+	\item 353 genes repressed by CodY
+	\item around \textbf{83} virulence genes regulated by CodY////
+\end{itemize}
+\end{frame}
+
+\plain{Graded CodY Reponse}{\vspace{-2em}\begin{center}
+\begin{figure}
+	\includegraphics[page=1,width=8cm]{../20151111_Kegg_UAMS-1_RNA-seqmanuscript_plots_DE.pdf}
+\end{figure}
+\end{center}}
+
+\plain{Graded CodY Reponse: Clustered}{\vspace{-2em}\begin{center}
+\begin{figure}
+	\includegraphics[page=2,width=8cm]{../20151111_Kegg_UAMS-1_RNA-seqmanuscript_plots_DE.pdf}
+\end{figure}
+\end{center}}
+
+
+\plain{Graded CodY Reponse: Heatmap}{\vspace{-3.2em}\begin{center}
+\begin{figure}
+	\includegraphics[width=6.75cm]{../heatmap_ggplot_3.png}
+\end{figure}
+\end{center}}
+\plain{Graded CodY Reponse: Alternatice Dual Clustering}{\vspace{-3.2em}\begin{center}
+\begin{figure}
+	\includegraphics[page=4,width=8.75cm]{../20151111_Kegg_UAMS-1_RNA-seqmanuscript_plots_DE.pdf}
+\end{figure}
+\end{center}}
+
+\section{Validation}
+
+\begin{frame}{Animation}
+\frametitle{Nuclease}
+ Thermonuclease \textit{nuc}
+\begin{itemize}[<+- | alert@+>]
+
+	\item Biofilm maturation
+	\item Neutrophil net escapement
+	\item Controlled indirectly by codY through Sae TCS
+	\item Measured \textit{ in vitro} with FRET-based assay
+
+\begin{figure}
+\item\includegraphics[width=4cm]{../FRET.jpg}
+\end{figure}
+\end{itemize}
+\end{frame}
+
+
+\plain{Nuclease Activity}{\vspace{-3.2em}\begin{center}
+\begin{figure}
+	\includegraphics[page=1,width=5cm]{../20151201_nuclease.png}
+\end{figure}
+\end{center}}
+
+\plain{Nuclease Activity}{\vspace{-3.2em}\begin{center}
+\begin{figure}
+	\includegraphics[page=1,width=8cm]{../20151201_nuclease2.png}
+\end{figure}
+\end{center}}
+
+\plain{Nuclease Activity}{\vspace{-3.2em}\begin{center}
+\begin{figure}
+	\includegraphics[page=1,width=8cm]{../20151201_nuclease3.png}
+\end{figure}
+\end{center}}
+
+%\section{Model of Gene Expression Cascade}
+%\plain{Nuclease Activity}{\vspace{-5.2cm}\begin{center}
+%\begin{figure}
+%	\includegraphics[page=1,width=20cm]{../take3.jpg}
+%\end{figure}
+%\end{center}}
+\begin{frame}
+\begin{textblock*}{20cm}(-3cm,-.51cm) % {block width} (coords)
+\includegraphics[width=17.5cm]{../take3.jpg}
+\end{textblock*}
+\end{frame}
+
+
+
+
+
+
+
+\section{Questions?}
+
+\end{document}

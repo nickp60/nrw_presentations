@@ -1,0 +1,15 @@
+*aux
+*.log
+*.nav
+*.out
+*~
+*.toc
+*.snm
+*.pyg
+*.vrb
+*.bbl
+*.blg
+#*#
+#*
+\#*
+auto/

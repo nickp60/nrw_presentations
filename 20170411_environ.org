@@ -1,0 +1,302 @@
+#+STARTUP: showall entitiespretty beamer
+#+TITLE: Comparative Genomics of Soil-persistant /E. coli/
+#+SUBTITLE: Version 1.0
+#+AUTHOR: Nicholas Waters \linebreak \\ \footnotesize  Ashleigh Holmes, Florence Abram,  Leighton Pritchard, and Fiona Brennan \vskip -1cm
+#+DATE: \today
+# #+SUBTITLE
+#+INSTITUTE: Department of Microbiology \linebreak School of Natural Sciences \linebreak National University of Ireland, Galway}
+#+LATEX_HEADER: \institute{Department of Microbiology\\ School of Natural Sciences\\ National University of Ireland, Galway}
+
+
+#+LaTeX_CLASS: beamer
+#+OPTIONS: H:1 toc:nil
+#+LaTeX_CLASS_OPTIONS: [17pt,aspectratio=169]
+#+LATEX_HEADER: \fontfamily{pag}
+#+LATEX_HEADER: \usepackage{libertine}
+#+LATEX_HEADER: \renewcommand*\familydefault{\sfdefault}
+
+#+LATEX_HEADER: \newcommand{\bt}{\textasciigrave}
+#+LATEX_HEADER: \usepackage{xcolor}
+#+LATEX_HEADER: \def \ttilde {\raisebox{-.6ex}\textasciitilde~}
+#+LATEX_HEADER: \setlength\parindent{0pt} %set indent to zero
+#+LATEX_HEADER: \setlength{\parskip}{1em}
+#+LATEX_HEADER: \definecolor{bg}{HTML}{B1F4A0}
+# +LATEX_HEADER: \lstset{basicstyle=\linespread{1.1}\ttfamily\scriptsize, breaklines=true, backgroundcolor=\color{bashcodebg}, xleftmargin=0.5cm, language=bash, showstringspaces=false, columns=fullflexible}
+#+LATEX_HEADER: \usepackage{tcolorbox}
+#+LATEX_HEADER: \usepackage{etoolbox}
+#+LATEX_HEADER: \BeforeBeginEnvironment{minted}{\begin{tcolorbox}\scriptsize}%
+#+LATEX_HEADER: \AfterEndEnvironment{minted}{\normalsize\end{tcolorbox}}%
+#+LATEX_HEADER: \usepackage{geometry}
+# #+LATEX_HEADER: \geometry{marginparwidth=5cm,a4paper,verbose,tmargin=2cm,bmargin=2cm,lmargin=3cm,rmargin=3cm,headheight=0cm,headsep=0cm,footskip=0cm}
+#+LATEX_HEADER: \usepackage[colorlinks = true, linkcolor = blue, urlcolor  = blue, citecolor = blue, anchorcolor = blue]{hyperref}
+#+BABEL: :session *R* :cache yes :results output graphics :exports both :tangle yes
+#+PROPERTY: session *R*
+#+PROPERTY: results output
+#+LATEX_HEADER: \let\oldv\verbatim
+#+LATEX_HEADER: \let\oldendv\endverbatim
+#+LATEX_HEADER: \def\verbatim{\par\setbox0\vbox\bgroup\scriptsize\oldv}
+#+LATEX_HEADER: \def\endverbatim{\oldendv\egroup\fboxsep0pt \noindent\colorbox[gray]{0.8}{\usebox0}\par}
+#+LaTeX_HEADER: \usepackage{array, booktabs, xcolor, tikz}
+# voodoo for line spacing
+#+LaTeX_HEADER: \makeatletter
+#+LaTeX_HEADER: \renewcommand{\itemize}[1][]{%
+#+LaTeX_HEADER:   \beamer@ifempty{#1}{}{\def\beamer@defaultospec{#1}}%
+#+LaTeX_HEADER:   \ifnum \@itemdepth >2\relax\@toodeep\else
+#+LaTeX_HEADER:     \advance\@itemdepth\@ne
+#+LaTeX_HEADER:     \beamer@computepref\@itemdepth% sets \beameritemnestingprefix
+#+LaTeX_HEADER:     \usebeamerfont{itemize/enumerate \beameritemnestingprefix body}%
+#+LaTeX_HEADER:     \usebeamercolor[fg]{itemize/enumerate \beameritemnestingprefix body}%
+#+LaTeX_HEADER:     \usebeamertemplate{itemize/enumerate \beameritemnestingprefix body begin}%
+#+LaTeX_HEADER:     \list
+#+LaTeX_HEADER:       {\usebeamertemplate{itemize \beameritemnestingprefix item}}
+#+LaTeX_HEADER:       {%
+#+LaTeX_HEADER:         \setlength\topsep{-2pt}%NEW
+#+LaTeX_HEADER:         \setlength\partopsep{-2pt}%NEW
+#+LaTeX_HEADER:         \setlength\itemsep{0pt}%NEW
+#+LaTeX_HEADER:         \def\makelabel##1{%
+#+LaTeX_HEADER:           {%
+#+LaTeX_HEADER:             \hss\llap{{%
+#+LaTeX_HEADER:                 \usebeamerfont*{itemize \beameritemnestingprefix item}%
+#+LaTeX_HEADER:                 \usebeamercolor[fg]{itemize \beameritemnestingprefix item}##1}}%
+#+LaTeX_HEADER:           }%
+#+LaTeX_HEADER:         }%
+#+LaTeX_HEADER:       }
+#+LaTeX_HEADER:   \fi%
+#+LaTeX_HEADER:   \beamer@cramped%
+#+LaTeX_HEADER:   \raggedright%
+#+LaTeX_HEADER:   \beamer@firstlineitemizeunskip%
+#+LaTeX_HEADER: }
+#+LaTeX_HEADER: \makeatother
+
+#+LaTeX_HEADER: \setbeamerfont{frametitle}{size=\normalsize}
+#+LaTeX_HEADER: \usepackage{graphicx}
+#+LaTeX_HEADER: \usetikzlibrary{arrows, calc, spy}
+#+LaTeX_HEADER: %%%%% %%%%% %%%%% %%% %%%%  for pretty headers with pictures
+#+LaTeX_HEADER: \addtobeamertemplate{frametitle}{}{%
+#+LaTeX_HEADER: \begin{tikzpicture}[remember picture,overlay]
+#+LaTeX_HEADER: \node[anchor=north east,yshift=2pt] at (current page.north east) {\includegraphics[height=0.75cm]{../stock_logos/nuig_rounded.png}  \hspace*{.05cm} \includegraphics[height=.74cm, trim= 0cm 0.0cm 0.0cm 0cm]{../stock_logos/jhi_rounded.png}};
+#+LaTeX_HEADER: \end{tikzpicture} \vskip -1.1cm}
+
+#+LaTeX_HEADER:\addtobeamertemplate{footnote}{\tiny}{} %\vspace{2ex}}
+* Introduction
+- Overview of soil-persistent /E. coli/
+- Research questions
+- Experimental design
+- Results
+- Next Steps
+
+* /E. coli/: commensal or pathogen?
+- Gram negative
+- Beneficially occurs in the gut
+- Can infect gi and urinary tracts
+- Health burden: ~5 million DALY         [fn:1: Image source: NDSU]
+- Used as contaminaiton indicator
+
+#+BEGIN_LaTeX
+\begin{tikzpicture}[remember picture,overlay]
+    \node[xshift=-5.35em,yshift=-4cm] at (current page.north east) {
+\includegraphics[width=.35\textwidth]{./20170411_environ_figs/biofilm.jpeg}
+};
+\end{tikzpicture}
+#+END_LaTeX
+
+
+* A Brief History of Soil-persistent E. coli
+#+BEGIN_LaTeX
+\newcommand\ytl[2]{
+\parbox[b]{4em}{\hfill{\color{cyan}\bfseries\sffamily #1}~$\cdots\cdots$~}\makebox[0pt][c]{$\bullet$}\vrule\quad \parbox[c]{24em}{\vspace{7pt}\color{red!40!black!80}\raggedright\sffamily #2\\[7pt]}\\[-3pt]}
+\begin{table}{\small
+% \caption{A Brief Literature Review}
+ \vskip -5mm
+\centering
+\begin{minipage}[t]{\linewidth}
+\color{gray}
+\rule{\linewidth}{1pt}
+\ytl{1886}{Escherich: Discovery of \textit{E. coli}}
+\ytl{1948}{Bardsley: Soil may act as reservoir for \textit{E. coli}}
+\ytl{1963}{W. and J. Boyd: Cold persistence observed }
+%\ytl{1967}{Klein, et al: Die-off related to metabolism rates}
+\ytl{1972}{Evans, et al: Drainage related to coliform counts} % and slurry spreading
+\ytl{1988}{Fujioka and Shizumura: Alternative indicators suggested }
+%\ytl{1992}{Tsai, et al: PCR detection of from soil}
+\ytl{1997}{Texier, et al: Stable populations exist in alpine grasslands}
+%\ytl{1998}{Byappanahalli and Fujioka: Soil extracts as growth media}
+\ytl{2003}{Byappanahalli, et al: Soil persistence is widespread }
+\ytl{2010}{Brennan, et al: Persistence in maritime temperate soils}
+\bigskip
+\rule{\linewidth}{1pt}%
+\end{minipage}%
+}
+\end{table}
+#+END_LaTeX
+
+* Research Questions
+** Genomic Context
+- Are soil-persistent /E. coli/ related?
+- Do soil-persistent /E. coli/ possess certain traits?
+** Virulence
+- Are soil-persistent strains pathogenic?
+# ** Indicator Status
+# - What differentiates faecal and soil /E. coil/ ?
+
+* Experimental Design: Background
+Ryan and Fanning: Effects of N and slurry on soils
+- Isolate and protect grassland soil columns
+- Apply treatment, test leachate
+- Last application of slurry in 1998
+Brennan, et al: Pathogen survival and transport in soils
+- Two conditions: Cattle slurry and  control
+- Compare coliform counts in leachate
+* Experimental Design: Current
+- Collect leachate from control lysimeters
+- Enrich for /E. coli/
+- Purify, sequence genomes
+- Compare genomics of soil strains to wider /E. coli/ pangenome
+
+* Soil Samples
+#+CAPTION: Lysimeter
+#+NAME:   fig:lys3
+#+ATTR_LATEX: :width .55\textwidth
+[[file:/home/nicholas/GitHub/FB/Ecoli_comparative_genomics/doc/presentations/MyNUIG(mnuigtheme)/lys_photos/RyanFanning1.png]]
+[fn:1: Image source: Ryan, 1996]
+
+* Lysimeters
+#+CAPTION: Lysimeter
+#+NAME:   fig:lys1
+#+ATTR_LATEX: :width 6cm
+[[file:/home/nicholas/GitHub/FB/Ecoli_comparative_genomics/doc/presentations/MyNUIG(mnuigtheme)/lys_photos/rath2.jpg]]
+
+* Lysimeters
+#+CAPTION: Lysimeter
+#+NAME:   fig:lys2
+#+ATTR_LATEX: :width 10cm
+[[file:/home/nicholas/GitHub/FB/Ecoli_comparative_genomics/doc/presentations/MyNUIG(mnuigtheme)/lys_photos/IMGP0225.JPG]]
+
+* Lysimeters
+#+CAPTION: Lysimeter
+#+NAME:   fig:lys3
+#+ATTR_LATEX: :width 10cm
+[[file:/home/nicholas/GitHub/FB/Ecoli_comparative_genomics/doc/presentations/MyNUIG(mnuigtheme)/lys_photos/IMGP0305.JPG]]
+
+* Lysimeters
+#+CAPTION: Lysimeter
+#+NAME:   fig:lys3
+#+ATTR_LATEX: :width \textwidth
+[[file:/home/nicholas/GitHub/FB/Ecoli_comparative_genomics/doc/presentations/MyNUIG(mnuigtheme)/lys_photos/RyanFanning2.png]]
+
+
+
+* Workflow
+
+#+CAPTION: workflow
+#+NAME:   fig:workflow
+#+ATTR_LATEX: :width .86\textwidth
+[[file:./frequentFigs/workflow_v1.pdf]]
+
+* Genomic Context
+- 202 isolates sequenced
+- 153 true /E. coli/ passed QC
+- All Clermont phylotypes represented
+#+BEGIN_LaTeX
+\vskip .5mm
+#+END_LaTeX
+- Diverse phenotypes
+  - curli
+  - metabolism
+  - biofilm
+
+#+BEGIN_LaTeX
+\begin{tikzpicture}[remember picture,overlay]
+    \node[xshift=-3.5cm,yshift=-4.5cm] at (current page.north east) {
+\includegraphics[width=.3\textwidth]{./20170411_environ_figs/Phylogroups.pdf}
+};
+\end{tikzpicture}
+#+END_LaTeX
+
+* Genomic Context
+#+begin_LaTeX
+\begin{tikzpicture}[remember picture,overlay]
+    \node[xshift=-8cm,yshift=-4.8cm] at (current page.north east) {
+\includegraphics[width=.55\textwidth]{../../posters/utrecht2016/figs/ANIm_percentage_identity_edited.pdf}
+};
+\end{tikzpicture}
+#+END_LaTeX
+
+
+* Virulence
+- Search literature for genes implicated in virulence
+- Select representative sequences for ~50 virulence factors
+- Use reciprocal translated blast to find occurrences
+- Filter results, visualize
+
+* Virulence Results
+#+BEGIN_LaTeX
+%\begin{tikzpicture}[remember picture, overlay]
+%    \node[xshift=-5cm,yshift=-4.8cm] (innerimage) at (current page.north east){
+\hspace{1.5cm}\begin{tikzpicture}[spy using outlines={red,square,magnification=4, size=3.5cm,connect spies}]
+    % Use Wikipedias image of the day
+    \node[anchor=south west,inner sep=0] (image) at (0,0){
+\includegraphics[width=5cm]{./frequentFigs/20161122170535_blast_virulence_parser_output_heatmap_edited3.pdf}};
+%        \begin{scope}[x={(image.south east)},y={(image.north west)}]
+%        \foreach \x in {0,1,...,9} { \node [anchor=north] at (\x/10,0) {0.\x}; }
+%        \foreach \y in {0,1,...,9} { \node [anchor=east] at (0,\y/10) {0.\y}; }
+%        \end{scope}
+    \spy on ($0.9*(image.south east)+0.19*(image.west)$) in node at ([xshift=-2cm]image.west);
+%%%%%%%    \spy on ($0.55*(image.south east)+0.95*(image.north west)$) in node at ([yshift=1cm]image.north);
+%\end{tikzpicture}};
+\end{tikzpicture}
+#+END_LaTeX
+
+* Conclusions about Soil-persistent /E. coli/
+- Represent diverse lineages
+- Posess virulence genes, but no /stx/ toxins
+- May pose a human health threat
+- Complicate use of /E. coli/ as contamination indicator
+
+* Next Steps
+- Determine whether virulence genes are functional
+- Explore genomes for markers associated with soil isolates
+- Explore trends potentially relating function to environmental factors
+
+
+* Sources
+#+BEGIN_LaTeX
+\tiny
+#+END_LaTeX
+- Bardsley, D. :: "A study of coliform organisms in the Melbourne water supply and in animal faeces, with observations on their longevity in faeces and in soil." _The Journal of Hygiene_, 46(3), 269–79. 1948
+- Brennan, et al. :: "Characterization of environmentally persistent escherichia coli isolates leached from an irish soil." _Applied and Environmental Microbiology_, 76(7), 2175–2180. 1996
+- Boyd, W and J. :: "Viability of Coliform Bacteria In Antarctic Soil." _Journal of Bacteriology_, 84. 1963
+- Byappanahalli, et al. :: "Population structure, persistence, and seasonality of autochthonous Escherichia coli in temperate, coastal forest soil from a Great Lakes watershed". _Environmental Microbiology_, 8(3), 504–513. 2006
+- Kirk, et al ::  "World Health Organization Estimates of the Global and Regional Disease Burden of 22 Foodborne Bacterial, Protozoal, and Viral Diseases, 2010: A Data Synthesis." _Plos Medicine_ 2015
+- Pruess, B. :: /E. coli/ image. _NDSU Agriculture Comm._ April 29, 2011
+- Ryan and Fanning :: "Effects of fertiliser N and slurry on nitrate leaching - lysimeter studies on 5 soils." _Irish Geography_  29(2) 1996
+
+
+* Acknowledgments
+\small
+#+BEGIN_LaTeX
+  \begin{columns}[onlytextwidth]
+    \column{0.5\textwidth}
+    \includegraphics[height=1cm]{../stock_logos/NUI_Galway_BrandMark_A_K.eps}\\
+     NUIG Microbiology
+      \begin{itemize}
+        % \item Dr. Fiona Brennan
+        % \item Dr. Florence Abram
+        \item Matthias Waibel
+        \item Stephen Nolan
+        \item Camilla Thorn
+      \end{itemize}
+
+    \column{0.5\textwidth}
+    \vskip .25em
+    \includegraphics[height=1cm]{../stock_logos/trimmed_jhi.png}\\
+      James Hutton Institute, Dundee
+      \begin{itemize}
+        %\item Dr. Leighton Pritchard
+        %\item Dr. Ashleigh Holmes
+      \end{itemize}
+\vskip 1cm
+       \huge Questions?
+  \end{columns}
+
+#+END_LaTeX

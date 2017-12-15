@@ -1,0 +1,97 @@
+%%%  default
+\documentclass[10pt, compress]{beamer}
+
+
+\usetheme{mnuig}
+\usepackage{tikz}
+\usepackage{booktabs}
+%\usepackage{cite}
+\bibliographystyle{apalike}
+
+%\usepackage[scale=2]{ccicons}
+
+%\usemintedstyle{trac}
+\usepackage{grffile} %for underscores in file names
+
+\title{Progress Report}
+\subtitle{{\small (Or, what I've been up to)}}
+\date{\footnotesize{\today}}
+\author{\\ \\ \\ \\Nick Waters}
+\institute{
+  National University of Ireland, Galway\\
+James Hutton Institue }
+
+%%%%% %%%%% %%%%% %%% %%%%  for pretty headers with pictures
+\addtobeamertemplate{frametitle}{}{%
+\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north east,yshift=2pt] at (current page.north east) {\includegraphics[height=0.8cm]{../stock_logos/nuig_rounded.png}  \hspace*{.05cm} \includegraphics[height=.794cm, trim= 0cm 0.0cm 0.0cm 0cm]{../stock_logos/jhi_rounded.png}};
+\end{tikzpicture}}
+
+
+
+
+\begin{document}
+\maketitle
+
+%\maketitle
+\section{RiboSeed}
+
+\begin{frame}[fragile]
+  \frametitle{riboSeed: an overly simplified model}
+  \includegraphics[width=\textwidth]{~/GitHub/FB/Ecoli_comparative_genomics/doc/notebook/figures/riboSeed/riboSeed_v1.pdf}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Problems}
+  \begin{itemize}
+    \item Stochastic results, with no known indicator
+    \item Occasional missassemblies
+    \item Theory issues
+    \item Time investment
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Changes to Stage 1 of Pipeline}
+  \begin{itemize}
+    \item Preprocessing: no longer need properly matched .fasta's and .gb's
+    \item Scripts to streamline sge batch submissions
+    \item riboSnag now plots out interesting statistics
+    \item riboSnag is now optional
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Changes to Stage 2 of Pipeline}
+  \begin{itemize}
+    \item riboSeed maps to all extracted regions at once instead of individually
+  \begin{itemize}
+  \item Minimizes complexity caused by multiple mappings
+    \item Shorter run time
+    \end{itemize}
+    \item Code coverage: 61\% (87\% without \textit{main} function)
+    \item Object oriented refactor
+    \item 65\% rewrite
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Performance}
+  \begin{itemize}
+    \item Works on synthetic genome with synthetic reads
+    \item Works on a few genomes with synthetic reads
+    \item Still working on benchmarking the rest of the test strains
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Summary}
+  \begin{itemize}
+    \item Faster, more maintainable code
+    \item Robust theory
+    \item Thoroughly testing
+  \end{itemize}
+\end{frame}
+
+
+\end{document}

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Bash scripting</title>
+<meta name="author" content="(Nick Waters)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="file:///home/nicholas/.emacs.d/reveal.js-3.6.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="file:///home/nicholas/.emacs.d/reveal.js-3.6.0/css/theme/nick.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'file:///home/nicholas/.emacs.d/reveal.js-3.6.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Bash scripting</h1><h2 class="author">Nick Waters</h2><h2 class="date">\today</h2><p class="date">Created: 2017-12-15 Fri 14:33</p>
+</section>
+<section>
+<section id="slide-org4fe750d" data-background="./swc_bash/matrix.gif" data-background-transition="slide">
+<h2 id="org4fe750d">Introducing the Shell</h2>
+</section>
+<section id="slide-org3b61315">
+<h3 id="org3b61315">What is a command shell and why would I use one?</h3>
+<div class="outline-text-3" id="text-org3b61315">
+</div></section>
+<section id="slide-org2099997">
+<h4 id="org2099997">Reproducibility</h4>
+<ul>
+<li class="fragment appeal">saves time for repetative tasks</li>
+<li class="fragment appeal">easier to automate</li>
+
+</ul>
+
+</section>
+<section id="slide-orge06d993">
+<h4 id="orge06d993">Use Case</h4>
+</section>
+<section id="slide-orge53cf71">
+<h4 id="orge53cf71">not more fun to manipulate</h4>
+<p class="fragment (appeal)">
+Say you need to row
+</p>
+
+<aside class="notes">
+<p>
+harder to do one thing once, but much easier to do one thing 10000x
+</p>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-org18869cb">
+<h2 id="org18869cb">Navigating Files and Directories</h2>
+<div class="outline-text-2" id="text-org18869cb">
+</div></section>
+<section id="slide-org1c25878">
+<h4 id="org1c25878">How can I move around on my computer?</h4>
+</section>
+<section id="slide-orgb2d1048">
+<h4 id="orgb2d1048">How can I see what files and directories I have?</h4>
+</section>
+<section id="slide-orgfdf3678">
+<h3 id="orgfdf3678">How can I specify the location of a file or directory on my computer?</h3>
+</section>
+</section>
+<section>
+<section id="slide-org947057f">
+<h2 id="org947057f">Working With Files and Directories</h2>
+<ul>
+<li>How can I create, copy, and delete files and directories?</li>
+<li>How can I edit files?</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org08f1bcd">
+<h2 id="org08f1bcd">Pipes and Filters</h2>
+<ul>
+<li>How can I combine existing commands to do new things?</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgb212361">
+<h2 id="orgb212361">Loops</h2>
+<ul>
+<li>How can I perform the same actions on many different files?</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org57f60c6">
+<h2 id="org57f60c6">Shell Scripts</h2>
+<ul>
+<li>How can I save and re-use commands?</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org88499f4">
+<h2 id="org88499f4">Finding Things</h2>
+<ul>
+<li>How can I find files?</li>
+<li>How can I find things in files?</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="file:///home/nicholas/.emacs.d/reveal.js-3.6.0/lib/js/head.min.js"></script>
+<script src="file:///home/nicholas/.emacs.d/reveal.js-3.6.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: '.1',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'file:///home/nicholas/.emacs.d/reveal.js-3.6.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'file:///home/nicholas/.emacs.d/reveal.js-3.6.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'file:///home/nicholas/.emacs.d/reveal.js-3.6.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'file:///home/nicholas/.emacs.d/reveal.js-3.6.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'file:///home/nicholas/.emacs.d/reveal.js-3.6.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>

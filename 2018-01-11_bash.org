@@ -1,0 +1,46 @@
+#+TITLE: Bash scripting
+#+SUBTITLE: Version 1.0
+#+REVEAL_THEME: nick
+#+REVEAL_TRANS: fade
+#+REVEAL_SPEED: .1
+#+AUTHOR: Nick Waters
+#+DATE: \today
+#+OPTIONS: toc:nil num:nil
+#+REVEAL_HLEVEL: 1R
+#+INSTITUTE: Department of Microbiology \linebreak School of Natural Sciences \linebreak National University of Ireland, Galway}
+* Introducing the Shell
+    :PROPERTIES:
+    :reveal_background: ./swc_bash/matrix.gif
+    :reveal_background_trans: slide
+    :END:
+** What is a command shell and why would I use one?
+
+*** Reproducibility
+#+ATTR_REVEAL: :frag (appeal)
+- saves time for repetative tasks
+- easier to automate
+
+*** Use Case
+#+ATTR_REVEAL: :frag (appeal)
+Say you need to row
+
+#+BEGIN_NOTES
+harder to do one thing once, but much easier to do one thing 10000x
+#+END_NOTES
+* Navigating Files and Directories
+
+*** How can I move around on my computer?
+*** How can I see what files and directories I have?
+** How can I specify the location of a file or directory on my computer?
+* Working With Files and Directories
+- How can I create, copy, and delete files and directories?
+- How can I edit files?
+* Pipes and Filters
+- How can I combine existing commands to do new things?
+* Loops
+- How can I perform the same actions on many different files?
+* Shell Scripts
+- How can I save and re-use commands?
+* Finding Things
+- How can I find files?
+- How can I find things in files?

@@ -1,0 +1,34 @@
+* Intro
+
+Good afternoon, I hope you allare enjoying the talks as much as I have.  I am here to talk about the genomics of soil adaptred e coli, but as this isn't neccisarily a microbiology group,
+* outline
+ I will start off with some background info about this bug you hear about in the news so much, and how it relates to soil, to the environment, and to the economy. I'll then talk about the design of our experiment, what we have started to find, and where we are heading
+
+* E coli
+Alright, so E coli is a gram negative bacteria. Gram staining is a common microscopy procedure tto classifying bacteria based on their cell wall composition; gram negative means that it stains pink.  Even though it only gets in the news for making people sick, it lives in the gut of most people without causing harm.  In fact, it has been shown to help with nutient uptake, making them a probiotic.  In the lab, it is commonly used in experiments as it it easy to make it uptake foreign DNA.
+
+However, this trait is also what has allowed E. coli to become pathogenic.  It has aquired a whole slew of virulence facorts from other bacteria or virus, and as such it has th eability to infect the GI tract and the Urinary tracts, often wit a great degree of severity.
+
+In 2015 the WHO published a study of te health burden of foodborne pathogens, and it showed E. coli as responsible for 5 Million dissability asjsusted life years lost every year worldwide due to E coli.
+
+Because it is such a risk, E coli is used as an indicator for fecal contamination. If sewage or slurry makes its way into a waterway, a test for E coli will detect it.
+
+
+*  Timeline
+
+And here I have put together a timeline of highlights in related E coli research.  E coli was first characterized by a Dr, Escherich in 1886, when he isolated it for a stool sample.
+
+In 1948, researches in Antirtical found that E coli could persist in cold temperatiures.  And over the next half centurer, even though E coli was being used a a fecal indicator, a growing body of research jas been growing supporting a rather worrying notion:  that ecoli can survive for long periods of time in the soil,  This compromises its ability to be used as an indicator, for if it can persist in the soil, a contamination event, it would be imposible to distinguish  from the indigenous population.
+
+*
+
+So our research questions are as follows:
+
+
+* Design
+
+  The first question  was where to find soil persistent e coli, and ensure that they were actually persitent and not the result of a recent contamination event. So how would we figure this out?  My supervisor, Dr. Fiona Brennan, Was able to use the setup of an experiment set up by Ryan and Fanning in the early ninteies, where they set up soil monoliths and comparted treatment to them.  Fiona was able to use these in an earlier experiment  experiment to study leaching of bacteria from slurry.  But there were a few control lysimeters, where no slurry spreading has occurred since 1998.  So there were soil samples that we know were contamination free for over 10 years, and could contain soil-persistent E coli.
+
+So our plan was to isolate e coli form the lisimetyer leachate, purify the strains and sequence.  From there, we hoped to be able to find out what makes soil-persistent e coli different.
+
+Here are some pictures of the experimental seup.
