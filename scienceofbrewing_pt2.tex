@@ -22,6 +22,37 @@
 \setbeamercolor*{block title alerted}{parent=alerted text,bg=black!15}
 \setbeamercolor*{block title example}{parent=example text,bg=black!15}
 
+%%%%%%%%%%%%%%%%%%%%%% 55
+\setbeamertemplate{headline}{%
+\leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=4.8ex,dp=0.125ex]{primary}%
+      \insertsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll}
+    \end{beamercolorbox}%
+  }
+}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\setbeamertemplate{section in head/foot}{%
+    \if\insertsectionheadnumber1
+        \tikz\node[draw=gray,fill=gray,shape=signal,very thick,text=black]{\insertsectionhead\hskip.3cm};
+    \else
+        \tikz\node[draw=gray,fill=gray,shape=signal,signal from=west, signal to=east,very thick,text=black]     {\insertsectionhead\hskip.3cm};
+  \fi
+}
+
+\setbeamertemplate{section in head/foot shaded}{%
+    \if\insertsectionheadnumber1
+        \tikz\node[draw=gray,fill=gray,shape=signal,very thick,text=black!30]{\insertsectionhead\hskip.3cm};
+    \else
+        \tikz\node[draw=gray,fill=gray,shape=signal,signal from=west, signal to=east,very thick,text=black!10]     {\insertsectionhead\hskip.3cm};
+  \fi
+}
+
+%%%%%%%%%%5
+
+
 \usepackage{grffile} %for underscores in file names
 \usepackage{gensymb} % degree
 \title{The Science of Brewing:}
@@ -31,7 +62,6 @@
 \institute{Department of Microbiology\\
 School of Natural Sciences\\
 National University of Ireland, Galway}
-
 \begin{document}
 \maketitle
 
@@ -192,30 +222,50 @@ National University of Ireland, Galway}
 \end{frame}
 
 \begin{frame}\frametitle{Essential Oils}
-  Myrcene \includegraphics[width=.25\textwidth]{./brewing/hops/Myrcene-dark.pdf}
-  \begin{itemize}
-  \item Thyme, cannabis, lemmongrass, bay leaf, mango, lavender
-  \item Aromatic, but Unstable; prone to Diels-Alder reactions
-  \end{itemize}
-  Humulene \includegraphics[width=.15\textwidth]{./brewing/hops/Humulene-dark.pdf}
-  \begin{itemize}
-  \item Ginger, cannabis, orange, pine, sage, tobacco
-  \item Lends aroma;  especially high percentage in Noble hops
-  \end{itemize}
-  Caryophyllene \includegraphics[width=.15\textwidth]{./brewing/hops/Beta-Caryophyllen-dark.pdf}
-  \begin{itemize}
-  \item Black pepper, cannabis, caraway, cloves, oregano, cinnamon, rosemary
-  \end{itemize}
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+      Myrcene
+      \begin{itemize}
+      \item Thyme, cannabis, lemmongrass, bay leaf, mango, lavender
+      \item Aromatic, but unstable; prone to Diels-Alder reactions
+      \end{itemize}
+      Humulene
+      \begin{itemize}
+      \item Ginger, cannabis, orange, pine, sage, tobacco
+      \item Lends aroma;  especially high percentage in Noble hops
+      \end{itemize}
+      Caryophyllene
+      \begin{itemize}
+      \item Black pepper, cannabis, caraway, cloves, oregano, rosemary
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      \includegraphics[width=.8 \textwidth]{./brewing/hops/Myrcene-dark.pdf}
+      \includegraphics[width=0.5\textwidth]{./brewing/hops/Humulene-dark.pdf}
+      \includegraphics[width=.6\textwidth]{./brewing/hops/Beta-Caryophyllen-dark.pdf}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}\frametitle{Flavenoids}
-  Xanthohumol \includegraphics[width=.5\textwidth]{./brewing/hops/Xanthohumol-dark.pdf}
-  \begin{itemize}
-  \item Ends up about about 2 μg/L – 1.2 mg/L
-    \item most abundant flavenoid in hops
-    \item Contributes bitterness and flavor
-    \end{itemize}
-    8-Prenylnaringenin phytoestrogen \includegraphics[width=.5\textwidth]{./brewing/hops/Xanthohumol-dark.pdf}
+  \begin{columns}
+    \begin{column}{.6\textwidth}
+      Xanthohumol
+      \begin{itemize}
+      \item Ends up about about 2 μg/L – 1.2 mg/L
+      \item most abundant flavenoid in hops
+      \item Contributes bitterness and flavor
+      \end{itemize}
+      8-Prenylnaringenin phytoestrogen
+
+    \end{column}
+    \begin{column}{.4\textwidth}
+      \includegraphics[width=.8\textwidth]{./brewing/hops/Xanthohumol.pdf}
+      \vspace{5mm}
+      \includegraphics[width=.8\textwidth]{./brewing/hops/Sophoraflavanone_B-dark.pdf}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 
@@ -247,41 +297,80 @@ National University of Ireland, Galway}
 \begin{tabular}{rll}
   \textbf{Time} & \textbf{Type} & \textbf{Purpose}   \\
   \hline
-30-90 & bitterness & conversion of \alpha acids  \\
-10-30 & flavour & extraction of essential oils and other volatile compounds  \\
-0-10 & aroma & extraction of the most delicate, volatile compounds \\
+30-90 & bitterness & conversion of $\alpha$ acids  \\
+10-30 & flavour & extraction of oils and other volatile compounds  \\
+0-10 & aroma & extraction of delicate, volatile compounds \\
 ... & dry & slow extraction of oils and other compounds \\
 \end{tabular}
 \end{table}
 \end{frame}
 
 \section{Hop Varieties}
-\begin{frame}\frametitle{How to hop}
+\begin{frame}\frametitle{Notable Hops}
   Noble Hops
-  \begin{itemize}
+  \begin{itemize}\vspace{-4mm}
   \item The OG cultivars: Hallertau, Tettnanger, Spalt, and Saaz
-  \item  Pilsen Urquell
+  \item  Pilsen Urquell,  Stella Artois
   \end{itemize}
   British Noble Hops
-  \begin{itemize}
+  \begin{itemize}\vspace{-4mm}
   \item Fuggle, East Kent Goldings and Goldings
   \item Guineess, Smithwicks
   \end{itemize}
   New World Hops
-  \begin{itemize}
+  \begin{itemize}\vspace{-4mm}
   \item Cascade, Chinook, Nugget, Citra, Simcoe, Willamette
   \item IPAs
   \end{itemize}
   Pacific Hops
-  \begin{itemize}
+  \begin{itemize}\vspace{-4mm}
   \item Nelson Sauvin, Pacifica, Pacific Gem, Super Alpha
-  \item IPAs
   \end{itemize}
 \end{frame}
 
 % hop plot #1
 % hop plot #1
 % brewing plan
+\section{Sources}
+\begin{frame}
+  \begin{itemize}
+  \item \url{http://onlinelibrary.wiley.com/doi/10.1002/jib.160/pdf}
+  \item \url{http://www.uvm.edu/extension/cropsoil/wp-content/uploads/2014HopsConference_Shellhammer_brewersperspective.pdf}
+  \item wikipedia (lots of wikipedia)
+  \end{itemize}
+\end{frame}
+
+\section{Today's Brew}
+\begin{frame}\frametitle{IPA Recipe}
+  \begin{columns}
+    \begin{column}{.5\textwidth}
+      Malt
+      \begin{itemize}
+      \item 5kg Irish Pale Malt (4-6)
+      \item 500g Carapils  (5)
+      \item 500g Cara Red  (20)
+      \end{itemize}
+      Yeast
+      \begin{itemize}
+      \item Northwest Ale Yeast
+      \end{itemize}
+      Mash for 60 minutes at 65\degree. Hot crash/sparge with 8 liters at 75\degree. Boil 70 minutes.  Target gravity: 1.065.
+    \end{column}
+    \begin{column}{.5\textwidth}
+      Hop Additions:
+    \begin{itemize}
+    \item 60mins 50g Eureka
+    \item 45mins 50g Eureka
+    \item 30mins 25g Chinook
+    \item 20mins 25g Mosaic
+    \item 10mins 25g Chinook
+    \item 5mins 25g Mosaic
+    \item flameout 25g Chinook, 50g Mosaic
+    \item (\dots 25g Cascade, 25g Chinook)
+    \end{itemize}
+  \end{column}
+\end{columns}
+\end{frame}
 
 
 \end{document}
