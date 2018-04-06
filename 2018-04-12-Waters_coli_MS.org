@@ -1,7 +1,10 @@
 #+STARTUP: showall beamer
+#+COLUMNS: %40ITEM %10BEAMER_env(Env) %9BEAMER_envargs(Env Args) %4BEAMER_col(Col) %10BEAMER_extra(Extra)
+# +BEAMER_HEADER: \titlegraphic{\includegraphics[height=1.5cm]{InstLogo}}
+
 #+TITLE: Comparative Genomics of Soil-persistant /E. coli/
 #+SUBTITLE: Version 1.0
-#+AUTHOR: Nicholas Waters \linebreak \\ \footnotesize  Ashleigh Holmes, Florence Abram,  Leighton Pritchard, and Fiona Brennan \vskip -1cm
+#+AUTHOR: Nicholas Waters
 #+DATE: \today
 # #+SUBTITLE
 #+INSTITUTE: Department of Microbiology \linebreak School of Natural Sciences \linebreak National University of Ireland, Galway}
@@ -11,10 +14,7 @@
 #+LaTeX_CLASS: beamer
 #+OPTIONS: H:1 toc:nil
 #+LaTeX_CLASS_OPTIONS: [17pt,aspectratio=169]
-# +LATEX_HEADER: \fontfamily{pag}
-# +LATEX_HEADER: \usepackage{libertine}
 #+LATEX_HEADER: \renewcommand*\familydefault{\sfdefault}
-
 #+LATEX_HEADER: \newcommand{\bt}{\textasciigrave}
 #+LATEX_HEADER: \usepackage{xcolor}
 #+LATEX_HEADER: \def \ttilde {\raisebox{-.6ex}\textasciitilde~}
@@ -24,20 +24,15 @@
 # +LATEX_HEADER: \lstset{basicstyle=\linespread{1.1}\ttfamily\scriptsize, breaklines=true, backgroundcolor=\color{bashcodebg}, xleftmargin=0.5cm, language=bash, showstringspaces=false, columns=fullflexible}
 #+LATEX_HEADER: \usepackage{tcolorbox}
 #+LATEX_HEADER: \usepackage{etoolbox}
-#+LATEX_HEADER: \BeforeBeginEnvironment{minted}{\begin{tcolorbox}\scriptsize}%
-#+LATEX_HEADER: \AfterEndEnvironment{minted}{\normalsize\end{tcolorbox}}%
 #+LATEX_HEADER: \usepackage{geometry}
-# #+LATEX_HEADER: \geometry{marginparwidth=5cm,a4paper,verbose,tmargin=2cm,bmargin=2cm,lmargin=3cm,rmargin=3cm,headheight=0cm,headsep=0cm,footskip=0cm}
 #+LATEX_HEADER: \usepackage[colorlinks = true, linkcolor = blue, urlcolor  = blue, citecolor = blue, anchorcolor = blue]{hyperref}
-#+BABEL: :session *R* :cache yes :results output graphics :exports both :tangle yes
-#+PROPERTY: session *R*
-#+PROPERTY: results output
 #+LATEX_HEADER: \let\oldv\verbatim
 #+LATEX_HEADER: \let\oldendv\endverbatim
 #+LATEX_HEADER: \def\verbatim{\par\setbox0\vbox\bgroup\scriptsize\oldv}
 #+LATEX_HEADER: \def\endverbatim{\oldendv\egroup\fboxsep0pt \noindent\colorbox[gray]{0.8}{\usebox0}\par}
 #+LaTeX_HEADER: \usepackage{array, booktabs, xcolor, tikz}
-# voodoo for line spacing
+
+# voodoo for line spacing (too tight otherwise
 #+LaTeX_HEADER: \makeatletter
 #+LaTeX_HEADER: \renewcommand{\itemize}[1][]{%
 #+LaTeX_HEADER:   \beamer@ifempty{#1}{}{\def\beamer@defaultospec{#1}}%
@@ -71,6 +66,7 @@
 #+LaTeX_HEADER: \setbeamerfont{frametitle}{size=\normalsize}
 #+LaTeX_HEADER: \usepackage{graphicx}
 #+LaTeX_HEADER: \usetikzlibrary{arrows, calc, spy}
+
 #+LaTeX_HEADER: %%%%% %%%%% %%%%% %%% %%%%  for pretty headers with pictures
 #+LaTeX_HEADER: \addtobeamertemplate{frametitle}{}{%
 #+LaTeX_HEADER: \begin{tikzpicture}[remember picture,overlay]
@@ -78,6 +74,7 @@
 #+LaTeX_HEADER: \end{tikzpicture} \vskip -1.1cm}
 
 #+LaTeX_HEADER:\addtobeamertemplate{footnote}{\tiny}{} %\vspace{2ex}}
+
 
 * Introduction
 - Overview of soil-persistent /E. coli/
@@ -100,6 +97,20 @@
 };
 \end{tikzpicture}
 #+END_LaTeX
+
+
+* A block in a column
+  :PROPERTIES:
+  :BEAMER_env: block
+  :BEAMER_col: 0.5
+  :END:
+
+* Just a column with contents
+  :PROPERTIES:
+  :BEAMER_col: 0.5
+  :END:
+Some text, the headline above is ignored
+
 
 
 * A Brief History of Soil-persistent E. coli

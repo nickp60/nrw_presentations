@@ -1,0 +1,100 @@
+Key
+Slide title [description of image/text on slide]
+spoken
+
+
+
+
+
+* Title slide: “Insights into  the genomics of soil-persistent E coli”, name, date, institution icons
+ Good afternoon everyone, thanks for being here. Thanks, organizers for putting on such a wonderful conference.  And a special thanks to Dr. Burgess and Dr. Brennan for taking care of the introduction slides for me! [pause] But for those who may have just walked in, here is a brief overview of the project, and why were are interested in the genomes of  yet more E. coli
+
+* A brief history of E. coli persistence [Timeline of soil persistence and E coli]
+Since Dr. Escherich first isolated the bacteria in 1886, E. coli has been associated with the gut. 60 years later, in 1948, Bardsley and colleagues started to challenge that tenant, warning the the soil might be a reservoir for E. coli.  After that, the Boyds were the first to show cold adaptation in E. coli.  A picture was emerging that E. coli was not as picky about its growth conditions as was previously thought
+
+In the 70s, Evans and colleagues started looking at agricultural drainage and coliform counts as they related to the spreading of slurry, and it wasn’t long before others were calling into question E. coli’s use as a contamination indicator in the environment.
+
+In 1997, Texier and colleagues published a fascinating study where they characterized the E coli populations in alpine grasslands, where they found stable populations  over months and years.  And by 2003, the narrative had fully shifted with the publishing of Byappanahalli’s works: E. coli persistence is widespread.
+
+* Our work:
+ In 2010, Dr. Brennan published “Characterization of Environmentally Persistent Escherichia coli Isolates Leached from an Irish Soil”, where 7 soil-persistent strains were characterized with various biochemical and molecular techniques.  From her talk earlier this afternoon, you might remember that this was the start of a much larger project to culture, isolate, and investigate soil-persistent E. coli from Irish soils. In brief, she had the unique opportunity to isolate E coli from 4 types of Irish soil protected from slurry spreading for at least 9 years.  Having this provenance allows a unique look at the these strains, as the compounding factor of recent contamination is mitigated
+
+My work has been to study the genomes of this collection, and to see what they contribute to the shared knowledge of our model bug.
+
+* Research Questions [sequentially revealed bullet points: -What types of E. coli are able to persist in Irish soil? - How do their genomes compare to other sequenced E. coli? - What can we infer about adaptation by comparing soil-persistent E. coli to the others? - Can we find a way to differentiate persistent E. coli from recent-contamination?]
+We are interested in a several things with these genomes.  First, can we see any trends at the genome level of certain types of E. coli being more suited to soil persistence?  Are our soil-persistent isolates phylogenetically related, perhaps by clermont group, MLST, etc?
+
+Second, how do our isolates compare to other E. coli?  Do they form subgroups separate from gut-origin isolates within the same clade?
+
+What do the soil-persistent genomes tell us about how E. coli -- which thrives at 37 degrees in a nutrient/competition rich environment -- allow it survive in such a different environment?
+
+And is there any way to use the genomic information to design a better environmental diagnostic?  Can we rescue E. coli's tenuous status as a feacal indicator by differentiating between soil-persistent strains and recent gut-origin strains?
+
+* Experimental Design [workflow figure (just icons of each step)]
+To answer these questions, Dr. Brennan used intact soil monoliths housed in a lysimeter array at Teagsc's Johnstown Castle facility, in County Wexford, Ireland.  E. coli were isolated from the leachate of these lysimeters, cultured, and sent for whole genome sequencing.
+
+* The Data [ bullet points: - # strains isolated, # strains passing QC]
+About 200 strains were sent for sequencing.  Of those, ## passed QC and were sequenced.  Of those, ## sequenced strains failed to produce assemblies resembling E .coli, and we lost another # strains that had tested phenotypically as E. coli, but failed the 95% Average Nucleotide Identity threshold.
+
+So, we are left with 149 high quality, soil persistent E. coli genomes.
+
+* Clermont groups [bar chart of proportions of each clermont type.]
+We used In silico clermont PCR to determine the phylotypes of our collection.  Now, the easiest explanation for soil-persistence in E. coil would be that one major phylogroup had the unique ability to persist on the soil.  What we fond, however, was that our collection represented a diverse range of Clermont phylotypes, with representatives from each group.  Now, some were more prevalent than others, but this already started to paint a more complex and interesting picture of these isolates.  Soil-persistence, it seems, is not constrained to one phylogenetic group.
+
+
+* Average Nucleotide Identity [Leightons ANI plot of the strains and their phylogroups]
+As an initial look at the strain collection, we used a tool called pyani to calculate and plot the Average Nucleotide identity of the strains.  This metric compares regions shared by all the isolates, and calculates a pairwise identity score for each set of isolates.  This allows a highly granular look at the relatedness of the strains.
+
+The plot you see here is showing those relationships.  We have the strains going across both axes (as we are looking at pairwise identity), and you can see that order has been sorted by the tree derived from the relationships.  Anything greater than 95% identity will be red, and anything less than that will be blue.  That 95% threshold is an established heuristic for species boundary, so what this is showing us is our true E. coli i red, and strains (perhaps of the Escherichia genus or more distant) in blue.  Those blue ones were some of the ones we filtered out that I mentioned a minute ago.
+
+Looking at the "red" strains, you can see that they are forming clusters of like coloring [point out a few].  This is showing us the grouping of some of the E. coli subspecies groups.  The colored bars in between the treed and the heatmap are the clermont groupings.  In a lot of cases, you can see these grouping together in large clusters. But perhaps surprisingly, not all of the clermont groups agree with the ANI groupings.  Already this is hinting at the genomic complexity  of these strains -- their clermont types are not always representative of their phylogeny.
+
+
+* MLST groups [some ugly pie chart or something to show the distribution]
+NExt, we used the Achman Multi Locus Sequence Typing scheme to classify out strains.  Again, we found much diversity in the collection.  This started to solidify a new scheme regarding soil-persistence:  it appears that soil-persistence is not limited to one lineage, but that the capacity may be present in many diverse lineages.
+
+*  Comparison to Enteric (or non-soil) E. coli [Enterobase figure of sources counts (ie, how many from animal, food, clinic, etc)].
+Next, we wanted to compare our isolates to a wider range of E. coli.  Perhaps,say, looking at a phylogenetic tree, we would see subgrouping not resolved my MAST typing.  To do this we used the Enterobase database to select a subset of comparison strains.  To do this,we tried to balance having a manageable number of strains to work with while also having a representative sampling of the available strains.  After all, there is a huge skew towards sequencing all the ST131 bugs that cause outbreaks,.We decided to use one random isolate from each of the Achman sequence types. After QC, this left us with about 1200 comparison strains.
+
+This figure show that the resulting group of strains, which I'll be referring to as our Enterobase panel, represents a range of sources as well as genetic diversity.
+
+* Pangenome Analysis [classic pangenome figure line graph of unique genes vs total genes]
+We built a combined pangenome from out soil panel and our Enterobase panel using Roary.  This allowed us a bird's eye view gene families present in our panel.  We  found that we had a core genome (that is, genes present in over 99% of the isolate) of 1763 genes.  And the dotted line leveling off shows that after a certain point, we stop seeing new, unique genes present in our collection.  This gives us a general idea of how many genes are shared across all E coli, vs how many may be expected to be variable.
+
+(If we look at the pangenome for the soil persistent strains and the Enterobase strains separately, we can see that there is similar diversity across the two collections, once we downsample the Enterobase strains. to batch the size of the soil panel). #still need to do this analysis.
+
+* Scory, round 1 [table of some
+Using this pangenome, we the used a software called Scaory to calculate some common genome wide association study statistics. This, we were hoping, would reveal some candidate genes that may be differentially present in our soil collection relative to the Enterobase collection. Scoary uses the pangenome output along with a list of traits for each strain to generate this analysis.
+
+When we first ran this, we got a variety of strange results.  Again, this is supposed to show us genes that are present in the soil panel, but not in the Enterobase panel, or vice versa.  Those of you familiar with transcription would be surprised at this list, as elongation factor TU was listed as being only present in some of our strains.  As Elongation factor TU is a thoroughly essential gene, we realized that there must be some error occurring.
+
+* Assessing Assemblies [image (or figure) of genome missannotation at the end of contigs]
+We manually inspected some of the loci in question, comparing some of our soil isolate assemblies and some of the Enterobase assemblies.  None of our assembles were complete genomes, meaning that the genome is represented as multiple shorter lenghts of DNA called contigs (or contiguous regions). We found that there was an What we found was that due to the way the that our genome annotations are handled at the ends of contigs are often error prone.  What you can see here are three reference genome on top, and one of our assembles of interest in the bottom.  The black lines represent contig breaks.  Notice how the gene we are centered on (in this case EF-Tu, looks to be about X kb long in our references, but only about half of the gene is present in our assembly.  What I don't show here is that a different contig has the missing part.  Because both sequences match EF-Tu, both are annotated as such, even though neither is a full length gene. this was a systemic problem for all our assemblies, and particularly for repeated genes which cause particular problems for genome assemble
+
+* shameless plug [picture of the poster]
+Interested in genome assembly?  Come talk to me more down at poster ###! #riboSeed
+
+* Fixing contig end annotations [annofilt logo, github information]
+So in order to circumvent this issue of dodgey annotations at contig ends messing up our differential presence analysis, we needed a way of filtering out those annotations.  Surprisingly (given the number of pangenome studies in recent years), no such tool seemed to exist.  We built a tool called *annofilt*, which, in a nutshell, uses a pangenome from complete genomes to filter our potentially problematic annotations from contig end missassemblies.
+
+* Filtering annotations with annofilt [table of old and new pangenome statistics, density plot of genes lost, or boxplot of genes lost.  Thoughts?]
+We ran all of our assemblies through annofilt (it takes about 20seconds for an E. coli sized genomes).  in this table, you can see that we lost about 15% of the genes searched the ends of contigs (roughly 60 annotations per genome.  Even though we lost annotations, you can see from the table that we actually /increased/ our pangenome size.  The truncated, miss-assembled genes had inflated the total number of genes by about 5000.  Using annofilt was able to remove a lot of noise from that data.
+
+* Rerunning Scoary
+After rerunning scoary, we got a new list of candidate genes.  From our analysis so far, there is no "smoking gun" gene conferring this ability to thrive in the soil.
+
+
+
+* Future work
+From here, we will be partitioning our collections by lineage and by phenotype and looking at the "sub-pangenomes within our collection.  We are hoping to uncover differences between our soil-persistent strains at some level, whether that is within clermont group, sequence type, plasmid collection, or other features.
+
+We are also investigating the virulence capacity of these strains, the Antimicrobial resistence, and which plasmids they're harboring.
+
+This, combined with the work that colleagues are doing to characterize the phenotypes exhibited by these strains. will give us a more complete view of these highly flexible bacteria.  And hopefully, by understanding the soil-persistence, we have more insight into how the versatility of E. coli contributes to its impact on Human health.
+
+* Conclusions [ bullet points]
+So what have we learned? Well, first of all, these soil-persistent E. coli represent diverse lineages.  There is no "soil-persistent clade" by any typing scheme we explored.
+
+As you heard earlier, there is no cut-and-dry metabolic set of traits that confers this phenotype along -- these bugs have a range of growth rates, substrate possibilities, etc.
+
+We have learned that  pangenome analysis is sensitive to genome assembly and genome annotation steps.  When dealing with incomplete genomes especially, special care must be taken to ensure that any results gained are representative, trustworthy, and meaningful.

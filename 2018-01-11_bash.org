@@ -8,6 +8,73 @@
 #+OPTIONS: toc:nil num:nil
 #+REVEAL_HLEVEL: 1R
 #+INSTITUTE: Department of Microbiology \linebreak School of Natural Sciences \linebreak National University of Ireland, Galway}
+* Terminology
+
+direcotry vs folder
+users, groups, permissions
+regualr expressions / wildcards
+
+* Introducing the Shell
+    :PROPERTIES:
+    :reveal_background: ./swc_bash/matrix.gif
+    :reveal_background_trans: slide
+    :END:
+** What is a command shell
+- interface that interprets instructions between the computer and the user
+- Accessed with OSX's terminal, linux's terminal, Windows's Git Bash
+- First introduced in 1971, *B*ourne *A*gain *SH*ell (bash) introduced 1979
+
+** why would I use one?
+
+*** Speed
+- typing is faster than clicking
+- running a command 1000 times is waaaay faster than clicking 1000 times
+
+*** Reproducibility
+    #+ATTR_REVEAL: :frag (appeal)
+- scripts allow others to repeat your work
+- scripts simplify re-running an analysis for new data
+- scripts are eaiser to troublshoot
+
+*** Power
+- shared clusters > your computer
+- my machine: 120GB hard drive, 16 GB ram, 2 processors
+- Syd at NUIG: ~2TB hard drive per user, 32 GB ram per node, 32 nodes with 4 processors each
+
+*** Departmental Applications
+- using mothur for community analysis
+- SNP calling for NGS sequencing
+- RNA-seq analysis
+
+*** case study:
+#+ATTR_REVEAL: :frag (appeal)
+
+convert all your figures from JPEG to PNG for re-submission to a new journal
+Download and analyse all archael genomes methane synthesis
+
+#+BEGIN_NOTES
+harder to do one thing once, but much easier to do one thing 10000x
+#+END_NOTES
+
+# * Installing with a package manager
+# ** What is a Package Manager
+# Package managers: software that minimizes installation headaches
+# System-wide: apt or apt-get
+# Python: pip
+# Perl: cpan or cpanm
+# bioinformatics: conda
+
+# ** example: "tree" command
+# list
+
+* Setup
+** terminal
+ Linux: terminal
+Windows: Git Bash
+OSX: terminal
+*** if using something other than bash, change to bash
+** Download Sample Data to Desktop, and unzip
+[[https://swcarpentry.github.io/shell-novice/data/shell-novice-data.zip][sample data]
 * Introducing the Shell
     :PROPERTIES:
     :reveal_background: ./swc_bash/matrix.gif
@@ -27,10 +94,59 @@ Say you need to row
 #+BEGIN_NOTES
 harder to do one thing once, but much easier to do one thing 10000x
 #+END_NOTES
-* Navigating Files and Directories
 
-*** How can I move around on my computer?
-*** How can I see what files and directories I have?
+* Navigating Files and Directories
+** who and where am I?
+- whoami
+- bad command
+- pwd
+** Visualizing the file structure
+- ls
+*** slashes as root and path separator
+*** home directory
+- ls -F
+- ls --help
+*** unsupported flags
+- ls -j
+- man
+*** note issue with man for windows
+** Parameters vs arguments
+parameters change behaviour
+arguments change the context, the target, etc
+ls -F Desktop
+
+** Navigating Down the File Strucutre
+- cd
+- cd Desktop
+- cd data-shell
+- cd data
+- pwd
+- ls -F
+** Navigating up the file structure
+- cd data-shell !
+- cd ..
+- pwd
+*** Note . and .. special dirs, accessible most everywhere
+- ls -F -a
+*** other hidden files
+.bash_profile
+*** behaviour without argument
+- cd
+** Moving seamlessly
+cd Desktop/data-shell/data
+
+** two more shortcuts: ~ and -
+**** Starting from /Users/amanda/data/, which of the following commands could Amanda use to navigate to her home directory, which is /Users/amanda?
+cd .
+cd /
+cd /home/amanda
+cd ../..
+cd ~
+cd home
+cd ~/data/..
+cd
+cd ..
+
 ** How can I specify the location of a file or directory on my computer?
 * Working With Files and Directories
 - How can I create, copy, and delete files and directories?
