@@ -8,7 +8,7 @@
 %
 % edited by Nick Waters
 
-\ProvidesPackage{beamerthememnuigD}
+\ProvidesPackage{beamerthemeNUIG}
 
 %{{{ --- Packages ---------------------
 
@@ -19,8 +19,7 @@
 
 \usetikzlibrary{backgrounds}
 
-\usecolortheme{mnuigD}
-\usefonttheme{mnuigD}
+\usefonttheme{NUIG}
 
 %}}}
 %{{{ --- Options ----------------------
@@ -29,6 +28,17 @@
 \@doSectionPagefalse
 \DeclareOption{nosectionpages}{\@doSectionPagetrue}
 \ProcessOptions
+
+%%%% pass color options
+
+\DeclareOptionBeamer{style}{
+    \PassOptionsToPackage{style=#1}{beamercolorthemeNUIG}
+}
+\ExecuteOptionsBeamer{style=dark}
+\ProcessOptionsBeamer
+
+\usecolortheme{NUIG}
+
 
 %}}}
 %{{{ --- Titlepage --------------------
@@ -161,28 +171,33 @@
 
 %}}}
 %{{{ --- Footline ---------------------
-
+% No footer, no nav
 \usenavigationsymbolstemplate{}
-\setbeamertemplate{footline}
-{%
-\begin{beamercolorbox}[wd=\textwidth,ht=3ex,dp=1.5ex,leftskip=0.3cm,rightskip=0.3cm]{structure}%
-\hfill\usebeamerfont{page number in head/foot}%
-\insertframenumber%
-\end{beamercolorbox}%
-}
+\setbeamertemplate{footline}{}
 
 %}}}
 %{{{ --- Frametitle -------------------
-\setbeamertemplate{frametitle}{%
-\nointerlineskip
-\begin{beamercolorbox}[wd=\paperwidth,leftskip=0.3cm,rightskip=0.3cm,ht=2.5ex,dp=1.5ex]{frametitle}
+
+%%%%% %%%%% %%%%% %%% %%%%  for pretty headers with pictures
+\setbeamertemplate{frametitle}{\vspace*{-1ex}%
+  \begin{beamercolorbox}[wd=\paperwidth,leftskip=0.3cm,rightskip=0.3cm,
+    ht=2.5ex, % extends from top of text
+    dp=.75ex % extends from bottom of text
+    ]{frametitle}%
   \usebeamerfont{frametitle}{\insertframetitle}%
 \end{beamercolorbox}
+% add the icons to the right hand side
+\begin{tikzpicture}[remember picture,overlay]
+  \node[anchor=north east,yshift=.25ex] at (current page.north east) {\includegraphics[height=1em]{2018-03-11_dc_figs/nuig_rounded.png}  \hspace*{.0001em} \includegraphics[height=1em, trim= 0cm 0.0cm 0.0cm 0cm]{2018-03-11_dc_figs/jhi_rounded.png}};
+\end{tikzpicture} \vskip -1.1cm
 }
-%}}}
 
-\mode
-<all>
+% \setbeamertemplate{frametitle}{%
+% \begin{beamercolorbox}[wd=\paperwidth,leftskip=0.3cm,rightskip=0.3cm,ht=2.5ex,dp=1.5ex]{frametitle}
+%   \usebeamerfont{frametitle}{\insertframetitle}%
+% \end{beamercolorbox}
+% }
+%}}}
 
 % {{{ misc
 \let\otp\titlepage
@@ -190,4 +205,10 @@
 
 \linespread{1.15}
 %}}}
-\setbeamertemplate{itemize items}{\includegraphics[width=3mm, valign=c]{~/GitHub/FB/Ecoli_comparative_genomics/doc/posters/utrecht2016/figs/coli_icon_D2.pdf}}
+% \setbeamertemplate{itemize items}{\includegraphics[width=3mm, valign=c]{../nrw_posters/utrecht2016/figs/coli_icon_D2.pdf}}
+\setbeamertemplate{itemize items}[square]
+
+
+
+\mode
+<all>
