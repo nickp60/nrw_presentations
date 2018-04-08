@@ -19,7 +19,11 @@
 
 \usetikzlibrary{backgrounds}
 
-\usefonttheme{NUIG}
+% weird sizes
+%\usefonttheme{NUIG}
+
+% looks bad zoomed in
+\usefonttheme{default}
 
 %}}}
 %{{{ --- Options ----------------------
@@ -47,7 +51,9 @@
 
 \def\titlepage{\usebeamertemplate{title page}}
 \setbeamertemplate{title page}
-{
+{%
+  % this messes up hte margins, so I'll have to wait on this feature
+%\begin{beamercolorbox}[wd=\paperwidth,ht=\paperheight]{title}%
   \begin{minipage}[b][\paperheight]{\textwidth}
     \vfill
     \ifx\inserttitle\@empty%
@@ -61,7 +67,7 @@
     {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
     \vspace*{0.5em}
     \fi%
-    \begin{tikzpicture}\draw[mLightBrown2] (0, 0) -- (\textwidth, 0);\end{tikzpicture}%
+    \begin{tikzpicture}\draw[titleaccent] (0, 0) -- (\textwidth, 0);\end{tikzpicture}%
     \vspace*{0.5em}
     \ifx\insertauthor\@empty%
     \else%
@@ -79,7 +85,8 @@
     \fi%
     \vfill
     \vspace*{5mm}
-  \end{minipage}
+  \end{minipage}%
+% \end{beamercolorbox}%
 }
 
 %}}}
@@ -109,10 +116,10 @@
 
       \node[anchor=west, white, inner sep=0pt] at (0pt, 0pt) {\insertsectionHEAD};
 
-      \draw[anchor=west, mDarkBrown, fill=mDarkBrown, inner sep=0pt]
+      \draw[anchor=west, progleft, fill=progleft, inner sep=0pt]
       (2pt, -16pt) rectangle ++ (\progressbar@pbwd, \progressbar@pbht);
 
-      \draw[anchor=west, mMediumBrown, fill=mMediumBrown, inner sep=0pt]
+      \draw[anchor=west, progdone, fill=progdone, inner sep=0pt]
       (2pt, -16pt) rectangle ++ (\progressbar@tmpdim, \progressbar@pbht);
     \end{tikzpicture}%
   }
@@ -155,7 +162,7 @@
 \AtBeginSection[]
 {
   \begingroup
-  \setbeamercolor{background canvas}{bg=black}
+  \setbeamercolor{background canvas}{fg=titletext, bg=titlebg}
   \begin{frame}[plain]
     \vspace{2em}\usebeamerfont{section title}
     \progressbar@progressbar%
@@ -188,7 +195,7 @@
 \end{beamercolorbox}
 % add the icons to the right hand side
 \begin{tikzpicture}[remember picture,overlay]
-  \node[anchor=north east,yshift=.25ex] at (current page.north east) {\includegraphics[height=1em]{2018-03-11_dc_figs/nuig_rounded.png}  \hspace*{.0001em} \includegraphics[height=1em, trim= 0cm 0.0cm 0.0cm 0cm]{2018-03-11_dc_figs/jhi_rounded.png}};
+  \node[anchor=north east,yshift=.25ex] at (current page.north east) {\includegraphics[height=1em]{2018-03-11_dc_figs/nuig_rounded.png}  \hspace*{-.25em} \includegraphics[height=1em, trim= 0cm 0.0cm 0.0cm 0cm]{2018-03-11_dc_figs/jhi_rounded.png}};
 \end{tikzpicture} \vskip -1.1cm
 }
 

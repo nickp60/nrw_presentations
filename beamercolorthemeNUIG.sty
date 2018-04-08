@@ -11,7 +11,10 @@
 
 % http://paletton.com/#uid=7050t0kkJkJsntwoyp6gYgoddc4
 
-
+%  Global colors
+\definecolor{progleft}{HTML}{604c38}
+\definecolor{progdone}{HTML}{C87A2F}
+\definecolor{titleaccent}{HTML}{892075}
 
 \mode<presentation>
 
@@ -21,54 +24,57 @@
 
 \def\beamer@NUIG@stylelight{light}%
 \def\beamer@NUIG@styledark{dark}%
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ifx\beamer@NUIG@style\beamer@NUIG@styledark%
-\definecolor{mDarkBrown}{HTML}{604c38}
-\definecolor{mDarkTeal}{HTML}{23373b}
-\definecolor{mDarkTeal2}{HTML}{183A59}
-\definecolor{headgrey}{HTML}{272727}
-\definecolor{footgrey}{HTML}{101010}
-\definecolor{foottextgrey}{HTML}{AAAAAA}
+%    IF DARK
+\definecolor{text}{HTML}{FFFFFF}
+\definecolor{alert}{HTML}{FFF600}
+\definecolor{background}{HTML}{000000}
+\definecolor{titletext}{HTML}{FFFFFF}
+\definecolor{titlebg}{HTML}{000000} % to be implemented
+\definecolor{foot}{HTML}{101010}
+\definecolor{foottext}{HTML}{AAAAAA}
+\definecolor{head}{HTML}{272727}
+\definecolor{structure}{HTML}{803EB6}
+\definecolor{bonus}{HTML}{803131}
+\definecolor{item}{HTML}{A7A7A7}
 
-\definecolor{mLightBrown}{HTML}{EB811B}
-\definecolor{mLightBrown2}{HTML}{892075}
-\definecolor{mMediumBrown}{HTML}{C87A2F}
+\else%  IF LIGHT
 
-\setbeamercolor{background canvas}{bg=black}
-\setbeamercolor{normal text}{fg=white}
-\setbeamercolor{alerted text}{fg=yellow}
-\setbeamercolor{structure}{bg=footgrey, fg=foottextgrey}
-\setbeamercolor{palette primary}{fg=mDarkBrown}
-\setbeamercolor{palette secondary}{fg=mDarkBrown}
-\setbeamercolor{palette tertiary}{fg=white, bg=mMediumBrown}
-\setbeamercolor{palette quaternary}{fg=white, bg=headgrey}
-\setbeamercolor{frametitle}{parent=palette quaternary}
-\setbeamercolor{title}{parent=palette quaternary}
-
-\setbeamercolor{page number in head/foot}{fg=foottextgrey}
-
-\else%  light
-\definecolor{mDarkBrown}{HTML}{604c38}
-\definecolor{mDarkTeal}{HTML}{23373b}
-\definecolor{mDarkTeal2}{HTML}{183A59}
-
-\definecolor{mLightBrown}{HTML}{EB811B}
-\definecolor{mLightBrown2}{HTML}{892075}
-\definecolor{mMediumBrown}{HTML}{C87A2F}
-
-\setbeamercolor{background canvas}{bg=black!2}
-\setbeamercolor{normal text}{fg=mDarkTeal2}
-\setbeamercolor{alerted text}{fg=mLightBrown}
-\setbeamercolor{structure}{fg=mDarkTeal2}
-\setbeamercolor{palette primary}{fg=mDarkBrown}
-\setbeamercolor{palette secondary}{fg=mDarkBrown}
-\setbeamercolor{palette tertiary}{fg=white, bg=mMediumBrown}
-\setbeamercolor{palette quaternary}{fg=white, bg=mDarkTeal2}
-\setbeamercolor{frametitle}{parent=palette quaternary}
-
-\setbeamercolor{page number in head/foot}{fg=mDarkTeal2}
+\definecolor{text}{HTML}{183A59}
+\definecolor{alert}{HTML}{FFF600}
+\definecolor{background}{HTML}{FAFAFA}
+\definecolor{titletext}{HTML}{183A59}
+\definecolor{titlebg}{HTML}{183A59} % to be implemented
+\definecolor{foot}{HTML}{101010}
+\definecolor{foottext}{HTML}{AAAAAA}
+\definecolor{head}{HTML}{FFFFFF}
+\definecolor{structure}{HTML}{272727}
+\definecolor{bonus}{HTML}{803131}
+\definecolor{item}{HTML}{2D6395}
 
 \fi%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setbeamercolor{background canvas}{bg=background}
+\setbeamercolor{normal text}{fg=text}
+\setbeamercolor{alerted text}{fg=alert}
+\setbeamercolor{structure}{bg=foot, fg=foottext}
+\setbeamercolor{title}{fg=titletext, bg=titlebg}
+\setbeamercolor{frametitle}{fg=titletext, bg=head}
+\setbeamercolor{section}{fg=frametext, bg=head}
+\setbeamercolor{subsection}{fg=bonus, bg=head}
+\setbeamercolor{structure}{fg=structure, bg=background}
+\setbeamercolor{item}{fg=item}
+\setbeamercolor{section in toc}{fg=text}
+\setbeamercolor{subsection in toc}{fg=item}
+
+% \setbeamercolor{palette primary}{fg=text, bg=background}
+% \setbeamercolor{palette secondary}{fg=green, bg=purple}
+% \setbeamercolor{palette tertiary}{fg=white, bg=red}
+% \setbeamercolor{palette quaternary}{fg=white, bg=orange}
+
+% \setbeamercolor{page number in head/foot}{fg=foottextgrey}
 
 
 \mode

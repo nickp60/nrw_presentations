@@ -8,12 +8,36 @@
 %
 
 \ProvidesPackage{beamerfontthemeNUIG}
+% \RequirePackage[T1]{fontenc}
+% \RequirePackage{lmodern}
+% \RequirePackage{textcomp}
+% \RequirePackage{amsmath,amssymb}
 
+\usepackage[T1]{fontenc}
+\usepackage[default]{gillius}
+
+% \usepackage[T1]{fontenc}
+% \renewcommand*\familydefault{\sfdefault}
 % \usepackage[no-math]{fontspec}
-\usepackage{etoolbox}
+% \usepackage{etoolbox}
 
 
-%%% modified by KK for ShareLaTeX use
+% \usepackage[defaultfam,light,tabular,lining]{montserrat} %% Option 'defaultfam'
+% %% only if the base font of the document is to be sans serig
+% \usepackage[T1]{fontenc}
+% \renewcommand*\oldstylenums[1]{{\fontfamily{Montserrat-TOsF}\selectfont #1}}
+
+% \usepackage[sfdefault,light]{roboto}  %% Option 'sfdefault' only if the base font of the document is to be sans serif
+% \usepackage[T1]{fontenc}
+
+% \usepackage[sfdefault]{universalis}
+% \usepackage[T1]{fontenc}
+
+%modified by KK for ShareLaTeX use
+% \usepackage[no-math]{fontspec}
+% \usepackage{etoolbox}
+
+
 % \defaultfontfeatures{Mapping=tex-text}
 % \setsansfont[Path=fonts/,BoldFont={FiraSans-Regular.ttf}]{FiraSans-Light.ttf}
 % \setmonofont[Path=fonts/]{FiraMono-Regular.ttf}
@@ -23,26 +47,26 @@
 % \newfontfamily\Medium[Path=fonts/,ItalicFont=FiraSans-MediumItalic.ttf]{FiraSans-Medium.ttf}
 
 % \AtBeginEnvironment{tabular}{\setsansfont[Path=fonts/,BoldFont={FiraSans-Regular.ttf}, Numbers={Monospaced}]{FiraSans-Light.ttf}}
-%%%
 
-\setbeamerfont{title}{family=\Book, size=\Large}
-\setbeamerfont{author}{family=\ExtraLight, size=\small}
-\setbeamerfont{date}{family=\ExtraLight, size=\small}
 
-\setbeamerfont{section title}{family=\Book, size=\LARGE}
+\setbeamerfont{title}{ size=\Large}
+\setbeamerfont{author}{size=\small}
+\setbeamerfont{date}{size=\small}
 
-\setbeamerfont{block title}{family=\Book,size=\normalsize}
-\setbeamerfont{block title alerted}{family=\Book,size=\normalsize}
+\setbeamerfont{section title}{size=\LARGE, series=\selectfont}
 
-\setbeamerfont{subtitle}{family=\Light, size=\fontsize{12}{14}}
-\setbeamerfont{frametitle}{family=\Book, size=\large}
+\setbeamerfont{block title}{size=\normalsize}
+\setbeamerfont{block title alerted}{size=\normalsize}
+
+\setbeamerfont{subtitle}{ size=\fontsize{12}{14}}
+\setbeamerfont{frametitle}{ size=\large}
 
 \setbeamerfont{alerted text}{family=\Light}
 
 \setbeamerfont{caption}{size=\small}
-\setbeamerfont{caption name}{family=\Book}
+% \setbeamerfont{caption name}{family=\Book}
 
-\setbeamerfont{description item}{family=\Book}
+% \setbeamerfont{description item}{family=\Book}
 
 
 \linespread{1.15}
