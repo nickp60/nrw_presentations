@@ -9,7 +9,7 @@
 # #+SUBTITLE
 #+INSTITUTE: Department of Microbiology \linebreak School of Natural Sciences \linebreak National University of Ireland, Galway}
 #+LATEX_HEADER: \institute{Department of Microbiology\\ School of Natural Sciences\\ National University of Ireland, Galway}
-#+LaTeX_HEADER:\usetheme{NUIG}
+#+LaTeX_HEADER:\usetheme[style=light]{NUIG}
 
 
 
@@ -179,23 +179,28 @@ Total
 
 
 
-* Pangenome of /E. coli/
+* Pangenome Analysis
 ? some figure
 
+* Assessing Assembly
 
+* Shameless Plug
+riboSeed 466 zone D (upper gallery)
+Tuesday and Wednesday Evening
 
+* Fixing contig end annotations
 
+* Filtering annotations with annofil
+
+* Running Scoary
+
+* Future work
 
 * Conclusions about Soil-persistent /E. coli/
 - Represent diverse lineages
 - Posess a range of virulence genes
 - May pose a human health threat
 - Complicate use of /E. coli/ as contamination indicator
-
-* Next Steps
-- Determine whether virulence genes are functional
-- Explore genomes for markers associated with soil isolates
-- Explore trends potentially relating function to environmental factors
 
 
 * Sources
@@ -219,11 +224,10 @@ Total
     \includegraphics[height=1cm]{2018-03-11_dc_figs/NUI_Galway_BrandMark_A_K.eps}\\
      NUIG Microbiology
       \begin{itemize}
-        % \item Dr. Fiona Brennan
-        % \item Dr. Florence Abram
-        \item Matthias Waibel
-        \item Stephen Nolan
-        \item Camilla Thorn
+        \item Dr. Fiona Brennan
+        \item Dr. Florence Abram
+        \item Soil and Environmental Microbiology Research Group
+        \item Functional Environmental Microbiology Group
       \end{itemize}
 
     \column{0.5\textwidth}
@@ -231,8 +235,8 @@ Total
     \includegraphics[height=1cm]{2018-03-11_dc_figs/trimmed_jhi.png}\\
       James Hutton Institute, Dundee
       \begin{itemize}
-        %\item Dr. Leighton Pritchard
-        %\item Dr. Ashleigh Holmes
+        \item Dr. Leighton Pritchard
+        \item Dr. Ashleigh Holmes
       \end{itemize}
 \vskip 1cm
        \huge Questions?
