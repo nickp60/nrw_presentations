@@ -1,0 +1,38 @@
+#+STARTUP: showall beamer
+#+COLUMNS: %40ITEM %10BEAMER_env(Env) %9BEAMER_envargs(Env Args) %4BEAMER_col(Col) %10BEAMER_extra(Extra)
+#+OPTIONS: toc:1 H:2
+#+TITLE: Testing-persistant /E. coli/
+#+SUBTITLE: Version 1.0
+#+AUTHOR: Nicholas Waters
+#+DATE: \today
+#+INSTITUTE: Department of Microbiology \linebreak School of Natural Sciences \linebreak National University of Ireland, Galway}
+#+LATEX_HEADER: \institute{Department of Microbiology\\ School of Natural Sciences\\ National University of Ireland, Galway}
+
+# keep the line below!  This template is intended for big font, changing will mess other things up
+#+LaTeX_CLASS_OPTIONS: [17pt,aspectratio=169]
+
+#+LaTeX_HEADER:\usetheme[style=light]{NUIG}
+
+
+#+LaTeX_HEADER: \usetikzlibrary{arrows, calc, spy}
+
+# light
+#+BEAMER: \setbeamertemplate{itemize items}{\includegraphics[width=.6em, valign=c]{./frequentFigs/coli_icon.pdf}}
+# dark
+# +BEAMER: \setbeamertemplate{itemize items}{\includegraphics[width=.6em, valign=c]{./frequentFigs/coli_icon_D2.pdf}}
+* Tqest 1
+
+** test2
+some text
+- /test1/
+- test2
+*** a further subpoint
+
+* new slide
+#+BEGIN_LaTeX
+\begin{tikzpicture}[spy using outlines={black,square,magnification=4, size=6cm,connect spies}]
+  \node[anchor=south west,inner sep=0] (image) at (0,0){
+  \includegraphics[height=.85\paperheight]{../nrw_posters/utrecht2016/figs/ANIm_percentage_identity_edited.pdf}};
+    \spy on ($.53*(image.north)+0.61*(image.east)$) in node at ([xshift=4cm]image.east);
+\end{tikzpicture}
+#+END_LaTeX
