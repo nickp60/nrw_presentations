@@ -2,7 +2,7 @@
 #+COLUMNS: %40ITEM %10BEAMER_env(Env) %9BEAMER_envargs(Env Args) %4BEAMER_col(Col) %10BEAMER_extra(Extra)
 # +BEAMER_HEADER: \titlegraphic{\includegraphics[height=1.5cm]{InstLogo}}
 
-#+TITLE: Genomic insights and virulence in soil-persistant /E. coli/
+#+TITLE: Genomic insights and virulence in soil-persistent /E. coli/
 #+SUBTITLE: Version 1.0
 #+AUTHOR: Nicholas Waters
 #+DATE: \today
@@ -48,7 +48,7 @@
 # +BEAMER: \setbeamertemplate{itemize items}{\includegraphics[width=.6em, valign=c]{./frequentFigs/coli_icon_D2.pdf}}
 
 
-* A Brief History of Soil-persistent E. coli
+* A Brief History of Soil-persistent /E. coli/
 #+BEGIN_LaTeX
 %% handy timeline thing
 \newcommand\ytl[2]{
@@ -82,13 +82,13 @@
 
 
 * Research Questions
-- What types of E. coli are able to persist in soil?
+- What types of /E. coli/ are able to persist in soil?
 #+BEAMER: \pause
 - What virulence factors are harboured by these strains?
 #+BEAMER: \pause
 - What can we infer about adaptation from these?
 #+BEAMER: \pause
-- Can we differentiate soil-persistent E. coli from recent contamination?
+- Can we differentiate soil-persistent /E. coli/ from recent contamination?
 
 * Workflow
 
@@ -209,16 +209,17 @@ http://widdowquinn.github.io/pyani/
 
 * Pangenome Analysis
 
-|            | Core |   | Accessory | Shell | Cloud | total |
-|------------+------+---+-----------+-------+-------+-------|
-| Soil       |      |   |           |       |       |       |
-| Enterobase |      |   |           |       |       |       |
-
+|            |    N | Core | Soft Core | Shell | Cloud  | total  |
+|            |      | >99% |     95-99 | 15-95 | 0-15   |        |
+|------------+------+------+-----------+-------+--------+--------|
+| Soil       |  149 | 2662 |       505 |  2664 | 15,831 | 21,662 |
+| Enterobase | 1193 | 1822 |       514 |  3346 | 73,606 | 79,288 |
+| All        | 1342 | 1806 |       535 |  3406 | 78,121 | 83,868 |
 
 * Assessing Assembly
 #+CAPTION:
 #+NAME:   fig:Annofilt
-#+ATTR_LATEX: :height .8\paperheight
+#+ATTR_LATEX: :height .6\paperheight
 # +BEAMER \hspace*{-2em}
 [[file:./frequentFigs/weird_gene3.png]]
 
@@ -280,7 +281,7 @@ Come ask about our tool *riboSeed* to assemble through rDNA repeats!
 [[file:./frequentFigs/logo_1_dark.png]]
 
 
-* Running Scoary
+* Detecting differential presence/absence
 [[file:./frequentFigs/scoary.png]]
 
 
@@ -292,12 +293,12 @@ Come ask about our tool *riboSeed* to assemble through rDNA repeats!
 - mobile elements
 
 * Conclusions
-- Represent diverse lineages
-- Posess a range of virulence genes
-- Pangenome analysis is very sensative to annotation
+- Soil /E. coli/ represent diverse lineages
+- Soil /E. coli/ possess a range of virulence genes
+- Pangenome analysis is very sensitive to annotation
 
 
-#+BEAMER: \vskip 5ex \alert{\huge Questions?}
+# +BEAMER: \vskip 5ex \alert{\huge Questions?}
 
 * Acknowledgments
 \small
