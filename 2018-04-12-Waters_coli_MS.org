@@ -2,7 +2,7 @@
 #+COLUMNS: %40ITEM %10BEAMER_env(Env) %9BEAMER_envargs(Env Args) %4BEAMER_col(Col) %10BEAMER_extra(Extra)
 # +BEAMER_HEADER: \titlegraphic{\includegraphics[height=1.5cm]{InstLogo}}
 
-#+TITLE: Genomic insights and virulence in soil-persistent /E. coli/
+#+TITLE: Genomic insights and virulence in soil-persistent~/E. coli/
 #+SUBTITLE: Version 1.0
 #+AUTHOR: Nicholas Waters
 #+DATE: \today
@@ -62,17 +62,17 @@
 \color{gray}
 \rule{\linewidth}{1pt}
 \ytl{1886}{Escherich: Discovery of \textit{E. coli}}
-\ytl{1948}{Bardsley: Soil may act as reservoir for \textit{E. coli}}
-\ytl{1963}{W. and J. Boyd: Cold persistence observed }
-%\ytl{1967}{Klein, et al: Die-off related to metabolism rates}
-%\ytl{1972}{Evans, et al: Drainage related to coliform counts} % and slurry spreading
-\ytl{1988}{Fujioka and Shizumura: Alternative indicators suggested }
-%\ytl{1992}{Tsai, et al: PCR detection of from soil}
+\ytl{1948}{Soil may act as reservoir for \textit{E. coli} [Bardsley] }
+\ytl{1963}{Cold persistence observed [W. and J. Boyd]}
+%\ytl{1967}{Die-off related to metabolism rates [Klein, et al]}
+%\ytl{1972}{Drainage related to coliform counts [Evans, et al]} % and slurry spreading
+\ytl{1988}{Alternative indicators suggested [Fujioka and Shizumura] }
+%\ytl{1992}{PCR detection of from soil [Tsai, et al]}
 % This date is wrong \ytl{1997}{Texier, et al: Stable populations exist in alpine grasslands}
-\ytl{1995}{R. Sjogren: soil persistence across time and depth}
+\ytl{1995}{Soil persistence across time and depth [R. Sjogren]}
 %\ytl{1998}{Byappanahalli and Fujioka: Soil extracts as growth media}
-\ytl{2003}{Byappanahalli, et al: Soil persistence is widespread }
-\ytl{2010}{Brennan, et al: Persistence in maritime temperate soils}
+\ytl{2003}{Soil persistence is widespread [Byappanahalli, et al] }
+\ytl{2010}{Persistence in maritime temperate soils [Brennan, et al]}
 \bigskip
 \rule{\linewidth}{1pt}%
 \end{minipage}%
@@ -90,12 +90,12 @@
 #+BEAMER: \pause
 - Can we differentiate soil-persistent /E. coli/ from recent contamination?
 
-* Workflow
+# * Workflow
 
-#+CAPTION: workflow
-#+NAME:   fig:workflow
-#+ATTR_LATEX: :width .86\textwidth
-[[file:./frequentFigs/workflow_v1_solid.png]]
+# #+CAPTION: workflow
+# #+NAME:   fig:workflow
+# #+ATTR_LATEX: :width .86\textwidth
+# [[file:./frequentFigs/workflow_v1_solid.png]]
 
 * The data
 - 171 isolates sequenced
@@ -196,7 +196,7 @@ http://widdowquinn.github.io/pyani/
    :BEAMER_col: 0.45
    :END:
 - One isolate from each Achman 7 MLST
-- Total: 1185
+- Total: 1193
 
 ** Col right                                                          :BMCOL:
    :PROPERTIES:
@@ -207,14 +207,6 @@ http://widdowquinn.github.io/pyani/
 #+ATTR_LATEX: :width .9\textwidth
 [[file:./frequentFigs/enterobase_source.pdf]]
 
-* Pangenome Analysis
-
-|            |    N | Core | Soft Core | Shell | Cloud  | total  |
-|            |      | >99% |     95-99 | 15-95 | 0-15   |        |
-|------------+------+------+-----------+-------+--------+--------|
-| Soil       |  149 | 2662 |       505 |  2664 | 15,831 | 21,662 |
-| Enterobase | 1193 | 1822 |       514 |  3346 | 73,606 | 79,288 |
-| All        | 1342 | 1806 |       535 |  3406 | 78,121 | 83,868 |
 
 * Assessing Assembly
 #+CAPTION:
@@ -223,30 +215,34 @@ http://widdowquinn.github.io/pyani/
 # +BEAMER \hspace*{-2em}
 [[file:./frequentFigs/weird_gene3.png]]
 
-* annofilt
-** Col left                                                           :BMCOL:
-   :PROPERTIES:
-   :BEAMER_col: 0.65
-   :BEAMER_opt: [t]
-   :END:
-1. Create reference pangenome
-2. Find genes next to contig borders
-3. Blast against pangenome
-4. Reject hits <  90% of CDS length
+# * annofilt
+# ** Col left                                                           :BMCOL:
+#    :PROPERTIES:
+#    :BEAMER_col: 0.65
+#    :BEAMER_opt: [t]
+#    :END:
+# 1. Create reference pangenome
+# 2. Find genes next to contig borders
+# 3. Blast against pangenome
+# 4. Reject hits <  90% of CDS length
 
-** Col right                                                          :BMCOL:
-   :PROPERTIES:
-   :BEAMER_col: 0.33
-   :BEAMER_opt: [t]
-   :END:
-#+BEAMER: \pause
-#+CAPTION:
-#+NAME:   fig:Annofilt
-#+ATTR_LATEX: :width \textwidth
-[[file:../annofilt/docs/icon/icon.pdf]]
+# ** Col right                                                          :BMCOL:
+#    :PROPERTIES:
+#    :BEAMER_col: 0.33
+#    :BEAMER_opt: [t]
+#    :END:
+# #+BEAMER: \pause
+# #+CAPTION:
+# #+NAME:   fig:Annofilt
+# #+ATTR_LATEX: :width \textwidth
+# [[file:../annofilt/docs/icon/icon.pdf]]
 
 * annofilt performance
 https://nickp60.github.io/annofilt/
+#+CAPTION:
+#+NAME:   fig:Annofilt
+#+ATTR_LATEX: :width .1\textwidth
+[[file:../annofilt/docs/icon/icon.pdf]]
 #+BEAMER: \vskip -5ex
 ** Col left                                                           :BMCOL:
    :PROPERTIES:
@@ -271,14 +267,17 @@ https://nickp60.github.io/annofilt/
 
 
 
-* Interested in Genome Assembly?
-Come ask about our tool *riboSeed* to assemble through rDNA repeats!
-- Poster 466 zone D (upper gallery)
-- Tuesday and Wednesday Evening
-#+CAPTION: workflow
-#+NAME:   fig:workflow
-#+ATTR_LATEX: :width .6\textwidth
-[[file:./frequentFigs/logo_1_dark.png]]
+
+* Pangenome Analysis
+
+|            |    N | Core | Soft Core | Shell | Cloud  | total  |
+|            |      | >99% |     95-99 | 15-95 | 0-15   |        |
+|------------+------+------+-----------+-------+--------+--------|
+| Soil       |  149 | 2662 |       505 |  2664 | 15,831 | 21,662 |
+| Enterobase | 1193 | 1822 |       514 |  3346 | 73,606 | 79,288 |
+| All        | 1342 | 1806 |       535 |  3406 | 78,121 | 83,868 |
+
+
 
 
 * Detecting differential presence/absence
@@ -287,15 +286,24 @@ Come ask about our tool *riboSeed* to assemble through rDNA repeats!
 
 
 * Future work
-- subpangenomes
-- virulence pathways
+- Subpangenomes
+- Virulence pathways
 - AMR
-- mobile elements
+- Mobile elements
 
 * Conclusions
 - Soil /E. coli/ represent diverse lineages
 - Soil /E. coli/ possess a range of virulence genes
 - Pangenome analysis is very sensitive to annotation
+
+* Interested in Genome Assembly?
+Come ask about our tool *riboSeed* to assemble through rDNA repeats!
+- Poster 466 zone D (upper gallery)
+- Tuesday and Wednesday Evening
+#+CAPTION: workflow
+#+NAME:   fig:workflow
+#+ATTR_LATEX: :width .6\textwidth
+[[file:./frequentFigs/logo_1_dark.png]]
 
 
 # +BEAMER: \vskip 5ex \alert{\huge Questions?}
