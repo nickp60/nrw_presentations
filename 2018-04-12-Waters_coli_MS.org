@@ -2,7 +2,7 @@
 #+COLUMNS: %40ITEM %10BEAMER_env(Env) %9BEAMER_envargs(Env Args) %4BEAMER_col(Col) %10BEAMER_extra(Extra)
 # +BEAMER_HEADER: \titlegraphic{\includegraphics[height=1.5cm]{InstLogo}}
 
-#+TITLE: Genomic insights and virulence in soil-persistent~/E. coli/
+#+TITLE: Genomic insights and virulence in soil-persistent /E. coli/
 #+SUBTITLE: Version 1.0
 #+AUTHOR: Nicholas Waters
 #+DATE: \today
@@ -11,8 +11,7 @@
 #+LATEX_HEADER: \institute{Department of Microbiology\\ School of Natural Sciences\\ National University of Ireland, Galway}
 #+LaTeX_HEADER:\usetheme[style=light]{NUIG}
 
-
-#+OPTIONS: H:1 toc:nil
+#+OPTIONS: H:2 toc:1
 
 #+LaTeX_CLASS_OPTIONS: [17pt,aspectratio=169]
 #+LATEX_HEADER: \renewcommand*\familydefault{\sfdefault}
@@ -47,8 +46,8 @@
 # dark
 # +BEAMER: \setbeamertemplate{itemize items}{\includegraphics[width=.6em, valign=c]{./frequentFigs/coli_icon_D2.pdf}}
 
-
-* A Brief History of Soil-persistent /E. coli/
+* Background
+** A Brief History of Soil-persistent /E. coli/
 #+BEGIN_LaTeX
 %% handy timeline thing
 \newcommand\ytl[2]{
@@ -80,8 +79,8 @@
 \end{table}
 #+END_LaTeX
 
-
-* Research Questions
+* Our work
+** Research Questions
 - What types of /E. coli/ are able to persist in soil?
 #+BEAMER: \pause
 - What virulence factors are harboured by these strains?
@@ -97,16 +96,16 @@
 # #+ATTR_LATEX: :width .86\textwidth
 # [[file:./frequentFigs/workflow_v1_solid.png]]
 
-* The data
+** The data
 - 171 isolates sequenced
 - 22 failed assembly QC or ANI threshold
-- *149 true /E. coli/ passed ANI screening*
+- *149 true /E. coli/*
 
 
-
-* Sequence Typing
+* Classification
+** Sequence Typing
 #+LaTeX: \vskip 1ex
-** Col left                                                           :BMCOL:
+*** Col left 							      :BMCOL:
    :PROPERTIES:
    :BEAMER_col: 0.5
    :BEAMER_opt: [t]
@@ -117,7 +116,7 @@ Clermont 2013
 #+ATTR_LATEX: :height .65\textheight
 [[file:./frequentFigs/Phylogroups_solid.png]]
 
-** Col right                                                          :BMCOL:
+*** Col right 							      :BMCOL:
    :PROPERTIES:
    :BEAMER_col: 0.5
    :BEAMER_opt: [t]
@@ -129,7 +128,7 @@ Achman 7 gene MLST
 [[file:./frequentFigs/MLST_plot.pdf]]
 
 
-* Average Nucleotide Identity
+** Average Nucleotide Identity
 http://widdowquinn.github.io/pyani/
 #+BEGIN_LaTeX
 \begin{tikzpicture}[spy using outlines={black,square,magnification=5, size=6cm,connect spies}]
@@ -139,7 +138,7 @@ http://widdowquinn.github.io/pyani/
 #+END_LaTeX
 
 
-* Average Nucleotide Identity
+** Average Nucleotide Identity
 http://widdowquinn.github.io/pyani/
 #+BEGIN_LaTeX
 \begin{tikzpicture}[spy using outlines={black,square,magnification=5, size=6cm,connect spies}]
@@ -149,14 +148,17 @@ http://widdowquinn.github.io/pyani/
 \end{tikzpicture}
 #+END_LaTeX
 
-* Virulence
-- Search literature for genes implicated in virulence
-- Select representative sequences for 65 virulence factors
-- Use reciprocal translated blast to find occurrences
-- Filter results, visualize
+* Assessing Virulence
 
-* Virulence Results
+
+** Virulence Results
+#+BEAMER: \vskip 1ex
+*** Col left 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.4
+   :END:
 #+BEGIN_LaTeX
+\pause
 %\begin{tikzpicture}[remember picture, overlay]
 %    \node[xshift=-5cm,yshift=-4.8cm] (innerimage) at (current page.north east){
 \begin{tikzpicture}[spy using outlines={red,square,magnification=4, size=3.5cm,connect spies}]
@@ -171,8 +173,22 @@ http://widdowquinn.github.io/pyani/
 \end{tikzpicture}
 #+END_LaTeX
 
+*** Col right 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.59
+   :END:
+- Select representative sequences for 65 virulence factors
+- Use reciprocal translated blast to find occurrences
+- Visualize filtered results
 
-* Virulence Results
+
+
+** Virulence Results
+#+BEAMER: \vskip 1ex
+*** Col left 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.8
+   :END:
 #+BEGIN_LaTeX
 %\begin{tikzpicture}[remember picture, overlay]
 %    \node[xshift=-5cm,yshift=-4.8cm] (innerimage) at (current page.north east){
@@ -189,16 +205,23 @@ http://widdowquinn.github.io/pyani/
 \end{tikzpicture}
 #+END_LaTeX
 
-* Enterobase comparison strains
-#+LaTeX: \vskip 5ex
-** Col left                                                           :BMCOL:
+*** Col right 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.2
+   :END:
+#+LaTeX:\phantom{test}
+
+* Pangenome Analysis
+** Enterobase comparison strains
+#+LaTeX: \vskip 3ex
+*** Col left 							      :BMCOL:
    :PROPERTIES:
    :BEAMER_col: 0.45
    :END:
 - One isolate from each Achman 7 MLST
 - Total: 1193
 
-** Col right                                                          :BMCOL:
+*** Col right 							      :BMCOL:
    :PROPERTIES:
    :BEAMER_col: 0.53
    :END:
@@ -207,16 +230,26 @@ http://widdowquinn.github.io/pyani/
 #+ATTR_LATEX: :width .9\textwidth
 [[file:./frequentFigs/enterobase_source.pdf]]
 
+** Assessing Assemblies
 
-* Assessing Assembly
-#+CAPTION:
-#+NAME:   fig:Annofilt
-#+ATTR_LATEX: :height .6\paperheight
-# +BEAMER \hspace*{-2em}
-[[file:./frequentFigs/weird_gene3.png]]
+#+BEGIN_LaTeX
+\noindent
+\begin{tikzpicture}
+\node [anchor=west] (note) at (-1,4) {\Large Partial};
+\begin{scope}[xshift=1.5cm]
+    \node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=0.67\textwidth]{./frequentFigs/weird_gene3.png}};
+    \begin{scope}[x={(image.south east)},y={(image.north west)}]
+        \draw[red,ultra thick,rounded corners] (0.5,0.05) rectangle (0.55,0.15);
+        \draw [-latex, ultra thick, red] (note) to (0.48,0.1);
+    \end{scope}
+\end{scope}
+\end{tikzpicture}%
 
-# * annofilt
-# ** Col left                                                           :BMCOL:
+#+END_LaTeX
+
+
+# ** annofilt
+# *** Col left                                                           :BMCOL:
 #    :PROPERTIES:
 #    :BEAMER_col: 0.65
 #    :BEAMER_opt: [t]
@@ -226,7 +259,7 @@ http://widdowquinn.github.io/pyani/
 # 3. Blast against pangenome
 # 4. Reject hits <  90% of CDS length
 
-# ** Col right                                                          :BMCOL:
+# *** Col right                                                          :BMCOL:
 #    :PROPERTIES:
 #    :BEAMER_col: 0.33
 #    :BEAMER_opt: [t]
@@ -237,14 +270,11 @@ http://widdowquinn.github.io/pyani/
 # #+ATTR_LATEX: :width \textwidth
 # [[file:../annofilt/docs/icon/icon.pdf]]
 
-* annofilt performance
-https://nickp60.github.io/annofilt/
-#+CAPTION:
-#+NAME:   fig:Annofilt
-#+ATTR_LATEX: :width .1\textwidth
-[[file:../annofilt/docs/icon/icon.pdf]]
-#+BEAMER: \vskip -5ex
-** Col left                                                           :BMCOL:
+** annofilt performance
+#+LaTeX: \vskip -2ex
+#+LaTeX: \url{https://nickp60.github.io/annofilt/} \vspace{1em} \includegraphics[width=.1\textwidth, valign=b]{../annofilt/docs/icon/icon.pdf}
+#+LaTeX: \vskip -6ex
+*** Col left 							      :BMCOL:
    :PROPERTIES:
    :BEAMER_col: 0.4
    :BEAMER_opt: [t]
@@ -254,7 +284,7 @@ https://nickp60.github.io/annofilt/
 #+ATTR_LATEX: :width \textwidth
 [[file:./frequentFigs/ent2.png]]
 
-** Col right                                                          :BMCOL:
+*** Col right                                                          :BMCOL:
    :PROPERTIES:
    :BEAMER_col: 0.4
    :BEAMER_opt: [t]
@@ -268,35 +298,51 @@ https://nickp60.github.io/annofilt/
 
 
 
-* Pangenome Analysis
+** Pangenome Analysis
 
-|            |    N | Core | Soft Core | Shell | Cloud  | total  |
-|            |      | >99% |     95-99 | 15-95 | 0-15   |        |
-|------------+------+------+-----------+-------+--------+--------|
-| Soil       |  149 | 2662 |       505 |  2664 | 15,831 | 21,662 |
-| Enterobase | 1193 | 1822 |       514 |  3346 | 73,606 | 79,288 |
-| All        | 1342 | 1806 |       535 |  3406 | 78,121 | 83,868 |
-
+|            |    N | Core   | total  |
+|------------+------+--------+--------|
+| Soil       |  149 | 2662   | 21,662 |
+| Enterobase | 1193 | *1822* | 79,288 |
+| All        | 1342 | *1806* | 83,868 |
 
 
 
-* Detecting differential presence/absence
-[[file:./frequentFigs/scoary.png]]
 
+** Detecting differential presence/absence
+#+LaTeX: \vskip -6ex
+*** Col left 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.5
+   :BEAMER_opt: [c]
+   :END:
 
+- Statistically compare traits to a pangenome
 
-* Future work
+*** Col right                                                          :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.4
+   :BEAMER_opt: [c]
+   :END:
+
+#+CAPTION:
+#+NAME:   fig:scoary
+#+ATTR_LATEX: :width \textwidth
+file:./frequentFigs/scoary.png
+
+* In conclusion
+** Future work
 - Subpangenomes
 - Virulence pathways
 - AMR
 - Mobile elements
 
-* Conclusions
+** Conclusions
 - Soil /E. coli/ represent diverse lineages
 - Soil /E. coli/ possess a range of virulence genes
 - Pangenome analysis is very sensitive to annotation
 
-* Interested in Genome Assembly?
+** Interested in Genome Assembly?
 Come ask about our tool *riboSeed* to assemble through rDNA repeats!
 - Poster 466 zone D (upper gallery)
 - Tuesday and Wednesday Evening
@@ -308,7 +354,7 @@ Come ask about our tool *riboSeed* to assemble through rDNA repeats!
 
 # +BEAMER: \vskip 5ex \alert{\huge Questions?}
 
-* Acknowledgments
+** Acknowledgments
 \small
 #+BEGIN_LaTeX
   \begin{columns}[onlytextwidth]
@@ -331,6 +377,7 @@ Come ask about our tool *riboSeed* to assemble through rDNA repeats!
         \item[\square] Dr. Ashleigh Holmes
       \end{itemize}
 \vskip 1cm
+\pause
        \huge Questions?
   \end{columns}
 
