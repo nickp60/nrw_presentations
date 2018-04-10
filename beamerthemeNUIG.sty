@@ -38,14 +38,34 @@
 \DeclareOptionBeamer{style}{
   \PassOptionsToPackage{style=#1}{beamercolorthemeNUIG}
 }
+\ExecuteOptionsBeamer{style=dark}
+\ProcessOptionsBeamer
 
-% \def\beamer@NUIG@{#1}
+%%%%%%%%%%%%% pass additional background color per frame
 
-% \ifx#1\beamer@NUIG@dark%
-% \setbeamertemplate{itemize items}[square]
-% \else%
-% \setbeamertemplate{itemize items}[circle]
-% \fi%
+%https://tex.stackexchange.com/questions/8043/change-the-background-color-of-a-frame-in-beamer
+\defbeamertemplate*{background canvas}{mydefault}
+{%
+  \ifbeamercolorempty[bg]{background canvas}{}{\color{bg}\vrule width\paperwidth height\paperheight}% copied beamer default here
+}
+
+\defbeamertemplate*{background canvas}{bg}
+{%
+  \color{black!50}\vrule width\paperwidth height\paperheight% added bg color
+}
+
+\BeforeBeginEnvironment{frame}{%
+  \setbeamertemplate{background canvas}[mydefault]%
+}
+
+\makeatletter
+\define@key{beamerframe}{bg}[true]{%
+  \setbeamertemplate{background canvas}[bg]%
+}
+\makeatother
+
+%%%%%%%%%%%
+
 
 \usecolortheme{NUIG}
 
@@ -152,12 +172,12 @@
 
 %}}}
 %{{{ --- Itemize ----------------------
-\newcommand{\itemBullet}{∙}
+% \newcommand{\itemBullet}{∙}
 
-\setbeamertemplate{itemize item}{\itemBullet}
-\setbeamertemplate{itemize subitem}{\itemBullet}
-\setbeamertemplate{itemize subsubitem}{\itemBullet}
-\setlength{\parskip}{0.5em}
+% \setbeamertemplate{itemize item}{\itemBullet}
+% \setbeamertemplate{itemize subitem}{\itemBullet}
+% \setbeamertemplate{itemize subsubitem}{\itemBullet}
+% \setlength{\parskip}{0.5em}
 
 %}}}
 %{{{ --- Sections ---------------------
