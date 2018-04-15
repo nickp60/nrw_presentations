@@ -7,9 +7,8 @@
 #+AUTHOR: Nicholas Waters
 #+DATE: \today
 # #+SUBTITLE
-#+INSTITUTE: Department of Microbiology \linebreak School of Natural Sciences \linebreak National University of Ireland, Galway}
-#+LATEX_HEADER: \institute{Department of Microbiology\\ School of Natural Sciences\\ National University of Ireland, Galway}
-#+LaTeX_HEADER:\usetheme[style=light]{NUIG}
+#+INSTITUTE: National University of Ireland, Galway, Ireland \linebreak The James Hutton Institute, Dundee, Scotland}
+#+LATEX_HEADER: \institute{National University of Ireland, Galway, Ireland \\ The James Hutton Institute, Dundee, Scotland}
 
 #+OPTIONS: H:2 toc:1
 
@@ -32,26 +31,27 @@
 #+LATEX_HEADER: \def\endverbatim{\oldendv\egroup\fboxsep0pt \noindent\colorbox[gray]{0.8}{\usebox0}\par}
 #+LaTeX_HEADER: \usepackage{array, booktabs, xcolor, tikz}
 
-
-# +LaTeX_HEADER: \setbeamerfont{frametitle}{size=\normalsize}
 #+LaTeX_HEADER: \usepackage{graphicx}
-#+LaTeX_HEADER: \usetikzlibrary{arrows, calc, spy}
+
+#+LaTeX_HEADER: \usetikzlibrary{arrows, calc, spy, shapes}
+#+LaTeX_HEADER: \tikzstyle{square} = [draw]
 
 
 #+LaTeX_HEADER:\addtobeamertemplate{footnote}{\tiny}{} %\vspace{2ex}}
-
-
+# set light/ dark theme here
+#+LaTeX_HEADER:\usetheme[style=light]{NUIG}
 # light
 #+BEAMER: \setbeamertemplate{itemize items}{\includegraphics[width=.6em, valign=c]{./frequentFigs/coli_icon.pdf}}
 # dark
 # +BEAMER: \setbeamertemplate{itemize items}{\includegraphics[width=.6em, valign=c]{./frequentFigs/coli_icon_D2.pdf}}
+
 
 * Background
 ** A Brief History of Soil-persistent /E. coli/
 #+BEGIN_LaTeX
 %% handy timeline thing
 \newcommand\ytl[2]{
-\parbox[b]{4em}{\hfill{\color{headgrey}\bfseries\sffamily #1}~$\cdots$~}\makebox[0pt][c]{$\bullet$}\vrule\quad \parbox[c]{24em}{\vspace{7pt}\color{bonus}\raggedright\sffamily #2\\[7pt]}\\[-3pt]}
+\parbox[b]{4em}{\hfill{\color{black!50}\bfseries\sffamily #1}~$\cdots$~}\makebox[0pt][c]{$\bullet$}\vrule\quad \parbox[c]{24em}{\vspace{7pt}\color{bonus}\raggedright\sffamily #2\\[7pt]}\\[-3pt]}
 %
 \begin{table}{\small
 % \caption{A Brief Literature Review}
@@ -104,6 +104,13 @@
 
 * Classification
 ** Sequence Typing
+#+LaTeX: \centering
+[[github.com/nickp60/clermontpcr]]
+#+NAME:   fig:pcr
+#+ATTR_LATEX: :height .7\textheight
+[[./frequentFigs/pcr.png]]
+
+** Sequence Typing
 #+LaTeX: \vskip 1ex
 *** Col left 							      :BMCOL:
    :PROPERTIES:
@@ -121,9 +128,9 @@ Clermont 2013
    :BEAMER_col: 0.5
    :BEAMER_opt: [t]
    :END:
-Achman 7 gene MLST
+Achtman 7 gene MLST
 #+CAPTION: Soil /E. Coli/ MLST
-#+NAME:   fig:phylo
+#+NAME:   fig:mlst
 #+ATTR_LATEX: :height .65\textheight
 [[file:./frequentFigs/MLST_plot.pdf]]
 
@@ -139,6 +146,9 @@ http://widdowquinn.github.io/pyani/
 
 
 ** Average Nucleotide Identity
+:PROPERTIES:
+:BEAMER_opt: fragile
+:END:
 http://widdowquinn.github.io/pyani/
 #+BEGIN_LaTeX
 \begin{tikzpicture}[spy using outlines={black,square,magnification=5, size=6cm,connect spies}]
@@ -153,7 +163,16 @@ http://widdowquinn.github.io/pyani/
 
 ** Virulence Results
 #+BEAMER: \vskip 1ex
+
 *** Col left 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.59
+   :END:
+- Select representative sequences for 65 virulence factors
+- Use reciprocal translated blast to find occurrences
+- Visualize filtered results
+
+*** Col right 							      :BMCOL:
    :PROPERTIES:
    :BEAMER_col: 0.4
    :END:
@@ -173,19 +192,16 @@ http://widdowquinn.github.io/pyani/
 \end{tikzpicture}
 #+END_LaTeX
 
-*** Col right 							      :BMCOL:
-   :PROPERTIES:
-   :BEAMER_col: 0.59
-   :END:
-- Select representative sequences for 65 virulence factors
-- Use reciprocal translated blast to find occurrences
-- Visualize filtered results
-
-
 
 ** Virulence Results
 #+BEAMER: \vskip 1ex
 *** Col left 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.2
+   :END:
+#+LaTeX:\phantom{test}
+
+*** Col right 							      :BMCOL:
    :PROPERTIES:
    :BEAMER_col: 0.8
    :END:
@@ -205,11 +221,6 @@ http://widdowquinn.github.io/pyani/
 \end{tikzpicture}
 #+END_LaTeX
 
-*** Col right 							      :BMCOL:
-   :PROPERTIES:
-   :BEAMER_col: 0.2
-   :END:
-#+LaTeX:\phantom{test}
 
 * Pangenome Analysis
 ** Enterobase comparison strains
@@ -218,7 +229,7 @@ http://widdowquinn.github.io/pyani/
    :PROPERTIES:
    :BEAMER_col: 0.45
    :END:
-- One isolate from each Achman 7 MLST
+- One isolate from each Achtman 7 MLST
 - Total: 1193
 
 *** Col right 							      :BMCOL:
@@ -291,7 +302,7 @@ http://widdowquinn.github.io/pyani/
    :END:
 
 #+CAPTION:
-#+NAME:   fig:Annofilt
+#+NAME:   fig:ent1
 #+ATTR_LATEX: :width \textwidth
 [[file:./frequentFigs/ents.png]]
 
@@ -330,7 +341,7 @@ http://widdowquinn.github.io/pyani/
 #+ATTR_LATEX: :width \textwidth
 file:./frequentFigs/scoary.png
 
-* In conclusion
+* Summary
 ** Future work
 - Subpangenomes
 - Virulence pathways

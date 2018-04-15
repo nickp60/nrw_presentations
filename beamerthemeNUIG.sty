@@ -17,7 +17,8 @@
 \usepackage{tikz}
 \usepackage[export]{adjustbox}
 
-\usetikzlibrary{backgrounds}
+\usetikzlibrary{arrows, calc, spy, shapes, backgrounds}
+\tikzstyle{square}=[draw]
 
 % weird sizes
 %\usefonttheme{NUIG}
@@ -42,27 +43,28 @@
 \ProcessOptionsBeamer
 
 %%%%%%%%%%%%% pass additional background color per frame
+% https://tex.stackexchange.com/questions/8043/change-the-background-color-of-a-frame-in-beamer
 
-%https://tex.stackexchange.com/questions/8043/change-the-background-color-of-a-frame-in-beamer
-\defbeamertemplate*{background canvas}{mydefault}
-{%
-  \ifbeamercolorempty[bg]{background canvas}{}{\color{bg}\vrule width\paperwidth height\paperheight}% copied beamer default here
-}
+ \defbeamertemplate*{background canvas}{mydefault}
+ {%
+   \ifbeamercolorempty[newbg]{background canvas}{}{\color{bg}\vrule width\paperwidth height\paperheight}% copied beamer default here
+ }
 
-\defbeamertemplate*{background canvas}{bg}
-{%
-  \color{black!50}\vrule width\paperwidth height\paperheight% added bg color
-}
+ \defbeamertemplate*{background canvas}{newbg}
+ {%
+   \color{black!40}\vrule width\paperwidth height\paperheight% added bg color
+ }
 
-\BeforeBeginEnvironment{frame}{%
-  \setbeamertemplate{background canvas}[mydefault]%
-}
+ \BeforeBeginEnvironment{frame}{%
+   \setbeamertemplate{background canvas}[mydefault]%
+ }
 
-\makeatletter
-\define@key{beamerframe}{bg}[true]{%
-  \setbeamertemplate{background canvas}[bg]%
-}
-\makeatother
+ \makeatletter
+ \define@key{beamerframe}{newbg}[true]{%
+   \setbeamertemplate{background canvas}[newbg]%
+ }
+ \makeatother
+
 
 %%%%%%%%%%%
 
@@ -73,13 +75,14 @@
 %}}}
 %{{{ --- Titlepage --------------------
 
-\def\maketitle{\ifbeamer@inframe\titlepage\else\frame[plain]{\titlepage}\fi}
+%\def\maketitle{\ifbeamer@inframe\titlepage\else\frame[plain]{\titlepage}\fi}
 
 \def\titlepage{\usebeamertemplate{title page}}
 \setbeamertemplate{title page}
 {%
   % this messes up hte margins, so I'll have to wait on this feature
-%\begin{beamercolorbox}[wd=\paperwidth,ht=\paperheight]{title}%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=\paperheight]{title}%
+    \hspace*{1.5em}%
   \begin{minipage}[b][\paperheight]{\textwidth}
     \vfill
     \ifx\inserttitle\@empty%
@@ -93,7 +96,7 @@
     {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
     \vspace*{0.5em}
     \fi%
-    \begin{tikzpicture}\draw[titleaccent] (0, 0) -- (\textwidth, 0);\end{tikzpicture}%
+    \begin{tikzpicture}\draw[titleaccent, lw=1cm] (0, 0) -- (\textwidth, 0);\end{tikzpicture}%
     \vspace*{0.5em}
     \ifx\insertauthor\@empty%
     \else%
@@ -112,7 +115,7 @@
     \vfill
     \vspace*{5mm}
   \end{minipage}%
-% \end{beamercolorbox}%
+\end{beamercolorbox}%
 }
 
 %}}}
