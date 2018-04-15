@@ -1,0 +1,275 @@
+\documentclass[tikz]{standalone}
+\usepackage{pgfgantt}
+\title{Gantt Charts with the pgfgantt Package}
+\listfiles
+\usepackage{lmodern}% http://ctan.org/pkg/lm
+
+\begin{document}
+\sffamily
+\setganttlinklabel{f-s}{if successful}
+\setganttlinklabel{s-f}{NA}
+\definecolor{group}{HTML}{8AA793} % "jade"
+\definecolor{grouppartial}{HTML}{68075A}% purple
+\definecolor{barpartial}{HTML}{1B4163} % midnight
+\definecolor{bar}{HTML}{8FB7C3} % lighter blue
+\definecolor{decogrey}{HTML}{D4CCC2} % lighter grey
+\definecolor{linkred}{RGB}{165,0,33}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{ganttchart}[
+y unit chart=.7cm,
+x unit=1cm,
+canvas/.append style={fill=none, draw=black!5, line width=.75pt},
+%hgrid, canvas/.append style={fill opacity=0.2}
+%vgrid,
+hgrid style/.style={draw=black!5, line width=.75pt},
+vgrid={*1{draw=black!5, line width=.75pt}},
+today=2016-08,
+today rule/.style={
+  draw=black!64,
+  dash pattern=on 3.5pt off 4.5pt,
+  line width=1.5pt
+},
+title/.style={draw=decogrey, fill=decogrey},
+today label font=\sffamily,
+%% format bars (subprocesses)
+bar height=.3,
+bar label font=\small\color{black!70},
+bar incomplete/.append style={fill=bar},
+bar progress label font=\footnotesize\color{black!70},
+bar/.append style={draw=none, fill=barpartial},
+%% format groups (main processes)
+group peaks tip position=0,
+group height=.5,
+group/.append style={draw=none, fill=grouppartial},
+group incomplete/.append style={fill=group},
+time slot format=isodate-yearmonth,
+compress calendar
+]{2016-06}{2017-05}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\gantttitle{As of August 2016}{12} \\
+\gantttitlecalendar{year, month=name} \\
+%%%
+\ganttgroup[progress=65]{Improving Genome Assembly}{2016-06}{2016-09} \\
+\ganttbar[name=rando]{random seeding}{2016-06}{2016-07} \\
+\ganttbar[progress=85, name=ribo]{riboSeed}{2016-07}{2016-09} \\
+\ganttbar[name=sop]{riboSeed Assembly SOP}{2016-10}{2016-12}\\
+%%%
+\ganttgroup[progress=40]{Determining Virulence Capacity}{2016-06}{2016-11} \\
+\ganttbar[progress=100]{Simple tBLASTx}{2016-06}{2016-07} \\
+\ganttbar[progress=100]{Stx\_subtyper}{2016-07}{2016-08} \\
+\ganttbar[progress=20]{OrthoFinder Virulence Profile}{2016-08}{2016-10}\\
+\ganttbar[progress=0]{HMM-based NGS Profiler a la TagDust2}{2016-09}{2016-12}\\
+%\ganttbar[progress=0]{Extend stx\_subtyper}{2016-09}{2016-11}\\
+%%%
+\ganttgroup[progress=5]{Pangenome Analysis}{2016-08}{2017-03} \\
+\ganttbar[progress=95]{Reannotate Genomes (Prokka)}{2016-08}{2016-09}\\
+\ganttbar[progress=0]{Run Roary}{2016-09}{2016-10}\\
+\ganttbar[progress=0]{Subgroup Analysis}{2016-10}{2017-02}\\
+%%%
+\ganttgroup[progress=2]{Modules}{2016-09}{2017-05} \\
+\ganttbar[progress=20]{Coursera Algorithms for Strings}{2016-08}{2016-10}\\
+\ganttbar[progress=0]{MA235 Statistics}{2016-09}{2016-12}\\
+\ganttbar[progress=0]{MA461 Probabalistic Methods}{2017-01}{2017-04}\\
+%%%
+\ganttgroup[progress=0]{Conference Preparations}{2016-10}{2016-12} \\
+\ganttbar[progress=0]{Prepare Abstract}{2016-09}{2016-10}\\
+\ganttbar[progress=0]{Prepare Poster}{2016-10}{2016-12}\\
+\ganttmilestone{\textit{E. coli} Conference}{2016-11} \ganttnewline
+
+%%
+\ganttlink[link type=f-s]{ribo}{sop}
+\ganttlink[link type=s-f]{rando}{rando}
+\end{ganttchart}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage  % 20161206  Short Term
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \begin{ganttchart}[
+% y unit chart=.7cm,
+% x unit=1cm,
+% canvas/.append style={fill=none, draw=black!5, line width=.75pt},
+% %hgrid, canvas/.append style={fill opacity=0.2}
+% %vgrid,
+% hgrid style/.style={draw=black!5, line width=.75pt},
+% vgrid={*1{draw=black!20, line width=.75pt}},
+% today=2016-11,
+% today rule/.style={
+%   draw=black!64,
+%   dash pattern=on 3.5pt off 4.5pt,
+%   line width=1.5pt
+% },
+% title/.style={draw=decogrey, fill=decogrey},
+% today label font=\sffamily,
+% %% format bars (subprocesses)
+% bar height=.3,
+% bar label font=\small\color{black!70},
+% bar incomplete/.append style={fill=bar},
+% bar progress label font=\footnotesize\color{black!70},
+% bar/.append style={draw=none, fill=barpartial},
+% %% format groups (main processes)
+% group peaks tip position=0,
+% group height=.5,
+% group/.append style={draw=none, fill=grouppartial},
+% group incomplete/.append style={fill=group},
+% time slot format=isodate-yearmonth,
+% compress calendar
+% ]{2016-06}{2017-5}
+
+% \gantttitle{Current}{12} \\
+% \gantttitlecalendar{year, month} \\
+% %%%
+% \ganttgroup[progress=70]{Improving Genome Assembly}{2016-06}{2017-01} \\
+% \ganttbar[name=rando]{random seeding}{2016-06}{2016-07} \\
+% \ganttbar[progress=100, name=ribo]{riboSeed}{2016-07}{2016-09} \\
+% \ganttbar[ name=ribo2]{riboSeed2}{2016-11}{2016-12} \\
+% \ganttbar[name=sop]{riboSeed Assembly SOP}{2016-10}{2016-12}\\%
+% \ganttbar[name=val]{Further riboSeed Validation}{2016-12}{2017-02}\\
+% %%
+% \ganttgroup[progress=80]{Determining Virulence Capacity}{2016-06}{2017-03} \\
+% \ganttbar[progress=100]{Simple tBLASTx}{2016-06}{2016-07} \\
+% \ganttbar[progress=100]{Stx\_subtyper}{2016-07}{2016-08} \\
+% \ganttbar[progress=20]{OrthoFinder Virulence Profile}{2016-08}{2016-10}\\
+% \ganttbar[progress=0]{HMM-based NGS Profiler a la TagDust2}{2016-09}{2016-12}\\
+% \ganttbar[progress=0]{Functionality Assessment (\textit{in silico})}{2017-01}{2017-04}\\
+% %\ganttbar[progress=0]{Extend stx\_subtyper}{2016-09}{2016-11}\\
+% %%%
+% \ganttgroup[progress=15]{Pangenome Analysis}{2016-08}{2017-03} \\
+% \ganttbar[progress=100]{Reannotate Genomes (Prokka)}{2016-08}{2016-09}\\
+% \ganttbar[progress=20]{Run Roary}{2016-09}{2017-01}\\
+% \ganttbar[progress=0]{Subgroup Descriptive Analysis}{2017-01}{2017-05}\\
+% %%%
+% \ganttgroup[progress=2]{Modules}{2016-09}{2017-05} \\
+% \ganttbar[progress=1000]{Coursera Algorithms for Strings}{2016-08}{2016-10}\\
+% \ganttbar[progress=80]{MA235 Statistics}{2016-09}{2016-12}\\
+% \ganttbar[progress=0]{MA461 Probabalistic Methods}{2017-01}{2017-04}\\
+% %%%
+% \ganttgroup[progress=100]{Conference Preparations}{2016-10}{2016-12} \\
+% \ganttbar[progress=100]{Prepare Abstract}{2016-09}{2016-10}\\
+% \ganttbar[progress=100]{Prepare Poster}{2016-10}{2016-12}\\
+% \ganttmilestone{\textit{E. coli} Conference}{2016-11} \ganttnewline
+% \ganttbar[progress=0]{Write Follow-up Emails}{2016-12}{2017-01}\\
+
+% %%
+% \ganttlink[link type=f-s]{ribo}{sop}
+% \ganttlink[link type=s-f]{rando}{rando}
+
+% \end{ganttchart}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newpage  % 20161206  Fully Monty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \begin{ganttchart}[
+% y unit chart=.7cm,
+% x unit=1cm,
+% canvas/.append style={fill=none, draw=black!5, line width=.75pt},
+% %hgrid, canvas/.append style={fill opacity=0.2}
+% %vgrid,
+% hgrid style/.style={draw=black!5, line width=.75pt},
+% vgrid={*1{draw=black!20, line width=.75pt}},
+% today=2017-03,
+% today rule/.style={
+%   draw=black!64,
+%   dash pattern=on 3.5pt off 4.5pt,
+%   line width=1.5pt
+% },
+% title/.style={draw=decogrey, fill=decogrey},
+% today label font=\sffamily,
+% %% format bars (subprocesses)
+% bar height=.3,
+% bar label font=\small\color{black!70},
+% bar incomplete/.append style={fill=bar},
+% bar progress label font=\footnotesize\color{black!70},
+% bar/.append style={draw=none, fill=barpartial},
+% %% format groups (main processes)
+% group peaks tip position=0,
+% group height=.5,
+% group/.append style={draw=none, fill=grouppartial},
+% group incomplete/.append style={fill=group},
+% time slot format=isodate-yearmonth,
+% compress calendar
+% ]{2016-06}{2020-6}
+
+% \gantttitle{4 Year Projection}{48} \\
+% \gantttitlecalendar{year, month} \\
+% %%% RIBOSEED
+% \ganttgroup[progress=70]{Improving Genome Assembly}{2016-06}{2017-05} \\
+% \ganttbar[name=rando]{random seeding}{2016-06}{2016-07} \\
+% \ganttbar[progress=100, name=ribo]{riboSeed}{2016-07}{2016-09} \\
+% \ganttbar[ name=ribo2]{riboSeed2}{2016-11}{2016-12} \\
+% \ganttbar[name=sop]{riboSeed Assembly SOP}{2016-10}{2016-12}\\%
+% \ganttbar{riboSeed manuscript}{2016-11}{2017-04}\\%
+% \ganttbar{Re-assemble asoil-adapted E. coli}{2017-02}{2017-04}\\%
+
+% %% VIRULENCE
+% \ganttgroup[progress=80]{Determining Virulence Capacity}{2016-06}{2017-06} \\
+% \ganttbar[progress=100]{Simple tBLASTx}{2016-06}{2016-07} \\
+% \ganttbar[progress=100]{Stx\_subtyper}{2016-07}{2016-08} \\
+% \ganttbar[progress=100]{OrthoFinder Virulence Profile}{2016-08}{2016-10}\\
+% \ganttbar[progress=0]{Functionality Assessment (\textit{in silico})}{2017-05}{2017-10}\\
+% \ganttbar[progress=0]{Functionality Assessment Validation}{2017-10}{2018-04}\\
+% %%% PANGENOME
+% \ganttgroup[progress=15]{Pangenome Analysis}{2016-08}{2017-07} \\
+% \ganttbar[progress=100]{Reannotate Genomes (Prokka)}{2016-08}{2016-09}\\
+% \ganttbar[progress=100]{Run Roary}{2016-09}{2017-01}\\
+% \ganttbar[progress=0]{Subgroup Descriptive Analysis}{2017-01}{2017-05}\\
+% \ganttbar[progress=0]{ML Subgroup Analysis for SA Predictors}{2017-01}{2017-09}\\
+% \ganttbar[progress=0]{ML Subgroup Analysis for Metabolic Potential}{2017-10}{2018-05}\\
+% \ganttbar[progress=0]{Subgroup Analysis for AMR}{2018-05}{2018-06}\\
+% \ganttbar[progress=0]{Subgroup Analysis for Virulence}{2018-07}{2018-09}\\
+% \ganttbar[progress=0]{Subgroup Analysis for Potential Diagnostics}{2018-09}{2019-02}\\
+% \ganttgroup[progress=0]{Other Fun Science}{2017-08}{2020-04} \\
+% \ganttbar[progress=0]{SA \textit{E. coli} Regulatory Regions}{2018-09}{2020-02}\\
+% \ganttbar[progress=0]{SA \textit{E. coli} Lysimeter Metagenomics}{2018-09}{2020-02}\\
+% \ganttbar[progress=0]{Metagenomic prospecting for other SA \textit{E. coli}}{2018-09}{2020-02}\\
+
+% %%% MODULES
+% \ganttgroup[progress=40]{Modules}{2016-09}{2017-05} \\
+% \ganttbar[progress=100]{Coursera Algorithms for Strings}{2016-08}{2016-10}\\
+% \ganttbar[progress=100]{MA235 Statistics}{2016-09}{2016-12}\\
+% \ganttbar[progress=100]{3rd Year Micro Lab Demonstrating}{2016-09}{2016-10}\\
+% \ganttbar[progress=85]{MA461 Probabalistic Methods}{2017-01}{2017-04}\\
+
+% %%% TRAVEL
+% \ganttgroup[]{Conference Preparations}{2016-09}{2016-12} \\
+% \ganttbar[progress=100]{Prepare Abstract}{2016-09}{2016-10}\\
+% \ganttbar[progress=100]{Prepare Poster}{2016-10}{2016-12}\\
+% \ganttmilestone{\textit{E. coli} Conference}{2016-11} \ganttnewline
+% \ganttbar[]{Potential JHI Dundee Visit}{2017-07}{2017-08}\\
+% \ganttmilestone{Environ Talk}{2017-04} \ganttnewline
+% \ganttmilestone{ISCB Rocky Mountain Bioinformatics Conference}{2017-12} \ganttnewline
+% %%% WRITING
+% \ganttgroup[]{Writing and other Milestones}{2016-06}{2020-06} \\
+
+% \ganttbar[progress=60]{Chapter 1: Improving Genome Assembly}{2016-06}{2017-06} \\
+% \ganttbar[progress=0]{Chapter 2: Pangenome Decsription}{2017-06}{2018-06} \\
+% \ganttbar[progress=0]{Chapter 3: Genomic Predictors for Adaptation}{2018-06}{2019-06} \\
+% \ganttmilestone{Pick Extern}{2019-12} \ganttnewline
+% \ganttbar[progress=0]{Chapter 4a: Diagnostic Development}{2019-06}{2020-06} \\
+% \ganttbar[progress=0]{Chapter 4b: SA \textit{E. coli} by Metagenomics}{2019-06}{2020-06} \\
+% \ganttbar[progress=0]{Writing Up}{2020-03}{2020-06} \\
+% \ganttmilestone{Submission}{2020-04} \ganttnewline
+% \ganttmilestone{Viva}{2020-05} \ganttnewline
+
+% %%
+% \ganttlink[link type=f-s]{ribo}{sop}
+% \ganttlink[link type=s-f]{rando}{rando}
+% \end{ganttchart}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
