@@ -246,6 +246,19 @@ Submitted:
 - Somorin, et al. :: "Loss of Curli in Soil-Persistent Escherichia coli is Mediated by a c-di-GMP Signalling Defect and suggests biofilm-independent niche specialisation" _Frontiers_
 
 * Other
+** Taught Modules
+- /Probability (fa16)/
+- /Probabalistic Models for Bio (sp17)/
+** Supervisor Assessed Modules
+- Visit JHI
+- Journal Club
+- Organize Meeting
+- Present Poster
+- Present Talk
+- Write a Paper
+- Workshop Participation
+
+* Other
 ** Assorted Activities
 - Organized and co-led Software Carpentry Workshop
 - Participated at an NCBI Biohackathon
