@@ -87,6 +87,12 @@ Achtman 7 gene MLST
 #+ATTR_LATEX: :height .65\textheight
 [[file:./frequentFigs/MLST_plot.pdf]]
 
+** Phylogroups
+#+beamer: \hspace*{-2em}
+# +CAPTION: Soil /E. Coli/ MLST
+#+NAME:   fig:mlst2
+#+ATTR_LATEX: :height .9\textheight
+[[file:~/Desktop/CL_MLST_plot_dark.png]]
 
 ** Phylogenetics Trees
 ** Pangenome Analysis
@@ -249,6 +255,7 @@ Submitted:
 ** Taught Modules
 - /Probability (fa16)/
 - /Probabalistic Models for Bio (sp17)/
+
 ** Supervisor Assessed Modules
 - Visit JHI
 - Journal Club
@@ -258,10 +265,9 @@ Submitted:
 - Write a Paper
 - Workshop Participation
 
-* Other
 ** Assorted Activities
 - Organized and co-led Software Carpentry Workshop
 - Participated at an NCBI Biohackathon
 - Presented talk at Environ 2017
 - Presented poster and talk at SGM 2018
-- Contributed to various  open-source projects (as needed)
+- Contributed to open-source projects (as needed)
