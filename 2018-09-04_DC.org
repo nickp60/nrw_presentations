@@ -1,0 +1,287 @@
+#+STARTUP: showall beamer
+#+COLUMNS: %40ITEM %10BEAMER_env(Env) %9BEAMER_envargs(Env Args) %4BEAMER_col(Col) %10BEAMER_extra(Extra)
+# +BEAMER_HEADER: \titlegraphic{\includegraphics[height=1.5cm]{InstLogo}}
+
+#+TITLE: Discussion Club 2018-09-04: Mobile elements in Soil-persistent /E. coli/
+#+SUBTITLE: Version 1.0
+#+AUTHOR: Nicholas Waters
+# +DATE: \today
+# #+SUBTITLE
+#+INSTITUTE: National University of Ireland, Galway, Ireland \linebreak The James Hutton Institute, Dundee, Scotland}
+#+LATEX_HEADER: \institute{National University of Ireland, Galway, Ireland \\ The James Hutton Institute, Dundee, Scotland}
+
+#+OPTIONS: H:2 toc:1
+
+#+LaTeX_CLASS_OPTIONS: [17pt,aspectratio=169]
+#+LATEX_HEADER: \renewcommand*\familydefault{\sfdefault}
+#+LATEX_HEADER: \newcommand{\bt}{\textasciigrave}
+#+LATEX_HEADER: \usepackage{xcolor}
+#+LATEX_HEADER: \def \ttilde {\raisebox{-.6ex}\textasciitilde~}
+#+LATEX_HEADER: \setlength\parindent{0pt} %set indent to zero
+#+LATEX_HEADER: \setlength{\parskip}{1em}
+#+LATEX_HEADER: \definecolor{bg}{HTML}{B1F4A0}
+# +LATEX_HEADER: \lstset{basicstyle=\linespread{1.1}\ttfamily\scriptsize, breaklines=true, backgroundcolor=\color{bashcodebg}, xleftmargin=0.5cm, language=bash, showstringspaces=false, columns=fullflexible}
+#+LATEX_HEADER: \usepackage{tcolorbox}
+
+#+LATEX_HEADER: \usepackage{etoolbox}
+#+LATEX_HEADER: \usepackage{geometry}
+#+LATEX_HEADER: \usepackage[colorlinks = true, linkcolor = blue, urlcolor  = blue, citecolor = blue, anchorcolor = blue]{hyperref}
+#+LATEX_HEADER: \let\oldv\verbatim
+#+LATEX_HEADER: \let\oldendv\endverbatim
+#+LATEX_HEADER: \def\verbatim{\par\setbox0\vbox\bgroup\scriptsize\oldv}
+#+LATEX_HEADER: \def\endverbatim{\oldendv\egroup\fboxsep0pt \noindent\colorbox[gray]{0.8}{\usebox0}\par}
+#+LaTeX_HEADER: \usepackage{array, booktabs, xcolor, tikz}
+
+#+LaTeX_HEADER: \usepackage{graphicx}
+
+#+LaTeX_HEADER: \usetikzlibrary{arrows, calc, spy, shapes}
+#+LaTeX_HEADER: \tikzstyle{square} = [draw]
+#+LaTeX_HEADER:\addtobeamertemplate{footnote}{\tiny}{} %\vspace{2ex}}
+
+# set light/ dark theme here
+#+LaTeX_HEADER:\usetheme[style=dark]{NUIG}
+# light
+# +BEAMER: \setbeamertemplate{itemize items}{\includegraphics[width=.6em, valign=c]{./frequentFigs/coli_icon.pdf}}
+# dark
+#+BEAMER: \setbeamertemplate{itemize items}{\includegraphics[width=.6em, valign=c]{./frequentFigs/coli_icon_D2.pdf}}
+
+* Background
+** Project Overview
+- /E. coli/ has been found to persist stably in the soil
+- Isolates were cultured from lysimeter leachate
+- Strains were sequenced, resulting in *149* soil-persistent /E. coli/ genome
+
+** Research Questions
+- What types of /E. coli/ are able to persist in soil?
+#+BEAMER: \pause
+- What virulence factors are harboured by these strains?
+#+BEAMER: \pause
+- What can we infer about adaptation from these?
+#+BEAMER: \pause
+- Can we differentiate soil-persistent /E. coli/ from recent contamination?
+
+* What does 10 years look like to /E. coli/?
+#+BEAMER: \pause
+* Not very long
+
+* Mobile Genetic Elements
+** Plasmids
+** Prophages
+** Transposons
+** Integrons
+** Insertion Sequences
+** Genetic Islands
+** Phage-induced Genetic Islands
+
+
+
+
+* Research
+** Phylogroups
+#+LaTeX: \vskip 1ex
+*** Col left 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.5
+   :BEAMER_opt: [t]
+   :END:
+Clermont 2013
+#+CAPTION:
+#+NAME:   fig:phylo
+#+ATTR_LATEX: :height .65\textheight
+[[file:./frequentFigs/Phylogroups_solid.png]]
+
+*** Col right 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.5
+   :BEAMER_opt: [t]
+   :END:
+Achtman 7 gene MLST
+#+CAPTION: Soil /E. Coli/ MLST
+#+NAME:   fig:mlst
+#+ATTR_LATEX: :height .65\textheight
+[[file:./frequentFigs/MLST_plot.pdf]]
+
+** Phylogroups
+#+beamer: \hspace*{-2em}
+# +CAPTION: Soil /E. Coli/ MLST
+#+NAME:   fig:mlst2
+#+ATTR_LATEX: :height .9\textheight
+[[file:~/Desktop/CL_MLST_plot_dark.png]]
+
+** Phylogenetics Trees
+** Pangenome Analysis
+#+LaTeX: \vskip 3ex
+*** Col left 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.45
+   :END:
+- One isolate from each Achtman 7 MLST
+- Total: 1193
+
+*** Col right 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.53
+   :END:
+#+CAPTION: workflow
+#+NAME:   sources:
+#+ATTR_LATEX: :width .9\textwidth
+[[file:./frequentFigs/enterobase_source.pdf]]
+** Pangenome Analysis
+
+|            |    N | Core   | total  |
+|------------+------+--------+--------|
+| Soil       |  149 | 2662   | 21,662 |
+| Enterobase | 1193 | *1822* | 79,288 |
+| All        | 1342 | *1806* | 83,868 |
+
+** Detecting differential presence/absence
+#+LaTeX: \vskip -6ex
+*** Col left 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.5
+   :BEAMER_opt: [c]
+   :END:
+
+- Statistically compare traits to a pangenome
+
+*** Col right                                                          :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.4
+   :BEAMER_opt: [c]
+   :END:
+
+#+CAPTION:
+#+NAME:   fig:scoary
+#+ATTR_LATEX: :width \textwidth
+file:./frequentFigs/scoary.png
+
+
+* Publication Plans
+** #1
+Focus: Genomic characterization of Soil persistent /E. coli/
+- Phylogenetic diversity
+- Pangenome
+- rRNA copy number survey
+- /Correlations with growth-rate phenotypes/
+- Survey of Cold-Shock Proteins
+- Plasmid Survey
+
+**  #2
+Focus: Comparison of Soil-Persistent Strains to Enteric/Strains
+- Pangenome of Soil and Enteric strains
+- Sub-pangnomes by phylogroup, plasmid profile, etc
+- Secondary metabolite production
+- Regulatory regions
+
+** Addition Papers
+Potential Foci:
+- Virulence
+- AMR
+- Plasmids/Prophages/Other mobile elements
+
+* Software
+** ClermontPCR
+#+LaTeX: \centering
+# [[github.com/nickp60/clermontpcr]
+#+NAME:   fig:pcr
+#+ATTR_LATEX: :height .7\textheight
+[[./frequentFigs/pcr.png]]
+
+
+** annofilt: Assessing Assemblies
+
+#+BEGIN_LaTeX
+\noindent
+\begin{tikzpicture}
+\node [anchor=west] (note) at (-1,4) {\Large Partial};
+\begin{scope}[xshift=1.5cm]
+    \node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=0.67\textwidth]{./frequentFigs/weird_gene3.png}};
+    \begin{scope}[x={(image.south east)},y={(image.north west)}]
+        \draw[red,ultra thick,rounded corners] (0.5,0.05) rectangle (0.55,0.15);
+        \draw [-latex, ultra thick, red] (note) to (0.48,0.1);
+    \end{scope}
+\end{scope}
+\end{tikzpicture}%
+
+#+END_LaTeX
+
+
+** annofilt
+*** Col left                                                           :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.65
+   :BEAMER_opt: [t]
+   :END:
+# [[nickp60.github.io/annofilt/]]
+1. Select trusted complete genomes
+2. Create reference pangenome
+3. Find genes next to contig borders
+4. Blast against pangenome
+5. Reject hits <  90% of CDS length
+
+*** Col right                                                          :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.33
+   :BEAMER_opt: [t]
+   :END:
+#+BEAMER: \pause
+#+CAPTION:
+#+NAME:   fig:Annofilt
+#+ATTR_LATEX: :width .9\textwidth
+[[file:../annofilt/docs/icon/iconD.pdf]]
+
+** annofilt performance
+*** Col left 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.4
+   :BEAMER_opt: [t]
+   :END:
+#+CAPTION:
+#+NAME:   fig:Annofilt
+#+ATTR_LATEX: :width \textwidth
+[[file:./frequentFigs/ent2.png]]
+
+*** Col right                                                          :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.4
+   :BEAMER_opt: [t]
+   :END:
+
+#+CAPTION:
+#+NAME:   fig:ent1
+#+ATTR_LATEX: :width \textwidth
+[[file:./frequentFigs/ents.png]]
+
+
+
+* Publications
+** Articles
+#+LAtex: \tiny
+Published:
+- Dessì, et al. :: "Thermophilic versus mesophilic dark fermentation in xylose-fed fluidised bed reactors: Biohydrogen production and active microbial community" _International Journal of Hydrogen Energy_, 43(11), 10.1016/j.ijhydene.2018.01.158. 2018
+- *Waters*, et al. :: "riboSeed: leveraging prokaryotic genomic architecture to assemble across ribosomal regions" _Nucleic Acids Research_, 10.1093/nar/gky212. 2018
+In Preparation:
+- Nolan, et al. :: "Pathogen survival in anaerobic co-digestion of slurry with organic waste" _Frontiers_
+Submitted:
+- Somorin, et al. :: "Loss of Curli in Soil-Persistent Escherichia coli is Mediated by a c-di-GMP Signalling Defect and suggests biofilm-independent niche specialisation" _Frontiers_
+
+* Other
+** Taught Modules
+- /Probability (fa16)/
+- /Probabalistic Models for Bio (sp17)/
+
+** Supervisor Assessed Modules
+- Visit JHI
+- Journal Club
+- Organize Meeting
+- Present Poster
+- Present Talk
+- Write a Paper
+- Workshop Participation
+
+** Assorted Activities
+- Organized and co-led Software Carpentry Workshop
+- Participated at an NCBI Biohackathon
+- Presented talk at Environ 2017
+- Presented poster and talk at SGM 2018
+- Contributed to open-source projects (as needed)
