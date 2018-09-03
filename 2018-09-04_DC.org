@@ -3,7 +3,7 @@
 # +BEAMER_HEADER: \titlegraphic{\includegraphics[height=1.5cm]{InstLogo}}
 
 #+TITLE: Discussion Club 2018-09-04: Mobile elements in Soil-persistent /E. coli/
-#+SUBTITLE: Version 1.0
+ +SUBTITLE: Or, an overview of mobile elements in /E. coli/
 #+AUTHOR: Nicholas Waters
 # +DATE: \today
 # #+SUBTITLE
@@ -61,13 +61,75 @@
 - Can we differentiate soil-persistent /E. coli/ from recent contamination?
 
 * What does 10 years look like to /E. coli/?
-#+BEAMER: \pause
-* Not very long
+** BoE Calculations for Doubling Time
+# High estimates
+# https://www.frontiersin.org/articles/10.3389/fmicb.2018.00762/full
+# 0.013865 * 60 * 24 * 365 * 10
+# $\approx$ 72k generations
+# Low estimates
+(5.9 / 2) * 365.25 * 10
+
+$\approx$ 10k generations
+
+Bååth 1998
+
+(assuming generation time roughly equals half of turnover rate)
+
+* Hypotheses
+Highly diverse soil communities and environmental pressures favour rapid adaptation over incremental changes
+
+$->$ Adaptations will occur more rapidly because of mobile elements rather than mutations to core functions
 
 * Mobile Genetic Elements
 ** Plasmids
+Usually circular DNA bits
+Size: <1Kb  -- 1Mb
+Maintenence: self-replicating or integrating
+Mobility: Conjugation (directly or indirectly)
+
+** Insertion Sequence (IS) (Transposon)
+A DNA lolipop containing a transposase and promoter.
+https://www.nature.com/scitable/topicpage/transposons-the-jumping-genes-518
+
+Size: <1.5Kb
+Maintenence: genome replication
+Mobility: codes for a
+
+cd
+#+beamer: \hspace*{-2em}
+# +CAPTION: Soil /E. Coli/ MLST
+#+NAME:   fig:mlst2
+#+ATTR_LATEX: :height .9\textheight
+[[file:~/Desktop/CL_MLST_plot_dark.png]]
+
+**  Transposon (Non-Composite Transposon) (Tn)
+A DNA lolipop containing a transposase and promoter, and other accessories
+https://www.nature.com/scitable/topicpage/transposons-the-jumping-genes-518
+
+Size: <1.5Kb
+Maintenence: genome replication
+Mobility: codes for a
+
+
+**  Transposon (Composite Transposon) (Tn)
+A DNA fragment with IS sequences on each end of
+https://www.nature.com/scitable/topicpage/transposons-the-jumping-genes-518
+
+Size: <1.5Kb
+Maintenence: genome replication
+Mobility: codes for a
+
+cd
+
+
+cd
+#+beamer: \hspace*{-2em}
+# +CAPTION: Soil /E. Coli/ MLST
+#+NAME:   fig:mlst2
+#+ATTR_LATEX: :height .9\textheight
+[[file:~/Desktop/CL_MLST_plot_dark.png]]
+
 ** Prophages
-** Transposons
 ** Integrons
 ** Insertion Sequences
 ** Genetic Islands
