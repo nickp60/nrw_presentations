@@ -3,7 +3,7 @@
 # +BEAMER_HEADER: \titlegraphic{\includegraphics[height=1.5cm]{InstLogo}}
 
 #+TITLE: Discussion Club 2018-09-04: Mobile elements in Soil-persistent /E. coli/
- +SUBTITLE: Or, an overview of mobile elements in /E. coli/
+# +SUBTITLE: Or, an overview of mobile elements in /E. coli/
 #+AUTHOR: Nicholas Waters
 # +DATE: \today
 # #+SUBTITLE
@@ -12,7 +12,8 @@
 
 #+OPTIONS: H:2 toc:1
 
-#+LaTeX_CLASS_OPTIONS: [17pt,aspectratio=169]
+# +LaTeX_CLASS_OPTIONS: [17pt,aspectratio=169]
+#+LaTeX_CLASS_OPTIONS: [15pt,aspectratio=43]
 #+LATEX_HEADER: \renewcommand*\familydefault{\sfdefault}
 #+LATEX_HEADER: \newcommand{\bt}{\textasciigrave}
 #+LATEX_HEADER: \usepackage{xcolor}
@@ -75,275 +76,87 @@ Bååth 1998
 
 (assuming generation time roughly equals half of turnover rate)
 
-* Hypotheses
+** Hypotheses
 Highly diverse soil communities and environmental pressures favour rapid adaptation over incremental changes
 
 $->$ Adaptations will occur more rapidly because of mobile elements rather than mutations to core functions
 
 * Mobile Genetic Elements
-** Plasmids
-Usually circular DNA bits
-Size: <1Kb  -- 1Mb
-Maintenence: self-replicating or integrating
-Mobility: Conjugation (directly or indirectly)
 
 ** Insertion Sequence (IS) (Transposon)
 A DNA lolipop containing a transposase and promoter.
-https://www.nature.com/scitable/topicpage/transposons-the-jumping-genes-518
 
-Size: <1.5Kb
-Maintenence: genome replication
-Mobility: codes for a
+- Size: <1.5Kb
+- Maintenence: genome replication
+- Mobility: encoded transposase
 
-cd
 #+beamer: \hspace*{-2em}
-# +CAPTION: Soil /E. Coli/ MLST
+#+CAPTION: Soil /E. Coli/ MLST
 #+NAME:   fig:mlst2
-#+ATTR_LATEX: :height .9\textheight
-[[file:~/Desktop/CL_MLST_plot_dark.png]]
+#+ATTR_LATEX: :width .5\textwidth
+[[file:./2018-09-04-DC_figs/transposon_dark.jpg]]
 
-**  Transposon (Non-Composite Transposon) (Tn)
-A DNA lolipop containing a transposase and promoter, and other accessories
-https://www.nature.com/scitable/topicpage/transposons-the-jumping-genes-518
+** Transposon (Non-Composite Transposon) (Tn)
+A DNA lolipop containing a transposase and promoter, and other accessory genes
 
-Size: <1.5Kb
-Maintenence: genome replication
-Mobility: codes for a
+
+- Size: <1.5Kb
+- Maintenence: genome replication
+- Mobility: encoded transposase
 
 
 **  Transposon (Composite Transposon) (Tn)
-A DNA fragment with IS sequences on each end of
-https://www.nature.com/scitable/topicpage/transposons-the-jumping-genes-518
+A DNA fragment with IS sequences on each end
 
-Size: <1.5Kb
-Maintenence: genome replication
-Mobility: codes for a
+- Size: <1.5Kb
+- Maintenence: genome replication
+- Mobility: encoded transposase
 
-cd
+** Integrons
+Integrases used to shuffle around gene cassettes
 
-
-cd
-#+beamer: \hspace*{-2em}
-# +CAPTION: Soil /E. Coli/ MLST
-#+NAME:   fig:mlst2
-#+ATTR_LATEX: :height .9\textheight
-[[file:~/Desktop/CL_MLST_plot_dark.png]]
 
 ** Prophages
-** Integrons
-** Insertion Sequences
-** Genetic Islands
-** Phage-induced Genetic Islands
+Virus integrated into the host genome
+
+- Size: <1.5Kb
+- Maintenence: genome replication
+- Mobility: codes for a
+
+** Genetic (Chromosomal) Islands
+- Size: >10Kb
+- Maintenence: genome replication
+- Mobility: moved by phage
+
+** Phage-inducible Chromosomal Islands
+Phage parasites
+
+- Size: 5 -- 15Kb
+- Maintenence: genome replication
+- Mobility: moved by phage
 
 
-
-
-* Research
-** Phylogroups
-#+LaTeX: \vskip 1ex
-*** Col left 							      :BMCOL:
-   :PROPERTIES:
-   :BEAMER_col: 0.5
-   :BEAMER_opt: [t]
-   :END:
-Clermont 2013
-#+CAPTION:
-#+NAME:   fig:phylo
-#+ATTR_LATEX: :height .65\textheight
-[[file:./frequentFigs/Phylogroups_solid.png]]
-
-*** Col right 							      :BMCOL:
-   :PROPERTIES:
-   :BEAMER_col: 0.5
-   :BEAMER_opt: [t]
-   :END:
-Achtman 7 gene MLST
-#+CAPTION: Soil /E. Coli/ MLST
-#+NAME:   fig:mlst
-#+ATTR_LATEX: :height .65\textheight
-[[file:./frequentFigs/MLST_plot.pdf]]
-
-** Phylogroups
+** Phage-inducible Chromosomal Islands
 #+beamer: \hspace*{-2em}
-# +CAPTION: Soil /E. Coli/ MLST
+#+CAPTION: (SaPI) excision-replication-packaging (ERP) cycle
 #+NAME:   fig:mlst2
-#+ATTR_LATEX: :height .9\textheight
-[[file:~/Desktop/CL_MLST_plot_dark.png]]
-
-** Phylogenetics Trees
-** Pangenome Analysis
-#+LaTeX: \vskip 3ex
-*** Col left 							      :BMCOL:
-   :PROPERTIES:
-   :BEAMER_col: 0.45
-   :END:
-- One isolate from each Achtman 7 MLST
-- Total: 1193
-
-*** Col right 							      :BMCOL:
-   :PROPERTIES:
-   :BEAMER_col: 0.53
-   :END:
-#+CAPTION: workflow
-#+NAME:   sources:
 #+ATTR_LATEX: :width .9\textwidth
-[[file:./frequentFigs/enterobase_source.pdf]]
-** Pangenome Analysis
-
-|            |    N | Core   | total  |
-|------------+------+--------+--------|
-| Soil       |  149 | 2662   | 21,662 |
-| Enterobase | 1193 | *1822* | 79,288 |
-| All        | 1342 | *1806* | 83,868 |
-
-** Detecting differential presence/absence
-#+LaTeX: \vskip -6ex
-*** Col left 							      :BMCOL:
-   :PROPERTIES:
-   :BEAMER_col: 0.5
-   :BEAMER_opt: [c]
-   :END:
-
-- Statistically compare traits to a pangenome
-
-*** Col right                                                          :BMCOL:
-   :PROPERTIES:
-   :BEAMER_col: 0.4
-   :BEAMER_opt: [c]
-   :END:
-
-#+CAPTION:
-#+NAME:   fig:scoary
-#+ATTR_LATEX: :width \textwidth
-file:./frequentFigs/scoary.png
 
 
-* Publication Plans
-** #1
-Focus: Genomic characterization of Soil persistent /E. coli/
-- Phylogenetic diversity
-- Pangenome
-- rRNA copy number survey
-- /Correlations with growth-rate phenotypes/
-- Survey of Cold-Shock Proteins
-- Plasmid Survey
-
-**  #2
-Focus: Comparison of Soil-Persistent Strains to Enteric/Strains
-- Pangenome of Soil and Enteric strains
-- Sub-pangnomes by phylogroup, plasmid profile, etc
-- Secondary metabolite production
-- Regulatory regions
-
-** Addition Papers
-Potential Foci:
-- Virulence
-- AMR
-- Plasmids/Prophages/Other mobile elements
-
-* Software
-** ClermontPCR
-#+LaTeX: \centering
-# [[github.com/nickp60/clermontpcr]
-#+NAME:   fig:pcr
-#+ATTR_LATEX: :height .7\textheight
-[[./frequentFigs/pcr.png]]
+[[file:./2018-09-04-DC_figs/sapi_dark.png]]
 
 
-** annofilt: Assessing Assemblies
+** Plasmids
+Usually circular DNA bits
 
-#+BEGIN_LaTeX
-\noindent
-\begin{tikzpicture}
-\node [anchor=west] (note) at (-1,4) {\Large Partial};
-\begin{scope}[xshift=1.5cm]
-    \node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=0.67\textwidth]{./frequentFigs/weird_gene3.png}};
-    \begin{scope}[x={(image.south east)},y={(image.north west)}]
-        \draw[red,ultra thick,rounded corners] (0.5,0.05) rectangle (0.55,0.15);
-        \draw [-latex, ultra thick, red] (note) to (0.48,0.1);
-    \end{scope}
-\end{scope}
-\end{tikzpicture}%
-
-#+END_LaTeX
-
-
-** annofilt
-*** Col left                                                           :BMCOL:
-   :PROPERTIES:
-   :BEAMER_col: 0.65
-   :BEAMER_opt: [t]
-   :END:
-# [[nickp60.github.io/annofilt/]]
-1. Select trusted complete genomes
-2. Create reference pangenome
-3. Find genes next to contig borders
-4. Blast against pangenome
-5. Reject hits <  90% of CDS length
-
-*** Col right                                                          :BMCOL:
-   :PROPERTIES:
-   :BEAMER_col: 0.33
-   :BEAMER_opt: [t]
-   :END:
-#+BEAMER: \pause
-#+CAPTION:
-#+NAME:   fig:Annofilt
-#+ATTR_LATEX: :width .9\textwidth
-[[file:../annofilt/docs/icon/iconD.pdf]]
-
-** annofilt performance
-*** Col left 							      :BMCOL:
-   :PROPERTIES:
-   :BEAMER_col: 0.4
-   :BEAMER_opt: [t]
-   :END:
-#+CAPTION:
-#+NAME:   fig:Annofilt
-#+ATTR_LATEX: :width \textwidth
-[[file:./frequentFigs/ent2.png]]
-
-*** Col right                                                          :BMCOL:
-   :PROPERTIES:
-   :BEAMER_col: 0.4
-   :BEAMER_opt: [t]
-   :END:
-
-#+CAPTION:
-#+NAME:   fig:ent1
-#+ATTR_LATEX: :width \textwidth
-[[file:./frequentFigs/ents.png]]
+- Size: <1Kb  -- 1Mb
+- Maintenence: self-replicating or integrating
+- Mobility: Conjugation (directly or indirectly)
 
 
 
-* Publications
-** Articles
-#+LAtex: \tiny
-Published:
-- Dessì, et al. :: "Thermophilic versus mesophilic dark fermentation in xylose-fed fluidised bed reactors: Biohydrogen production and active microbial community" _International Journal of Hydrogen Energy_, 43(11), 10.1016/j.ijhydene.2018.01.158. 2018
-- *Waters*, et al. :: "riboSeed: leveraging prokaryotic genomic architecture to assemble across ribosomal regions" _Nucleic Acids Research_, 10.1093/nar/gky212. 2018
-In Preparation:
-- Nolan, et al. :: "Pathogen survival in anaerobic co-digestion of slurry with organic waste" _Frontiers_
-Submitted:
-- Somorin, et al. :: "Loss of Curli in Soil-Persistent Escherichia coli is Mediated by a c-di-GMP Signalling Defect and suggests biofilm-independent niche specialisation" _Frontiers_
 
-* Other
-** Taught Modules
-- /Probability (fa16)/
-- /Probabalistic Models for Bio (sp17)/
-
-** Supervisor Assessed Modules
-- Visit JHI
-- Journal Club
-- Organize Meeting
-- Present Poster
-- Present Talk
-- Write a Paper
-- Workshop Participation
-
-** Assorted Activities
-- Organized and co-led Software Carpentry Workshop
-- Participated at an NCBI Biohackathon
-- Presented talk at Environ 2017
-- Presented poster and talk at SGM 2018
-- Contributed to open-source projects (as needed)
+* The End
+** Source
+https://www.nature.com/scitable/topicpage/transposons-the-jumping-genes-518
+https://www.nature.com/scitable/topicpage/transposons-the-jumping-genes-518
