@@ -2,7 +2,7 @@
 #+COLUMNS: %40ITEM %10BEAMER_env(Env) %9BEAMER_envargs(Env Args) %4BEAMER_col(Col) %10BEAMER_extra(Extra)
 # +BEAMER_HEADER: \titlegraphic{\includegraphics[height=1.5cm]{InstLogo}}
 
-#+TITLE: Discussion Club 2018-09-04: Mobile elements in Soil-persistent /E. coli/
+#+TITLE: \small Discussion Club 2018-09-04: \newline\LARGE Soil-persistent /E. coli/ and Mobile elements
 # +SUBTITLE: Or, an overview of mobile elements in /E. coli/
 #+AUTHOR: Nicholas Waters
 # +DATE: \today
@@ -62,12 +62,14 @@
 - Can we differentiate soil-persistent /E. coli/ from recent contamination?
 
 * What does 10 years look like to /E. coli/?
+
 ** BoE Calculations for Doubling Time
 # High estimates
 # https://www.frontiersin.org/articles/10.3389/fmicb.2018.00762/full
 # 0.013865 * 60 * 24 * 365 * 10
 # $\approx$ 72k generations
 # Low estimates
+
 (5.9 / 2) * 365.25 * 10
 
 $\approx$ 10k generations
@@ -76,64 +78,90 @@ Bååth 1998
 
 (assuming generation time roughly equals half of turnover rate)
 
+** Other estimates
+
+- 32 days
+- 22 days
+- 8 weeks
+- 114 days
+
+** Detection of Escherichia coli is sequenced soil
+
+/Escherichia coli/  approximately .092% prevelence in soil
+
+
+
+
 ** Hypotheses
 Highly diverse soil communities and environmental pressures favour rapid adaptation over incremental changes
 
-$->$ Adaptations will occur more rapidly because of mobile elements rather than mutations to core functions
+#+BEAMER:\pause
+
+Adaptations will occur more rapidly because of mobile elements rather than mutations to core functions
 
 * Mobile Genetic Elements
 
 ** Insertion Sequence (IS) (Transposon)
-A DNA lolipop containing a transposase and promoter.
+Short, mobile sequence capable of jumping
 
-- Size: <1.5Kb
+- Size: 750bp -- 1.5Kb
+- Detection: inverted tandem  repeat lollipop with a transposase and promoter.
 - Maintenence: genome replication
 - Mobility: encoded transposase
 
 #+beamer: \hspace*{-2em}
-#+CAPTION: Soil /E. Coli/ MLST
+#+CAPTION: Insertion Sequence
 #+NAME:   fig:mlst2
-#+ATTR_LATEX: :width .5\textwidth
+#+ATTR_LATEX: :width .65\textwidth
 [[file:./2018-09-04-DC_figs/transposon_dark.jpg]]
 
-** Transposon (Non-Composite Transposon) (Tn)
+** Non-Composite Transposon
 A DNA lolipop containing a transposase and promoter, and other accessory genes
 
-
-- Size: <1.5Kb
+- Size: < 3Kb
+- Detection: inverted tandem repeat, transposase, bonus genes
 - Maintenence: genome replication
 - Mobility: encoded transposase
 
 
-**  Transposon (Composite Transposon) (Tn)
+**  Composite Transposon
 A DNA fragment with IS sequences on each end
 
-- Size: <1.5Kb
+- Size: < 5Kb
+- Detection: double IS, promoters, and accessory genes
 - Maintenence: genome replication
 - Mobility: encoded transposase
 
+
+** Review
+#+beamer: \hspace*{-2em}
+#+CAPTION:
+#+NAME:   fig:mlst2
+#+ATTR_LATEX: :height .7\textwidth
+[[file:./2018-09-04-DC_figs/all_transposons_dark.jpeg]]
+
 ** Integrons
-Integrases used to shuffle around gene cassettes
+Mini-plasmids often containing AMR gene cassettes
 
+- Size: < 10Kb
+- Detection: integrase, recombination site (attI), promoter, and (optionally) a cassette of resistence genes
+- Maintenance: integration into host genome
+- Mobility:  recombination, or transfer when  circularized
 
-** Prophages
-Virus integrated into the host genome
-
-- Size: <1.5Kb
-- Maintenence: genome replication
-- Mobility: codes for a
 
 ** Genetic (Chromosomal) Islands
 - Size: >10Kb
+- Detection: GC Skew, phylogenetic analysis of ORFs
 - Maintenence: genome replication
-- Mobility: moved by phage
+- Mobility: various
 
 ** Phage-inducible Chromosomal Islands
 Phage parasites
 
 - Size: 5 -- 15Kb
-- Maintenence: genome replication
-- Mobility: moved by phage
+- Detection: Look for phage proteins along with phage inhibitors
+- Maintenence: lysogeny
+- Mobility: phage-like particles
 
 
 ** Phage-inducible Chromosomal Islands
@@ -145,18 +173,65 @@ Phage parasites
 
 [[file:./2018-09-04-DC_figs/sapi_dark.png]]
 
+** Prophages
+Virus integrated into the host genome
+
+- Size: ~ 50Kb
+- Detection: Look for phage integrases, tail and capsule proteins
+- Maintenence: genome replication
+- Mobility: lysogenic and lytic phases
+
 
 ** Plasmids
-Usually circular DNA bits
+Freely replicating DNA not required for survival
 
 - Size: <1Kb  -- 1Mb
+- Detection: run a gel; look for circular contigs
 - Maintenence: self-replicating or integrating
-- Mobility: Conjugation (directly or indirectly)
+- Mobility: conjugation (directly or indirectly)
 
 
 
+* In Closing
 
-* The End
-** Source
-https://www.nature.com/scitable/topicpage/transposons-the-jumping-genes-518
-https://www.nature.com/scitable/topicpage/transposons-the-jumping-genes-518
+** Future plans
+
+- Develop mobile pangenome tool for detecting "recent" adaptations
+- Characterize trends in MGEs in environmental vs enteric /E. coli/
+
+
+** Sources
+- https://www.nature.com/scitable/topicpage/transposons-the-jumping-genes-518
+- https://www.nature.com/scitable/topicpage/transposons-the-jumping-genes-518
+- https://www.researchgate.net/publication/283707425_The_Phage-Inducible_Chromosomal_Islands_A_Family_of_Highly_Evolved_Molecular_Parasites
+- https://www.sciencedirect.com/science/article/pii/S0043135416302226
+- http://www.bx.psu.edu/~ross/workmg/TranspositionCh9_files/
+
+** Acknowledgments
+\small
+#+BEGIN_LaTeX
+  \begin{columns}[onlytextwidth]
+    \column{0.5\textwidth}
+    \includegraphics[height=1cm]{2018-03-11_dc_figs/NUI_Galway_BrandMark_A_K.eps}\\
+     NUIG Microbiology
+      \begin{itemize}
+        \item[\square] Dr. Fiona Brennan
+        \item[\square] Dr. Florence Abram
+        \item[\square] Soil and Environmental Microbiology Research Group
+        \item[\square] Functional Environmental Microbiology Group
+      \end{itemize}
+
+    \column{0.5\textwidth}
+    \vskip .25em
+    \includegraphics[height=1cm]{2018-03-11_dc_figs/trimmed_jhi.png}\\
+      James Hutton Institute, Dundee
+      \begin{itemize}
+        \item[\square] Dr. Leighton Pritchard
+        \item[\square] Dr. Ashleigh Holmes
+      \end{itemize}
+\vskip 1cm
+\pause
+       \huge Questions?
+  \end{columns}
+
+#+END_LaTeX
