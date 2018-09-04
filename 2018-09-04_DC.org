@@ -64,13 +64,14 @@
 * What does 10 years look like to /E. coli/?
 
 ** BoE Calculations for Doubling Time
-# High estimates
-# https://www.frontiersin.org/articles/10.3389/fmicb.2018.00762/full
-# 0.013865 * 60 * 24 * 365 * 10
-# $\approx$ 72k generations
-# Low estimates
+High estimate:
 
-(5.9 / 2) * 365.25 * 10
+0.013865 * 60 * 24 * 365 * 10
+$\approx$ 72k generations
+
+** BoE Calculations for Doubling Time
+Medium estimate:
+(5.9 / 2) * 365 * 10
 
 $\approx$ 10k generations
 
@@ -79,7 +80,7 @@ Bååth 1998
 (assuming generation time roughly equals half of turnover rate)
 
 ** Other estimates
-
+No remaining bacteria after:
 - 32 days
 - 22 days
 - 8 weeks
@@ -112,7 +113,7 @@ Short, mobile sequence capable of jumping
 #+beamer: \hspace*{-2em}
 #+CAPTION: Insertion Sequence
 #+NAME:   fig:mlst2
-#+ATTR_LATEX: :width .65\textwidth
+#+ATTR_LATEX: :width .55\textwidth
 [[file:./2018-09-04-DC_figs/transposon_dark.jpg]]
 
 ** Non-Composite Transposon
@@ -206,6 +207,7 @@ Freely replicating DNA not required for survival
 - https://www.researchgate.net/publication/283707425_The_Phage-Inducible_Chromosomal_Islands_A_Family_of_Highly_Evolved_Molecular_Parasites
 - https://www.sciencedirect.com/science/article/pii/S0043135416302226
 - http://www.bx.psu.edu/~ross/workmg/TranspositionCh9_files/
+- https://www.frontiersin.org/articles/10.3389/fmicb.2018.00762/full
 
 ** Acknowledgments
 \small
