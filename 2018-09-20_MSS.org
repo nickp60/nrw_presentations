@@ -1,0 +1,170 @@
+#+STARTUP: showall beamer
+#+COLUMNS: %40ITEM %10BEAMER_env(Env) %9BEAMER_envargs(Env Args) %4BEAMER_col(Col) %10BEAMER_extra(Extra)
+# +BEAMER_HEADER: \titlegraphic{\includegraphics[height=1.5cm]{InstLogo}}
+
+#+TITLE: \small Microsoc Seminar Series 2018-09-04: \newline\LARGE Soil-persistent /E. coli/ and Mobile elements
+# +SUBTITLE: Or, an overview of mobile elements in /E. coli/
+#+AUTHOR: Nicholas Waters
+# +DATE: \today
+# #+SUBTITLE
+#+INSTITUTE: National University of Ireland, Galway, Ireland \linebreak The James Hutton Institute, Dundee, Scotland}
+#+LATEX_HEADER: \institute{National University of Ireland, Galway, Ireland \\ The James Hutton Institute, Dundee, Scotland}
+
+#+OPTIONS: H:2 toc:1
+
+# ################################################ Set the Aspect Ratio #############################
+# +LaTeX_CLASS_OPTIONS: [17pt,aspectratio=169]
+#+LaTeX_CLASS_OPTIONS: [15pt,aspectratio=43]
+
+
+#+LATEX_HEADER: \renewcommand*\familydefault{\sfdefault} % make font sansserif
+#+LATEX_HEADER: \newcommand{\bt}{\textasciigrave}
+#+LATEX_HEADER: \usepackage{xcolor}
+#+LATEX_HEADER: \def \ttilde {\raisebox{-.6ex}\textasciitilde~}
+#+LATEX_HEADER: \setlength\parindent{0pt} %set indent to zero
+#+LATEX_HEADER: \setlength{\parskip}{1em}
+#+LATEX_HEADER: \definecolor{bg}{HTML}{B1F4A0}
+# +LATEX_HEADER: \lstset{basicstyle=\linespread{1.1}\ttfamily\scriptsize, breaklines=true, backgroundcolor=\color{bashcodebg}, xleftmargin=0.5cm, language=bash, showstringspaces=false, columns=fullflexible}
+#+LATEX_HEADER: \usepackage{tcolorbox}
+
+#+LATEX_HEADER: \usepackage{etoolbox}
+#+LATEX_HEADER: \usepackage{geometry}
+#+LATEX_HEADER: \usepackage[colorlinks = true, linkcolor = blue, urlcolor  = blue, citecolor = blue, anchorcolor = blue]{hyperref}
+#+LATEX_HEADER: \let\oldv\verbatim
+#+LATEX_HEADER: \let\oldendv\endverbatim
+#+LATEX_HEADER: \def\verbatim{\par\setbox0\vbox\bgroup\scriptsize\oldv}
+#+LATEX_HEADER: \def\endverbatim{\oldendv\egroup\fboxsep0pt \noindent\colorbox[gray]{0.8}{\usebox0}\par}
+#+LaTeX_HEADER: \usepackage{array, booktabs, xcolor, tikz}
+
+#+LaTeX_HEADER: \usepackage{graphicx}
+
+#+LaTeX_HEADER: \usetikzlibrary{arrows, calc, spy, shapes}
+#+LaTeX_HEADER: \tikzstyle{square} = [draw]
+#+LaTeX_HEADER:\addtobeamertemplate{footnote}{\tiny}{} %\vspace{2ex}}
+
+# set light/ dark theme here
+#+LaTeX_HEADER:\usetheme[style=dark]{NUIG}
+# light
+# +BEAMER: \setbeamertemplate{itemize items}{\includegraphics[width=.6em, valign=c]{./frequentFigs/coli_icon.pdf}}
+# dark
+#+BEAMER: \setbeamertemplate{itemize items}{\includegraphics[width=.6em, valign=c]{./frequentFigs/coli_icon_D2.pdf}}
+
+* Background
+** Project Overview
+- /E. coli/ has been found to persist stably in the soil
+- Isolates were cultured from lysimeter leachate
+- Strains were sequenced, resulting in *149* soil-persistent /E. coli/ genome
+
+** Research Questions
+- What types of /E. coli/ are able to persist in soil?
+#+BEAMER: \pause
+- What virulence factors are harboured by these strains?
+#+BEAMER: \pause
+- What can we infer about adaptation from these?
+#+BEAMER: \pause
+- Can we differentiate soil-persistent /E. coli/ from recent contamination?
+
+* /E. coli/ Pangenome
+
+* What does 10 years look like to /E. coli/?
+
+** BoE Calculations for Doubling Time
+High estimate:
+
+0.013865 * 60 * 24 * 365 * 10
+$\approx$ 72k generations
+
+** BoE Calculations for Doubling Time
+Medium estimate:
+(5.9 / 2) * 365 * 10
+
+$\approx$ 10k generations
+
+Bååth 1998
+
+(assuming generation time roughly equals half of turnover rate)
+
+** Other estimates
+No remaining bacteria after:
+- 32 days
+- 22 days
+- 8 weeks
+- 114 days
+
+** Detection of Escherichia coli in sequenced soil
+
+/E. coli/  approximately .092% prevelence in soil metagenomes
+
+
+
+** Hypotheses
+Highly diverse soil communities and environmental stress favour rapid adaptation over incremental changes
+
+#+BEAMER:\pause
+
+Adaptations will occur more rapidly because of mobile elements rather than mutations to core functions
+
+* Mobile Genetic Elements
+
+** Overview
+
+#+BEAMER: \small
+|                    |        *Kb* | *Mobility*  | *Detection*               |
+|--------------------+-------------+-------------+---------------------------|
+| Insertion Seq      |     .75-1.5 | transposase | ITR and transposase       |
+| Non-composite Tn   |          <3 | IS          | IS with bonus genes       |
+| Composite Tn       |        <5kb | double IS   | flanking ISs              |
+| Integron           |         <10 | integrase*  | /attI/ site, AMR genes    |
+| Genetic Island     |         >10 | phage       | GC Skew,analysis of ORFs  |
+| Phage Inducible CI |        5-15 | phage       | phage inhibitors          |
+| Prophage           | \approx50   | lysogeny    | integrases, tail, capsule |
+| Plasmid            |       1-1Mb | various     | run a gel,  /oriT/        |
+|                    |             |             |                           |
+
+** mobilephone
+
+
+* In Closing
+
+** Future plans
+
+- Develop mobile pangenome tool for detecting "recent" adaptations
+- Characterize trends in MGEs in environmental vs enteric /E. coli/
+
+
+** Sources
+- https://www.nature.com/scitable/topicpage/transposons-the-jumping-genes-518
+- https://www.nature.com/scitable/topicpage/transposons-the-jumping-genes-518
+- https://www.researchgate.net/publication/283707425_The_Phage-Inducible_Chromosomal_Islands_A_Family_of_Highly_Evolved_Molecular_Parasites
+- https://www.sciencedirect.com/science/article/pii/S0043135416302226
+- http://www.bx.psu.edu/~ross/workmg/TranspositionCh9_files/
+- https://www.frontiersin.org/articles/10.3389/fmicb.2018.00762/full
+
+** Acknowledgments
+\small
+#+BEGIN_LaTeX
+  \begin{columns}[onlytextwidth]
+    \column{0.5\textwidth}
+    \includegraphics[height=1cm]{2018-03-11_dc_figs/NUI_Galway_BrandMark_A_K.eps}\\
+     NUIG Microbiology
+      \begin{itemize}
+        \item[\square] Dr. Fiona Brennan
+        \item[\square] Dr. Florence Abram
+        \item[\square] Soil and Environmental Microbiology Research Group
+        \item[\square] Functional Environmental Microbiology Group
+      \end{itemize}
+
+    \column{0.5\textwidth}
+    \vskip .25em
+    \includegraphics[height=1cm]{2018-03-11_dc_figs/trimmed_jhi.png}\\
+      James Hutton Institute, Dundee
+      \begin{itemize}
+        \item[\square] Dr. Leighton Pritchard
+        \item[\square] Dr. Ashleigh Holmes
+      \end{itemize}
+\vskip 1cm
+\pause
+       \huge Questions?
+  \end{columns}
+
+#+END_LaTeX
