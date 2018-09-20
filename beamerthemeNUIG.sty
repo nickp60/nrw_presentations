@@ -47,7 +47,7 @@
 
  \defbeamertemplate*{background canvas}{mydefault}
  {%
-   \ifbeamercolorempty[newbg]{background canvas}{}{\color{bg}\vrule width\paperwidth height\paperheight}% copied beamer default here
+   \ifbeamercolorempty[newbg]{background canvas}{}{\color{bg}\vrule width1.1\paperwidth height1.1\paperheight}% copied beamer default here
  }
 
  \defbeamertemplate*{background canvas}{newbg}
@@ -81,7 +81,7 @@
 \setbeamertemplate{title page}
 {%
   % this messes up hte margins, so I'll have to wait on this feature
-  \begin{beamercolorbox}[wd=\paperwidth,ht=\paperheight]{title}%
+  \begin{beamercolorbox}[wd=1.2\paperwidth,ht=1.1\paperheight]{title}%
     \hspace*{1.5em}%
   \begin{minipage}[b][\paperheight]{\textwidth}
     \vfill
@@ -164,14 +164,22 @@
 }
 
 \newcommand{\plain}[2]{%
-  \begingroup
   \setbeamercolor{background canvas}{bg=black}
   \begin{frame}{#1}
     \centering
-    \vfill\vspace{1em}\usebeamerfont{section title}\textcolor{white}{\scshape #2}\vfill
+    \vfill\usebeamerfont{section title}\textcolor{white}{\scshape #2}\vfill
   \end{frame}
-  \endgroup
 }
+% \newcommand{\plain}[2]{%
+%   \begin{beamercolorbox}[wd=1.2\paperwidth,ht=1.1\paperheight]{title}%
+%     \hspace*{1.5em}%
+%     \begin{minipage}[b][\paperheight]{\textwidth}
+%       \centering
+%       \vfill\usebeamerfont{section title}\textcolor{white}{\scshape #2}\vfill
+%     \end{minipage}%
+%   \end{beamercolorbox}%
+% }
+
 
 %}}}
 %{{{ --- Itemize ----------------------
@@ -193,7 +201,7 @@
   \begingroup
   \setbeamercolor{background canvas}{fg=titletext, bg=titlebg}
   \begin{frame}[plain]
-    \vspace{2em}\usebeamerfont{section title}
+    \usebeamerfont{section title}
     \progressbar@progressbar%
   \end{frame}
   \endgroup
