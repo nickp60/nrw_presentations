@@ -1,0 +1,337 @@
+#+STARTUP: showall beamer
+#+COLUMNS: %40ITEM %10BEAMER_env(Env) %9BEAMER_envargs(Env Args) %4BEAMER_col(Col) %10BEAMER_extra(Extra)
+
+# +BEAMER_HEADER: \titlegraphic{\includegraphics[height=1.5cm]{InstLogo}}
+
+#+TITLE: \small MUA Flash presentation: \newline\LARGE Towards better genome assemblies with riboSeed
+# +SUBTITLE: Or, an overview of mobile elements in /E. coli/
+#+AUTHOR: Nicholas Waters
+# +DATE: \today
+# #+SUBTITLE
+#+INSTITUTE: National University of Ireland, Galway, Ireland \linebreak The James Hutton Institute, Dundee, Scotland}
+#+LATEX_HEADER: \institute{National University of Ireland, Galway, Ireland \\ The James Hutton Institute, Dundee, Scotland}
+
+#+OPTIONS: H:1 toc:nil
+
+#+LATEX_HEADER: \PassOptionsToPackage{draft}{graphicx}
+
+# ################################################ Set the Aspect Ratio #############################
+#+LaTeX_CLASS_OPTIONS: [17pt,aspectratio=169]
+# +LaTeX_CLASS_OPTIONS: [15pt,aspectratio=43]
+
+#+LATEX_HEADER: \renewcommand*\familydefault{\sfdefault} % make font sansserif
+#+LATEX_HEADER: \newcommand{\bt}{\textasciigrave}
+#+LATEX_HEADER: \usepackage{xcolor}
+#+LATEX_HEADER: \def \ttilde {\raisebox{-.6ex}\textasciitilde~}
+#+LATEX_HEADER: \setlength\parindent{0pt} %set indent to zero
+#+LATEX_HEADER: \setlength{\parskip}{1em}
+#+LATEX_HEADER: \definecolor{bg}{HTML}{B1F4A0}
+# +LATEX_HEADER: \lstset{basicstyle=\linespread{1.1}\ttfamily\scriptsize, breaklines=true, backgroundcolor=\color{bashcodebg}, xleftmargin=0.5cm, language=bash, showstringspaces=false, columns=fullflexible}
+#+LATEX_HEADER: \usepackage{tcolorbox}
+
+#+LATEX_HEADER: \usepackage{etoolbox}
+#+LATEX_HEADER: \usepackage{geometry}
+#+LATEX_HEADER: \usepackage[colorlinks = true, linkcolor = blue, urlcolor  = blue, citecolor = blue, anchorcolor = blue]{hyperref}
+#+LATEX_HEADER: \let\oldv\verbatim
+#+LATEX_HEADER: \let\oldendv\endverbatim
+#+LATEX_HEADER: \def\verbatim{\par\setbox0\vbox\bgroup\scriptsize\oldv}
+#+LATEX_HEADER: \def\endverbatim{\oldendv\egroup\fboxsep0pt \noindent\colorbox[gray]{0.8}{\usebox0}\par}
+#+LaTeX_HEADER: \usepackage{array, booktabs, xcolor, tikz}
+
+#+LaTeX_HEADER: \usepackage{graphicx}
+
+#+LaTeX_HEADER: \usetikzlibrary{arrows, calc, spy, shapes}
+#+LaTeX_HEADER: \tikzstyle{square} = [draw]
+#+LaTeX_HEADER:\addtobeamertemplate{footnote}{\tiny}{} %\vspace{2ex}}
+
+# set light/ dark theme here
+#+LaTeX_HEADER:\usetheme[style=light]{NUIG}
+# light
+#+BEAMER: \setbeamertemplate{itemize items}{\includegraphics[width=.6em, valign=c]{./frequentFigs/coli_icon.pdf}}
+# dark
+# +BEAMER: \setbeamertemplate{itemize items}{\includegraphics[width=.6em, valign=c]{./frequentFigs/coli_icon_D2.pdf}}
+
+* The Problem
+** Col left 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.75
+   :BEAMER_opt: [t]
+   :END:
+- most assemblies remain unfinished
+- Repeated regions complicate genome assembly
+- rDNAs are most common repeats (1-15x)
+
+** Col right 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.25
+   :BEAMER_opt: [t]
+   :END:
+#+CAPTION:
+#+NAME:   fig:Annofilt
+#+ATTR_LATEX: :width \textwidth
+[[file:./frequentFigs/2017-09-14_plot1.pdf]]
+
+
+* rDNA context
+** Col left 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.55
+   :BEAMER_opt: [t]
+   :END:
+conserved between strains
+#+CAPTION:
+#+NAME:   fig:Annofilt
+#+ATTR_LATEX: :width \textwidth
+[[file:./frequentFigs/entropy_plot_gmbH.png]]
+
+** Col right 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.55
+   :BEAMER_opt: [t]
+   :END:
+\dots but not within a genome
+#+CAPTION:
+#+NAME:   fig:ent1
+#+ATTR_LATEX: :width \textwidth
+[[file:./frequentFigs/entropy_plot.png]]
+
+
+* riboSeed's /de fere novo/ assembly
+
+#+latex: \includegraphics[width=1em]{frequentFigs/accuracy.png}
+riboSeed $\approx$ hybrid $>$ reference-base\newline
+#+ATTR_LATEX: :width .95\textwidth
+[[file:./frequentFigs/PrettyMauveUpdated.pdf]]
+
+Come visit poster *#12* to clain a *free* riboSeed assembly!
+
+# * Background
+# ** Sources
+# #+BEAMER: \small
+# - https://github.com/tseemann/prokka
+# - https://github.com/nickp60/riboSeed
+# - https://sanger-pathogens.github.io/Roary/
+# - https://www.nature.com/scitable/topicpage/transposons-the-jumping-genes-518
+# - https://www.nature.com/scitable/topicpage/transposons-the-jumping-genes-518
+# - https://www.researchgate.net/publication/283707425_The_Phage-Inducible_Chromosomal_Islands_A_Family_of_Highly_Evolved_Molecular_Parasites
+# - https://www.sciencedirect.com/science/article/pii/S0043135416302226
+# - http://www.bx.psu.edu/~ross/workmg/TranspositionCh9_files/
+# - https://www.frontiersin.org/articles/10.3389/fmicb.2018.00762
+
+# ** Acknowledgments
+# \small
+# #+BEGIN_LaTeX
+#   \begin{columns}[onlytextwidth]
+#     \column{0.5\textwidth}
+#     \includegraphics[height=1cm]{2018-03-11_dc_figs/NUI_Galway_BrandMark_A_K.eps}\\
+#      NUIG Microbiology
+#       \begin{itemize}
+#         \item[\square] Dr. Fiona Brennan
+#         \item[\square] Dr. Florence Abram
+#         \item[\square] Soil and Environmental Microbiology Research Group
+#         \item[\square] Functional Environmental Microbiology Group
+#       \end{itemize}
+
+#     \column{0.5\textwidth}
+#     \vskip .25em
+#     \includegraphics[height=1cm]{2018-03-11_dc_figs/trimmed_jhi.png}\\
+#       James Hutton Institute, Dundee
+#       \begin{itemize}
+#         \item[\square] Dr. Leighton Pritchard
+#         \item[\square] Dr. Ashleigh Holmes
+#       \end{itemize}
+# \vskip 1cm
+#   \end{columns}
+
+# #+END_LaTeX
+
+# ** Project Overview
+# - /E. coli/ has been found to persist stably in the soil
+# - Isolates were cultured from lysimeter leachate
+# - Strains were sequenced, resulting in *149* soil-persistent /E. coli/ genomes
+
+# ** Research Questions
+# - What types of /E. coli/ are able to persist in soil?
+# #+BEAMER: \pause
+# - What virulence factors are harboured by these strains?
+# #+BEAMER: \pause
+# - *What can we infer about adaptation?*
+# #+BEAMER: \pause
+# - Can we differentiate soil-persistent /E. coli/ from recent contamination?
+
+# * /E. coli/ Pangenome
+# ** Overview
+# Assembly  \Rightarrow Annotation \Rightarrow presense/absence matrix \newline
+# #+Beamer: \pause
+# riboSeed \Rightarrow Prokka\phantom{duck} \Rightarrow  Roary
+# #+Beamer: \pause
+
+# |            |    N | Core   | total  |
+# |------------+------+--------+--------|
+# | Soil       |  149 | 2662   | 21,662 |
+# | Enterobase | 1193 | *1822* | 79,288 |
+# | All        | 1342 | *1806* | 83,868 |
+
+
+# # ** Average Nucleotide Identity
+# # http://widdowquinn.github.io/pyani/
+# # #+BEGIN_LaTeX
+# # \begin{tikzpicture}[spy using outlines={black,square,magnification=5, size=6cm,connect spies}]
+# #   \node[anchor=south west,inner sep=0] (image) at (0,0){
+# #   \includegraphics[height=.75\paperheight]{../nrw_posters/utrecht2016/figs/ANIm_percentage_identity_edited.pdf}};
+# # \end{tikzpicture}
+# # #+END_LaTeX
+
+# # ** Average Nucleotide Identity
+# # :PROPERTIES:
+# # :BEAMER_opt: fragile
+# # :END:
+# # http://widdowquinn.github.io/pyani/
+# # #+BEGIN_LaTeX
+# # \begin{tikzpicture}[spy using outlines={black,square,magnification=5, size=6cm,connect spies}]
+# #   \node[anchor=south west,inner sep=0] (image) at (0,0){
+# #   \includegraphics[height=.75\paperheight]{../nrw_posters/utrecht2016/figs/ANIm_percentage_identity_edited.pdf}};
+# #     \spy on ($.53*(image.north)+0.61*(image.east)$) in node at ([xshift=4cm]image.east);
+# # \end{tikzpicture}
+# # #+END_LaTeX
+
+
+# ** Annotation
+# #+BEGIN_LaTeX
+# \noindent
+# \begin{tikzpicture}
+# \node [anchor=west] (note) at (-1,4) {\Large Partial};
+# \begin{scope}[xshift=1.5cm]
+#     \node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=0.67\textwidth]{./frequentFigs/weird_gene3.png}};
+#     \begin{scope}[x={(image.south east)},y={(image.north west)}]
+#         \draw[red,ultra thick,rounded corners] (0.5,0.05) rectangle (0.55,0.15);
+#         \draw [-latex, ultra thick, red] (note) to (0.48,0.1);
+#     \end{scope}
+# \end{scope}
+# \end{tikzpicture}%
+
+# #+END_LaTeX
+
+# ** Detecting differential presence/absence
+
+# - No statistically significant gene associations with source
+# - /E coli/ diversity adds noise
+
+
+# # #+LaTeX: \vskip -6ex
+# # *** Col left 							      :BMCOL:
+# #    :PROPERTIES:
+# #    :BEAMER_col: 0.5
+# #    :BEAMER_opt: [c]
+# #    :END:
+
+# # - Statistically compare traits to a pangenome
+
+# # *** Col right                                                          :BMCOL:
+# #    :PROPERTIES:
+# #    :BEAMER_col: 0.4
+# #    :BEAMER_opt: [c]
+# #    :END:
+
+# # #+CAPTION:
+# # #+NAME:   fig:scoary
+# # #+ATTR_LATEX: :width \textwidth
+# # file:./frequentFigs/scoary.png
+
+
+
+# * What does 10 years look like to /E. coli/ ?
+
+# ** BoE Calculations for Doubling Time
+# High estimate:
+
+# 0.013865 * 60 * 24 * 365 * 10
+# $\approx$ 72k generations
+
+# ** BoE Calculations for Doubling Time
+# Medium estimate:
+
+# (5.9* / 2) * 365 * 10
+# $\approx$ 10k generations
+
+
+# *(assuming generation time roughly equals half of turnover rate)
+
+# ** Other estimates
+# No viable coliforms after:
+# - 22 days
+# - 32 days
+# - 8 weeks
+# - 16 weeks
+
+# ** /In situ/ Detection
+
+# /E. coli/  approximately .092% prevalence in soil metagenomes
+
+
+
+# ** Hypothesis
+# Stressed and outnumbered?
+
+# #+Beamer: \pause
+# *rapid* > incremental
+
+# #+BEAMER: \pause
+# $\dot{.\hspace{.095in}.}$ adaptation via mobile elements
+
+# * Mobile Genetic Elements
+
+# ** Overview
+
+# #+BEAMER: \small
+# |                    |      *Kb* | *Mobility*  | *Detection*               |
+# |--------------------+-----------+-------------+---------------------------|
+# | IS                 |   .75-1.5 | transposase | ITR and transposase       |
+# | Non-composite Tn   |        <3 | IS          | IS with bonus genes       |
+# | Composite Tn       |      <5kb | double IS   | flanking ISs              |
+# | Integron           |       <10 | integrase*  | /attI/ site, AMR genes    |
+# | Genetic Island     |       >10 | phage       | GC Skew, ORF phylogeny    |
+# | Phage Inducible CI |      5-15 | phage       | phage inhibitors          |
+# | Prophage           | \approx50 | lysogeny    | integrase, tail, capsule  |
+# | Plasmid            |     1-1Mb | various     | run a gel, /oriT/         |
+# |                    |           |             |                           |
+
+
+# ** Genomic NJ on Pangenome
+# #+LaTeX: \vskip -2ex
+# #+LaTeX: \vspace{2em}
+# #+LaTeX: \vskip -6ex
+# #+CAPTION:
+# #+NAME:   fig:mobiled
+# #+ATTR_LATEX: :width \textwidth
+# file:./frequentFigs/genomicd.png
+
+# ** \url{https://github.com/nickp60/happie/}
+# Horizontally Aquired Partial Pangenome of Inserted Elements
+
+# #+BEAMER: \pause
+# #+LaTeX: \vskip -2ex
+# #+LaTeX: \vspace{2em}
+# #+LaTeX: \vskip -6ex
+# #+CAPTION:
+# #+NAME:   fig:mobiled
+# #+ATTR_LATEX: :width \textwidth
+# file:./frequentFigs/mobiled.png
+
+
+
+# * In Closing
+# ** Summary
+# What we know:
+# - soil /E. coli/ is very diverse
+# - wide range of estimates exist for doubling time in soil
+# - diversity prevents robust statistical trait association
+# - MGE phylogeny does not reflect genome phylogeny
+
+# What we want to know:
+# - how the mobile pangenomes of soil vs enteric /E. coli/ compare
+# - which /types/ of phages, etc, are correlated by source
+# - whether genomic islands reflect phylogeny
+# - which regions are interrupted by IS, Tns, etc
+# \pause
+# \huge *Questions?*
