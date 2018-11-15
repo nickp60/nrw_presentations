@@ -51,12 +51,21 @@
 }
 
 %%%%%%%%%%5
-
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
 
 \usepackage{grffile} %for underscores in file names
 \usepackage{gensymb} % degree
 \title{The Science of Brewing:}
-\subtitle{How 4 simple ingredients become the best beverage in the world \newline \newline Part 3: Water}
+\subtitle{How 4 simple ingredients become the best beverage in the world \newline \newline Part 3: \textbf{Water}}
 \date{\footnotesize{\today}}
 \author{Nick Waters}
 \institute{Department of Microbiology\\
@@ -64,6 +73,9 @@ School of Natural Sciences\\
 National University of Ireland, Galway}
 \begin{document}
 \maketitle
+
+
+\section{Introduction}
 
 \begin{frame}
 \frametitle{Ingredients}
@@ -80,8 +92,6 @@ National University of Ireland, Galway}
     \hspace*{-10mm}\includegraphics[width=1.2\textwidth]{./brewing/overview.jpg}
 \end{center}
 \end{frame}
-
-\section{Introduction}
 
 \begin{frame}
 \frametitle{Disclaimer}
