@@ -92,16 +92,20 @@
 * /E. coli/ Pan-genome
 ** Overview
 Assembly  \Rightarrow Annotation \Rightarrow presence/absence matrix \newline
-riboSeed \phantom{} \Rightarrow Prokka\phantom{duck} \Rightarrow  Roary
-#+Beamer: \pause
+riboSeed \phantom{} \Rightarrow Prokka\phantom{duck}\Rightarrow  Roary
 
-|                       |       N | Core   | total  |
-|                       | strains | >95%   | --     |
-|-----------------------+---------+--------+--------|
-| Soil                  |     149 | 2662   | 21,662 |
-| Clinical\footnotemark |    1193 | *1822* | 79,288 |
-| All                   |    1342 | *1806* | 83,868 |
-|                       |         |        |        |
+- *149 soil* strains
+- *1193 clinical\footnotemark* strains
+- *2937 core genes* (>95% of genomese)
+- *44,567 genes* in total pan-genome
+- 90% blastp identity threshold
+# |                       |       N | Core   | total  |
+# |                       | strains | >95%   | --     |
+# |-----------------------+---------+--------+--------|
+# | Soil                  |     149 | 2662   | 21,662 |
+# | Clinical\footnotemark |    1193 | *1822* | 79,288 |
+# | All                   |    1342 | *1806* | 83,868 |
+# |                       |         |        |        |
 \footnotetext[1]{representatives from each sequence type on Enterobase}
 
 # ** Average Nucleotide Identity
@@ -128,7 +132,7 @@ riboSeed \phantom{} \Rightarrow Prokka\phantom{duck} \Rightarrow  Roary
 
 
 
-# ** Annotation
+# ** Annotation issues
 # \begin{tikzpicture}%
 #  \node [anchor=west] (note) at (-1,4) {\Large Partial};
 #  \begin{scope}[xshift=1.5cm]
@@ -140,32 +144,42 @@ riboSeed \phantom{} \Rightarrow Prokka\phantom{duck} \Rightarrow  Roary
 #  \end{scope}%
 # \end{tikzpicture}
 
-
-
-# ** Annotation Correction with annofilt performance
-# # +LaTeX: \vskip -2ex
-# # +LaTeX: \url{https://nickp60.github.io/annofilt/}\vspace{2em}
-# # +LaTeX: \vskip -6ex
-# *** Col left 							      :BMCOL:
-#    :PROPERTIES:
-#    :BEAMER_col: 0.4
-#    :BEAMER_opt: [t]
-#    :END:
-# #+CAPTION:
-# #+NAME:   fig:Annofilt
-# #+ATTR_LATEX: :width .7\textwidth
-# [[file:./frequentFigs/ent2d.png]]
-
-# *** Col right                                                          :BMCOL:
-#    :PROPERTIES:
-#    :BEAMER_col: 0.4
-#    :BEAMER_opt: [t]
-#    :END:
-
+# ** Try Annofilt!
 # #+CAPTION:
 # #+NAME:   fig:ent1
-# #+ATTR_LATEX: :width .7\textwidth
-# [[file:./frequentFigs/entsd.png]]
+# #+ATTR_LATEX: :width .4\textwidth
+# [[file:./frequentFigs/ents.png]]
+
+#
+** Annotation Correction with annofilt performance
+# +LaTeX: \vskip -2ex
+# +LaTeX: \url{https://nickp60.github.io/annofilt/}\vspace{2em}
+# +LaTeX: \vskip -6ex
+*** Col left 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.5
+   :BEAMER_opt: [t]
+   :END:
+#+CAPTION:
+#+NAME:   fig:Annofilt
+#+ATTR_LATEX: :width .7\textwidth
+[[file:./frequentFigs/ent2.png]]
+\url{https://github.com/nickp60/annofilt}
+*** Col right                                                          :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.5
+   :BEAMER_opt: [t]
+   :END:
+
+#+CAPTION:
+#+NAME:   fig:ent1
+#+ATTR_LATEX: :width .6\textwidth
+[[file:./frequentFigs/ents.png]]
+
+#+CAPTION:
+#+NAME:   fig:ent1
+#+ATTR_LATEX: :width .3\textwidth
+[[file:./frequentFigs/icon.pdf]]
 
 
 ** Detecting differential presence/absence
@@ -201,28 +215,28 @@ riboSeed \phantom{} \Rightarrow Prokka\phantom{duck} \Rightarrow  Roary
 ** Estimates from the literature
 *** Col left 							      :BMCOL:
    :PROPERTIES:
-   :BEAMER_col: 0.6
+   :BEAMER_col: 0.3
    :BEAMER_opt: [c]
    :END:
-Survival Estimates
+Estimates
 - $\approx$ 72k generations
 - $\approx$ 10k generations
 
 No viable coliforms after:
 - 22 days
-- 32 days
-- 8 weeks
 - 16 weeks
 
 
 *** Col right                                                          :BMCOL:
    :PROPERTIES:
-   :BEAMER_col: 0.4
+   :BEAMER_col: 0.7
    :BEAMER_opt: [c]
    :END:
 
-Prevalence Estimates:
-- $approx$ .092% in soil metagenomes
+#+CAPTION:
+#+NAME:   fig:overview
+#+ATTR_LATEX: :width \textwidth
+[[file:/Users/nick/GitHub/FB/Ecoli_comparative_genomics/results/2019-03-pangenome-analysis/rendered_plots/coli_prev.png]]
 
 ** Hypothesis
 Stressed and outnumbered?
@@ -268,18 +282,12 @@ Horizontally Aquired Partial Pan-genome of Inserted Elements
   - detect AMR with resfinder
   - detect virulence genes with VFDB
 
-# ** Genomic NJ on Pangenome
-# #+beamer: \hspace*{-1.5cm}
-# #+CAPTION:
-# #+NAME:   fig:genomed
-# #+ATTR_LATEX: :width 1.5\textwidth
-# file:./frequentFigs/genomicd.png
 
-** Genomic NJ on Pan-genome
+** Pan-genomee neighbor-joining tree
 \vskip .4cm \hspace*{-1cm}\includegraphics[width=1.15\textwidth]{./frequentFigs/genomicd.png}
 
 
-** Genomic NJ on Pan-mobilome
+** Pan-mobilome neighbor-joining tree
 \vskip .4cm \hspace*{-1cm}\includegraphics[width=1.15\textwidth]{./frequentFigs/mobiled.png}
 
 
@@ -359,10 +367,10 @@ Horizontally Aquired Partial Pan-genome of Inserted Elements
 
 
 ** Enrichment Analysis (in progress)
-- Paralog Analysis
-- pyseer: kmers
-- panX: diversity and visualization
-- ML-based approaches
+- paralog analysis
+- study enriched kmers
+- annotation curation
+
 
 
 * In Closing
@@ -370,13 +378,12 @@ Horizontally Aquired Partial Pan-genome of Inserted Elements
 What we know:
 - soil /E. coli/ is very diverse
 - wide range of estimates exist for doubling time in soil
-- intraspecies diversity confounds trait association
 - MGE phylogeny does not reflect genome phylogeny
 - AMR genes may be be less frequently found in soil pan-mobilome
 
 What we want to know:
 - what inferences can we make about adaptation?
-- which /types/ of phages, etc, are correlated by source?
+- which /types/ of phages, plasmids,  etc, are correlated by source?
 
 
 ** Acknowledgments
