@@ -1,0 +1,88 @@
+\documentclass[tikz]{standalone}
+\usepackage{pgfgantt}
+\title{Gantt Charts with the pgfgantt Package}
+\listfiles
+\usepackage{lmodern}% http://ctan.org/pkg/lm
+
+\sffamily
+\setganttlinklabel{f-s}{if successful}
+\setganttlinklabel{s-f}{NA}
+\definecolor{group}{HTML}{8AA793} % "jade"
+\definecolor{grouppartial}{HTML}{68075A}% purple
+\definecolor{barpartial}{HTML}{1B4163} % midnight
+\definecolor{bar}{HTML}{8FB7C3} % lighter blue
+\definecolor{decogrey}{HTML}{D4CCC2} % lighter grey
+\definecolor{linkred}{RGB}{165,0,33}
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{ganttchart}[
+y unit chart=.7cm,
+x unit=1cm,
+canvas/.append style={fill=none, draw=black!5, line width=.75pt},
+%hgrid, canvas/.append style={fill opacity=0.2}
+%vgrid,
+hgrid style/.style={draw=black!5, line width=.75pt},
+vgrid={*1{draw=black!5, line width=.75pt}},
+today=2018-12,
+today rule/.style={
+  draw=black!64,
+  dash pattern=on 3.5pt off 4.5pt,
+  line width=1.5pt
+},
+title/.style={draw=decogrey, fill=decogrey},
+today label font=\sffamily,
+%% format bars (subprocesses)
+bar height=.3,
+bar label font=\small\color{black!70},
+bar incomplete/.append style={fill=bar},
+bar progress label font=\footnotesize\color{black!70},
+bar/.append style={draw=none, fill=barpartial},
+%% format groups (main processes)
+group peaks tip position=0,
+group height=.5,
+group/.append style={draw=none, fill=grouppartial},
+group incomplete/.append style={fill=group},
+time slot format=isodate-yearmonth,
+compress calendar
+]{2016-06}{2019-08}\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\gantttitle{2018 GRC}{12} \\
+\gantttitlecalendar{year, month} \\
+%%%
+\ganttgroup[progress=100]{Software}{2016-06}{2018-03} \\
+\ganttbar[progress=100]{annofilt}{2018-01}{2018-03}\\
+\ganttbar[progress=100, name=ribo]{write riboSeed}{2016-07}{2016-09} \\
+\ganttbar[name=sop]{Publish riboSeed Manuscript}{2017-05}{2018-03}\\
+\ganttbar[progress=100]{happie}{2018-07}{2018-11}\\
+%%%
+\ganttgroup[progress=50]{Description of soil-persistent \textit{E. coli}}{2016-06}{2019-05} \\
+\ganttbar[progress=100]{Clermont Phylotypes}{2017-06}{2017-07} \\
+\ganttbar[progress=100]{Achtman 7 gene MLST}{2017-08}{2017-10} \\
+\ganttbar[progress=100]{kSNP3 tree construction}{2017-07}{2017-08} \\
+\ganttbar[progress=0]{Cold-shock protein survey}{2018-05}{2018-07}\\
+\ganttbar[progress=50]{rDNA copy number survey}{2018-05}{2018-07}\\
+\ganttbar[progress=80]{Plasmid survey}{2017-06}{2018-06}\\
+%%%
+\ganttgroup[progress=15]{Comparing to enteric strains}{2017-05}{2019-05} \\
+\ganttbar[progress=100]{Selection of comparison strains}{2017-08}{2017-10} \\
+\ganttbar[progress=100]{Reannotate Genomes (Prokka)}{2017-09}{2017-10}\\
+\ganttbar[progress=100]{Run Roary}{2017-11}{2018-03}\\
+\ganttbar[progress=20]{Subgroup Analysis}{2017-11}{2018-11}\\
+%%%
+\ganttgroup[progress=0]{Trainings/ Conference Preparations}{2016-10}{2016-12} \\
+\ganttmilestone{\textit{E. coli} Conference Poster}{2016-11}\\ \ganttmilestone{Environ 2017 talk}{2017-04}\\
+\ganttmilestone{MS Annual Meeting}{2018-04}\\
+\ganttmilestone{Microbiomes Underpinning Agriculture}{2018-10}\\
+\ganttmilestone{Software Carpentry Instructor Training}{2018-11}\\
+\ganttmilestone{JHI Student Meeting}{2019-03}\\
+\ganttmilestone{MS Annual Meeting}{2019-04}\\
+\ganttmilestone{BAGECO Meeting}{2019-05}\\
+\ganttnewline
+
+%%
+\ganttlink[link type=f-s]{ribo}{sop}
+\ganttlink[link type=s-f]{rando}{rando}
+\end{ganttchart}
+\end{document}

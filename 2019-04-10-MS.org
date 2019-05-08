@@ -96,8 +96,8 @@ riboSeed \phantom{} \Rightarrow Prokka\phantom{duck}\Rightarrow  Roary
 
 - *149 soil* strains
 - *1193 clinical\footnotemark* strains
-- *2937 core genes* (>95% of genomese)
-- *44,567 genes* in total pan-genome
+- *2937 core genes* (>95% of genomes)
+- *44,567 total genes*
 - 90% blastp identity threshold
 # |                       |       N | Core   | total  |
 # |                       | strains | >95%   | --     |
@@ -151,7 +151,7 @@ riboSeed \phantom{} \Rightarrow Prokka\phantom{duck}\Rightarrow  Roary
 # [[file:./frequentFigs/ents.png]]
 
 #
-** Annotation Correction with annofilt performance
+** Annotation QC with annofilt
 # +LaTeX: \vskip -2ex
 # +LaTeX: \url{https://nickp60.github.io/annofilt/}\vspace{2em}
 # +LaTeX: \vskip -6ex
@@ -271,19 +271,19 @@ $\dot{.\hspace{.095in}.}$ adaptation via mobile elements
 Horizontally Aquired Partial Pan-genome of Inserted Elements
 1.  Check quality of genome assembly:
   - remove contigs < 800bp
-2. Annotate whole genome (Prokka)
+2. Annotate whole genome with Prokka
 3. Filter out incomplete annotations with AnnoFilt
 4. Detect mobile elements
-  - Plasmids via mlplasmids
+  - Plasmids via mlplasmids or mob-tools
   - Prophages via ProphET
   - GIs via IslandPath-DIMOB
 5. Extract and annotate mobile genome
-6. Query both mobile and total genomes
+6. Query both mobile and total genomes with abricate
   - detect AMR with resfinder
   - detect virulence genes with VFDB
 
 
-** Pan-genomee neighbor-joining tree
+** Pan-genome neighbor-joining tree
 \vskip .4cm \hspace*{-1cm}\includegraphics[width=1.15\textwidth]{./frequentFigs/genomicd.png}
 
 

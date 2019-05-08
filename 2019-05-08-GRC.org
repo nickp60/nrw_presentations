@@ -1,0 +1,460 @@
+#+STARTUP: showall beamer
+#+COLUMNS: %40ITEM %10BEAMER_env(Env) %9BEAMER_envargs(Env Args) %4BEAMER_col(Col) %10BEAMER_extra(Extra)
+# +BEAMER_HEADER: \titlegraphic{\includegraphics[height=1.5cm]{InstLogo}}
+
+#+TITLE: \small 2019 GRC:\newline\LARGE Soil-persistent /E. coli/,  mobile elements, and the pan-mobilome
+#+SUBTITLE: ..and other updates
+#+AUTHOR: Nick Waters
+# +DATE: \today
+# #+SUBTITLE
+#+INSTITUTE: National University of Ireland, Galway, Ireland \linebreak The James Hutton Institute, Dundee, Scotland}
+#+LATEX_HEADER: \institute{National University of Ireland, Galway, Ireland \\ The James Hutton Institute, Dundee, Scotland}
+
+#+OPTIONS: H:2 toc:nil
+
+#+LATEX_HEADER: \PassOptionsToPackage{draft}{graphicx}
+
+# ################################################ Set the Aspect Ratio #############################
+#+LaTeX_CLASS_OPTIONS: [16pt,aspectratio=169]
+# +LaTeX_CLASS_OPTIONS: [15pt,aspectratio=43]
+
+#+LATEX_HEADER: \usepackage{fontawesome}
+#+LATEX_HEADER: \renewcommand*\familydefault{\sfdefault} % make font sansserif
+#+LATEX_HEADER: \newcommand{\bt}{\textasciigrave}
+#+LATEX_HEADER: \usepackage{xcolor}
+#+LATEX_HEADER: \def \ttilde {\raisebox{-.6ex}\textasciitilde~}
+#+LATEX_HEADER: \setlength\parindent{0pt} %set indent to zero
+#+LATEX_HEADER: \setlength{\parskip}{1em}
+#+LATEX_HEADER: \definecolor{bg}{HTML}{B1F4A0}
+# +LATEX_HEADER: \lstset{basicstyle=\linespread{1.1}\ttfamily\scriptsize, breaklines=true, backgroundcolor=\color{bashcodebg}, xleftmargin=0.5cm, language=bash, showstringspaces=false, columns=fullflexible}
+#+LATEX_HEADER: \usepackage{tcolorbox}
+
+#+LATEX_HEADER: \usepackage{etoolbox}
+#+LATEX_HEADER: \usepackage{geometry}
+#+LATEX_HEADER: \usepackage[colorlinks = true, linkcolor = blue, urlcolor  = blue, citecolor = blue, anchorcolor = blue]{hyperref}
+#+LATEX_HEADER: \let\oldv\verbatim
+#+LATEX_HEADER: \let\oldendv\endverbatim
+#+LATEX_HEADER: \def\verbatim{\par\setbox0\vbox\bgroup\scriptsize\oldv}
+#+LATEX_HEADER: \def\endverbatim{\oldendv\egroup\fboxsep0pt \noindent\colorbox[gray]{0.8}{\usebox0}\par}
+#+LaTeX_HEADER: \usepackage{array, booktabs, xcolor, tikz}
+
+#+LaTeX_HEADER: \usepackage{graphicx}
+#+LaTeX_HEADER: \usepackage[]{algorithm2e}
+#+LaTeX_HEADER: \usepackage{tikz,forest}
+#+LaTeX_HEADER: \usetikzlibrary{arrows, calc, spy, shapes}
+#+LaTeX_HEADER: \tikzstyle{square} = [draw]
+#+LaTeX_HEADER:\addtobeamertemplate{footnote}{\tiny}{} %\vspace{2ex}}
+
+# set light/ dark theme here
+#+LaTeX_HEADER:\usetheme[style=light]{NUIG}
+# light
+#+BEAMER: \setbeamertemplate{itemize items}{\includegraphics[width=.6em, valign=c]{./frequentFigs/coli_icon.pdf}}
+# dark
+# +BEAMER: \setbeamertemplate{itemize items}{\includegraphics[width=.6em, valign=c]{./frequentFigs/coli_icon_D2.pdf}}
+
+* Background
+# ** Sources
+# #+BEAMER: \small
+# - https://github.com/tseemann/prokka
+# - https://github.com/nickp60/riboSeed
+# - https://sanger-pathogens.github.io/Roary/
+
+
+** Project Overview
+*** Col left 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.6
+   :BEAMER_opt: [c]
+   :END:
+
+- /E. coli/  persists stably in the soil
+- Isolates were cultured from lysimeter leachate
+- Strains were sequenced, resulting in *149* soil-persistent /E. coli/ genomes
+
+*** Col right                                                          :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.4
+   :BEAMER_opt: [c]
+   :END:
+#+CAPTION:
+#+NAME:   fig:ent1
+#+ATTR_LATEX: :width .9\textwidth
+[[file:./lys_photos//IMGP0305.JPG]]
+
+
+** Research Questions
+- What types of /E. coli/ are able to persist in soil?
+- What AMR/virulence factors are harboured by these strains?
+- *What can we infer about adaptation?*
+# #+BEAMER: \pause
+# - Can we differentiate soil-persistent /E. coli/ from recent contamination?
+
+* /E. coli/ Pan-genome
+** Overview
+Assembly  \Rightarrow Annotation \Rightarrow presence/absence matrix \newline
+riboSeed \phantom{} \Rightarrow Prokka\phantom{duck}\Rightarrow  Roary
+
+- *149 soil* strains
+- *1193 clinical\footnotemark* strains
+- *2937 core genes* (>95% of genomes)
+- *44,567 total genes*
+- 90% blastp identity threshold
+# |                       |       N | Core   | total  |
+# |                       | strains | >95%   | --     |
+# |-----------------------+---------+--------+--------|
+# | Soil                  |     149 | 2662   | 21,662 |
+# | Clinical\footnotemark |    1193 | *1822* | 79,288 |
+# | All                   |    1342 | *1806* | 83,868 |
+# |                       |         |        |        |
+\footnotetext[1]{representatives from each sequence type on Enterobase}
+
+# ** Average Nucleotide Identity
+# http://widdowquinn.github.io/pyani/
+# #+BEGIN_LaTeX
+# \begin{tikzpicture}[spy using outlines={black,square,magnification=5, size=6cm,connect spies}]
+#   \node[anchor=south west,inner sep=0] (image) at (0,0){
+#   \includegraphics[height=.75\paperheight]{../nrw_posters/utrecht2016/figs/ANIm_percentage_identity_edited.pdf}};
+# \end{tikzpicture}
+# #+END_LaTeX
+
+# ** Average Nucleotide Identity
+# :PROPERTIES:
+# :BEAMER_opt: fragile
+# :END:
+# http://widdowquinn.github.io/pyani/
+# #+BEGIN_LaTeX
+# \begin{tikzpicture}[spy using outlines={black,square,magnification=5, size=6cm,connect spies}]
+#   \node[anchor=south west,inner sep=0] (image) at (0,0){
+#   \includegraphics[height=.75\paperheight]{../nrw_posters/utrecht2016/figs/ANIm_percentage_identity_edited.pdf}};
+#     \spy on ($.53*(image.north)+0.61*(image.east)$) in node at ([xshift=4cm]image.east);
+# \end{tikzpicture}
+# #+END_LaTeX
+
+
+
+# ** Annotation issues
+# \begin{tikzpicture}%
+#  \node [anchor=west] (note) at (-1,4) {\Large Partial};
+#  \begin{scope}[xshift=1.5cm]
+#      \node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=0.67\textwidth]{./frequentFigs/weird_gene3.png}};
+#      \begin{scope}[x={(image.south east)},y={(image.north west)}]
+#          \draw[red,ultra thick,rounded corners] (0.5,0.05) rectangle (0.55,0.15);
+#          \draw [-latex, ultra thick, red] (note) to (0.48,0.1);
+#     \end{scope}%
+#  \end{scope}%
+# \end{tikzpicture}
+
+# ** Try Annofilt!
+# #+CAPTION:
+# #+NAME:   fig:ent1
+# #+ATTR_LATEX: :width .4\textwidth
+# [[file:./frequentFigs/ents.png]]
+
+#
+** Annotation QC with annofilt
+# +LaTeX: \vskip -2ex
+# +LaTeX: \url{https://nickp60.github.io/annofilt/}\vspace{2em}
+# +LaTeX: \vskip -6ex
+*** Col left 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.5
+   :BEAMER_opt: [t]
+   :END:
+#+CAPTION:
+#+NAME:   fig:Annofilt
+#+ATTR_LATEX: :width .7\textwidth
+[[file:./frequentFigs/ent2.png]]
+\url{https://github.com/nickp60/annofilt}
+*** Col right                                                          :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.5
+   :BEAMER_opt: [t]
+   :END:
+
+#+CAPTION:
+#+NAME:   fig:ent1
+#+ATTR_LATEX: :width .6\textwidth
+[[file:./frequentFigs/ents.png]]
+
+#+CAPTION:
+#+NAME:   fig:ent1
+#+ATTR_LATEX: :width .3\textwidth
+[[file:./frequentFigs/icon.pdf]]
+
+
+** Detecting differential presence/absence
+
+- No gene(s) correlated with source
+- /E. coli/ diversity adds noise
+
+
+# #+LaTeX: \vskip -6ex
+# *** Col left 							      :BMCOL:
+#    :PROPERTIES:
+#    :BEAMER_col: 0.5
+#    :BEAMER_opt: [c]
+#    :END:
+
+# - Statistically compare traits to a pangenome
+
+# *** Col right                                                          :BMCOL:
+#    :PROPERTIES:
+#    :BEAMER_col: 0.4
+#    :BEAMER_opt: [c]
+#    :END:
+
+# #+CAPTION:
+# #+NAME:   fig:scoary
+# #+ATTR_LATEX: :width .8\textwidth
+# file:./frequentFigs/scoary.png
+
+
+
+* What does 10 years look like to /E. coli/ ?
+
+** Estimates from the literature
+*** Col left 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.3
+   :BEAMER_opt: [c]
+   :END:
+Estimates
+- $\approx$ 72k generations
+- $\approx$ 10k generations
+
+No viable coliforms after:
+- 22 days
+- 16 weeks
+
+
+*** Col right                                                          :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.7
+   :BEAMER_opt: [c]
+   :END:
+
+#+CAPTION:
+#+NAME:   fig:overview
+#+ATTR_LATEX: :width \textwidth
+[[file:/Users/nick/GitHub/FB/Ecoli_comparative_genomics/results/2019-03-pangenome-analysis/rendered_plots/coli_prev.png]]
+
+** Hypothesis
+Stressed and outnumbered?
+
+#+Beamer: \pause
+*rapid* > incremental
+
+#+BEAMER: \pause
+$\dot{.\hspace{.095in}.}$ adaptation via mobile elements
+
+* Mobile Genetic Elements
+
+** Overview
+
+#+BEAMER: \small
+|                    |      *Kb* | *Mobility*    | *Detection*              |
+|--------------------+-----------+---------------+--------------------------|
+| IS                 |   .75-1.5 | transposase   | ITR and transposase      |
+| Non-composite Tn   |        <3 | IS            | IS with bonus genes      |
+| Composite Tn       |      <5kb | double IS     | flanking ISs             |
+| Integron           |       <10 | integrase     | /attI/ site, AMR genes   |
+| **Genetic Island** |       >10 | phage/plasmid | GC Skew, ORF phylogeny   |
+| Phage Inducible CI |      5-15 | phage         | phage inhibitors         |
+| **Prophage**       | \approx50 | lysogeny      | integrase, tail, capsule |
+| **Plasmid**        |     1-1Mb | various       | run a gel, /oriT/        |
+|                    |           |               |                          |
+
+
+
+** \url{https://github.com/nickp60/happie/}
+
+Horizontally Aquired Partial Pan-genome of Inserted Elements
+1.  Check quality of genome assembly:
+  - remove contigs < 800bp
+2. Annotate whole genome with Prokka
+3. Filter out incomplete annotations with AnnoFilt
+4. Detect mobile elements
+  - Plasmids via mlplasmids or mob-tools
+  - Prophages via ProphET
+  - GIs via IslandPath-DIMOB
+5. Extract and annotate mobile genome
+6. Query both mobile and total genomes with abricate
+  - detect AMR with resfinder
+  - detect virulence genes with VFDB
+
+
+** Pan-genome neighbor-joining tree
+\vskip .4cm \hspace*{-1cm}\includegraphics[width=1.15\textwidth]{./frequentFigs/genomicd.png}
+
+
+** Pan-mobilome neighbor-joining tree
+\vskip .4cm \hspace*{-1cm}\includegraphics[width=1.15\textwidth]{./frequentFigs/mobiled.png}
+
+
+* Comparing the pan-mobilome
+** Overview
+#+CAPTION:
+#+NAME:   fig:overview
+#+ATTR_LATEX: :width \textwidth
+[[file:/Users/nick/GitHub/FB/Ecoli_comparative_genomics/results/2019-03-pangenome-analysis/rendered_plots/pg_size.png]]
+
+** AMR
+#+CAPTION:
+#+NAME:   fig:amr
+#+ATTR_LATEX: :width .8\textwidth
+[[file:/Users/nick/GitHub/FB/Ecoli_comparative_genomics/results/2019-03-pangenome-analysis/rendered_plots/AMR.png]]
+
+# ** AMR validation
+# #+CAPTION:
+# #+NAME:   fig:amrvalid
+# #+ATTR_LATEX: :width .7\textwidth
+# [[file:./2019-04-figs/amr_ariba.png]]
+
+* Enrichment Analysis
+** Enrichment Analysis with Random Forests
+*** Col left 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.4
+   :BEAMER_opt: [t]
+   :END:
+\begin{forest}
+[$gene_1$, tikz={\draw[{Latex}-, thick] (.north) --++ (0,1);}
+    [$gene_2$
+        [\textbf{soil}]
+        [\textbf{clinical}]
+    ]
+    [$gene_3$
+        [$gene_4$
+            [\textbf{clinical}]
+            [\textbf{soil}]
+        ]
+        [\textbf{soil}]
+    ]
+]
+\end{forest}
+
+*** Col right                                                          :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.5
+   :BEAMER_opt: [t]
+   :END:
+#+LaTeX: \vskip -15ex
+- Supervised machine learning
+- Randomly generate decision trees
+- Assess, repeat
+
+
+** Important Genes in Pan-mobilome
+#+CAPTION:
+#+NAME:   fig:impmobile
+#+ATTR_LATEX: :width \textwidth
+[[file:/Users/nick/GitHub/soil-persistent-ecoli/mobile_pangenome/rendered_plots/prev_mobile.png]]
+
+
+** Important Genes in Pan-genome
+#+CAPTION:
+#+NAME:   fig:impwgs
+#+ATTR_LATEX: :width \textwidth
+[[file:/Users/nick/GitHub/soil-persistent-ecoli/mobile_pangenome/rendered_plots/prev_wgs.png]]
+
+
+** Validation
+#+CAPTION:
+#+NAME:   fig:impwgs
+#+ATTR_LATEX: :width \textwidth
+[[file:/Users/nick/GitHub/soil-persistent-ecoli/mobile_pangenome/rendered_plots/shuff.png]]
+
+
+
+** Enrichment Analysis (in progress)
+- paralog analysis
+- study enriched kmers
+- annotation curation
+-
+
+
+* In Closing
+** Summary
+What we know:
+- soil /E. coli/ is very diverse
+- wide range of estimates exist for doubling time in soil
+- MGE phylogeny does not reflect genome phylogeny
+- AMR genes may be be less frequently found in soil pan-mobilome
+- mobilized cold-shock genes  may aid soil-persistence
+What we want to know:
+- what inferences can we make about adaptation?
+- which /types/ of phages, plasmids,  etc, are correlated by source?
+- what role does cyclic di-GMP and phosphodiesterases play?
+
+
+* Publications
+** Articles
+#+LAtex: \tiny
+Published/Preprinted:
+- "Easily phylotyping E. coli via the EzClermont web app and command-line tool" by *Nicholas R. Waters*, Florence Abram, Fiona Brennan, Ashleigh Holmes, and Leighton Prrichard, BiorXiv  https://www.biorxiv.org/content/10.1101/317610v1
+- "Toward Assessing Farm-Based Anaerobic Digestate Public Health Risks: Comparative Investigation With Slurry, Effect of Pasteurization Treatments, and Use of Miniature Bioreactors as Proxies for Pathogen Spiking Trials", by Stephen Nolan, *Nicholas R Waters*, Fiona Brennan, Agathe Auer, Owen Fenton, Karl Richards, Declan J Bolton, Leighton Pritchard, Vincent O'Flaherty, Florence Abram, _Front. Sustain. Food Syst._, 20 July 2018  https://doi.org/10.3389/fsufs.2018.00041
+Submitted:
+- "The potential for polyphosphate metabolism in Archaea and anaerobic polyphosphate formation in Methanosarcina mazei" by Fabiana Paula, Jason Chin, Anna Schnürer, Bettina Muller, Panagiotis Manesiotis, *Nicholas R Waters*, Katrina Macintosh, John P Quinn, Jasmine Connolly, Florence Abram, John McGrath, and Vincent O'Flaherty
+In preparation:
+- "Chordomics: a visualisation tool for linking function to phylogeny in microbiomes" by Kevin McDonnel, *Nicholas R Waters*, Enda Howely, Florence Abram. To be submitted to _Bioinformatics_.
+
+** Talks
+- Lightning talk, Microbiomes Underpinning Agriculture, Cork, Oct 2018
+- Presentation, \mu bioinfo  slack group jornal club, March 2019
+- Presentation in "Microbial Pangenomes" session, MS Annual Meeting, Belfast, April 2019
+
+** Software development
+
+\faicon{github} [[https://github.com/nickp60/plentyofbugs][github.com/nickp60/plentyofbugs]] -- semi-automated reference strain identification
+
+\faicon{github} [[http://ezclermont.hutton.ac.uk/][ezclermont.org]]-- webapp for in silico clermont typing
+
+\faicon{github} [[https://github.com/nickp60/happie][github.com/nickp60/happie]] -- pan-mobilome pipeline
+
+\faicon{github} [[https://github.com/nickp60/happie][github.com/nickp60/riboSeed]] -- better short-read assemblies
+
+\faicon{github} [[https://github.com/nickp60/annofilt][github.com/nickp60/annofilt]] -- filter short-read assembly annotations
+
+* Completion Plan Deadlines
+** August 31: Strain desciption and soil persistence papers drafted
+Working Title: "A collection of soil-persistent /E. coli/ of islates from Irish soils"
+Story:
+- A brief review/history of env /E coli/
+- /E. coli/, soil, and the environment
+- Background of Teagasc experiment
+- /E. coli/ from soil are very diverse
+Results:
+- strain isolation and QC
+- assembly summary
+- Phylogenetic Analysis
+- MLST, Clermont, and SNP types
+
+** August 31: Pangenome analysis
+Working title: Adaptive strategies in /E. coli/ soil persistence
+Story:
+- Selection of a comparison dataset
+- Assembly, annotation, and pangenome construction
+Results:
+- Mobile elements may reveal trends obscured by traditional methods
+- Cold shock proteins are enriched in soil persistent strains
+- metabolic signaling mediated by pdeL impacts persistence
+
+** October 31: Annofilt Application Note
+Working title: Filtering annotations from contig ends with Annofilt, and the impact on pangenome analysis
+Story:
+- problems with genome assembly and annotation
+- impact of annotation quality on pangenome analysis
+Results:
+- \approx 25% contig end annotations are incomplete
+
+
+
+
+** November 31: happie Application Note
+Working title: Using happie to infer recent adaptive strategies: a pipeline for panmobilome analysis
+Story:
+- Intraspecies diversity make GWAS difficult
+Results:
+- mobile elements may reveal trends obscured by other enrichment analyses
+
+** February 2019: Thesis submission

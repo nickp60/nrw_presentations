@@ -1,0 +1,160 @@
+#+STARTUP: showall beamer
+#+COLUMNS: %40ITEM %10BEAMER_env(Env) %9BEAMER_envargs(Env Args) %4BEAMER_col(Col) %10BEAMER_extra(Extra)
+
+# +BEAMER_HEADER: \titlegraphic{\includegraphics[height=1.5cm]{InstLogo}}
+
+#+TITLE: \small Dragon's Den Pitch: \newline\LARGE Insights despite the noise
+#+SUBTITLE: \tiny Or, the future of mobile element pangenome analysis
+#+AUTHOR: Nicholas Waters
+# +DATE: \today
+# #+SUBTITLE
+#+INSTITUTE: The James Hutton Institute, Dundee, Scotland \linebreakNational University of Ireland, Galway, Ireland }
+#+LATEX_HEADER: \institute{The James Hutton Institute, Dundee, Scotland\\National University of Ireland, Galway, Ireland}
+
+#+OPTIONS: H:1 toc:nil
+
+#+LATEX_HEADER: \PassOptionsToPackage{draft}{graphicx}
+
+# ################################################ Set the Aspect Ratio #############################
+#+LaTeX_CLASS_OPTIONS: [17pt,aspectratio=169]
+# +LaTeX_CLASS_OPTIONS: [15pt,aspectratio=43]
+
+#+LATEX_HEADER: \renewcommand*\familydefault{\sfdefault} % make font sansserif
+#+LATEX_HEADER: \newcommand{\bt}{\textasciigrave}
+#+LATEX_HEADER: \usepackage{xcolor}
+#+LATEX_HEADER: \def \ttilde {\raisebox{-.6ex}\textasciitilde~}
+#+LATEX_HEADER: \setlength\parindent{0pt} %set indent to zero
+#+LATEX_HEADER: \setlength{\parskip}{1em}
+#+LATEX_HEADER: \definecolor{bg}{HTML}{B1F4A0}
+# +LATEX_HEADER: \lstset{basicstyle=\linespread{1.1}\ttfamily\scriptsize, breaklines=true, backgroundcolor=\color{bashcodebg}, xleftmargin=0.5cm, language=bash, showstringspaces=false, columns=fullflexible}
+#+LATEX_HEADER: \usepackage{tcolorbox}
+
+#+LATEX_HEADER: \usepackage{etoolbox}
+#+LATEX_HEADER: \usepackage{geometry}
+#+LATEX_HEADER: \usepackage[colorlinks = true, linkcolor = blue, urlcolor  = blue, citecolor = blue, anchorcolor = blue]{hyperref}
+#+LATEX_HEADER: \let\oldv\verbatim
+#+LATEX_HEADER: \let\oldendv\endverbatim
+#+LATEX_HEADER: \def\verbatim{\par\setbox0\vbox\bgroup\scriptsize\oldv}
+#+LATEX_HEADER: \def\endverbatim{\oldendv\egroup\fboxsep0pt \noindent\colorbox[gray]{0.8}{\usebox0}\par}
+#+LaTeX_HEADER: \usepackage{array, booktabs, xcolor, tikz}
+
+#+LaTeX_HEADER: \usepackage{graphicx}
+
+#+LaTeX_HEADER: \usetikzlibrary{arrows, calc, spy, shapes}
+#+LaTeX_HEADER: \tikzstyle{square} = [draw]
+#+LaTeX_HEADER:\addtobeamertemplate{footnote}{\tiny}{} %\vspace{2ex}}
+
+# set light/ dark theme here
+#+LaTeX_HEADER:\usetheme[style=light]{NUIG}
+# light
+#+BEAMER: \setbeamertemplate{itemize items}{\includegraphics[width=.6em, valign=c]{./frequentFigs/coli_icon.pdf}}
+# dark
+# +BEAMER: \setbeamertemplate{itemize items}{\includegraphics[width=.6em, valign=c]{./frequentFigs/coli_icon_D2.pdf}}
+
+* Case Study: Environmental /E. coli/
+** Col left 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.6
+   :BEAMER_opt: [t]
+   :END:
+- Problematic indicator
+- 149 soil, 1192 non-soil
+- Highly diverse pangenome
+
+#+latex: \vspace{2cm}
+How quickly do adaptations happen?
+
+** Col right 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.4
+   :BEAMER_opt: [t]
+   :END:
+\latex \vskip 0.5cm
+\latex \includegraphics[width=7em, valign=c]{./protected_photos/colisure.png}
+\latex \includegraphics[width=7em, valign=c]{./lys_photos/IMGP0305.JPG}
+
+
+
+* Mobile Elements
+** Col left 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.3
+   :BEAMER_opt: [t]
+   :END:
+#+CAPTION:
+#+NAME:   fig:ent1
+#+ATTR_LATEX: :width .7\textwidth
+
+
+** Col right 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.7
+   :BEAMER_opt: [t]
+   :END:
+- Plasmids, prophages, and genomic islands
+- /stx/ toxins, T3SS's, /Sym/ plasmid
+
+
+* Mobile Elements
+** Col left 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.3
+   :BEAMER_opt: [t]
+   :END:
+#+CAPTION:
+#+NAME:   fig:ent1
+#+ATTR_LATEX: :width .7\textwidth
+[[file:./frequentFigs/logo.png]]
+
+** Col right 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.7
+   :BEAMER_opt: [t]
+   :END:
+
+HAPPIE
+
+\latex \tiny{Horizontally Aquired Partial Pangenome of Inserted Elements}
+\latex\newline\newline
+[[https://github.com/nickp60/happie/]]
+
+* HAPPIE in practice
+** Col left 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.4
+   :BEAMER_opt: [t]
+   :END:
+Now:
+#+CAPTION:
+#+NAME:   fig:ent1
+#+ATTR_LATEX: :width 1.2\textwidth
+[[file:./frequentFigs/amr.png]]
+
+** Col right 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.6
+   :BEAMER_opt: [t]
+   :END:
+
+
+* HAPPIE in practice
+** Col left 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.4
+   :BEAMER_opt: [t]
+   :END:
+Now:
+#+CAPTION:
+#+NAME:   fig:ent1
+#+ATTR_LATEX: :width 1.2\textwidth
+[[file:./frequentFigs/amr.png]]
+
+** Col right 							      :BMCOL:
+   :PROPERTIES:
+   :BEAMER_col: 0.6
+   :BEAMER_opt: [t]
+   :END:
+Next:
+- Assess within-strain performance in biorefinery systems
+- Diagnose variability in microbiome therapeutics
+- And so much more...
