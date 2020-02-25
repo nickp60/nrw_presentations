@@ -73,7 +73,7 @@ $\approx$ 72k generations
 Medium estimate:
 (5.9 / 2) * 365 * 10
 
-$\approx$ 10k generations
+$\approx$ 10k generations 
 
 Bååth 1998
 
